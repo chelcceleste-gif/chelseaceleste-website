@@ -123,27 +123,15 @@
     color: rgba(255,255,255,0.15); line-height: 1; pointer-events: none;
   }
 
-  .freebie-mock {
-    background: var(--warm-white); border: 1px solid rgba(255,255,255,0.5);
-    width: 160px; padding: 1.4rem 1.2rem; position: relative; z-index: 1;
-    box-shadow: 6px 6px 0 rgba(46,43,39,0.08);
+  .cover-img {
+    width: 160px; position: relative; z-index: 1; display: block;
+    box-shadow: 8px 8px 28px rgba(46,43,39,0.28);
   }
-  .mock-top { height: 6px; margin-bottom: 0.8rem; border-radius: 1px; }
-  .mt-accent { background: var(--accent); }
-  .mt-sage   { background: var(--sage); }
-  .mt-blush  { background: var(--blush); }
-  .mt-blue   { background: #8A9EBF; }
-
-  .mock-line { height: 1px; background: var(--sand); margin-bottom: 0.5rem; }
-  .mock-line.short { width: 70%; }
-  .mock-title {
-    font-family: var(--font-serif); font-size: 0.75rem; font-weight: 400;
-    color: var(--soft-black); line-height: 1.3; margin-bottom: 0.6rem;
+  .cover-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+    position: relative; z-index: 1;
   }
-  .mock-tag {
-    font-size: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase;
-    color: var(--tan); font-weight: 400;
-  }
+  .cover-grid .cover-img { width: 100%; box-shadow: 4px 4px 12px rgba(46,43,39,0.22); }
 
   .freebie-visual-tag {
     background: var(--charcoal); color: var(--warm-white);
@@ -341,14 +329,7 @@
   <div class="freebie-card layout-left" id="freebie-1">
     <div class="freebie-visual fv-1">
       <span class="freebie-num">01</span>
-      <div class="freebie-mock">
-        <div class="mock-top mt-accent"></div>
-        <p class="mock-title">The Skinny On How To Live Lean</p>
-        <div class="mock-line"></div>
-        <div class="mock-line short"></div>
-        <div class="mock-line"></div>
-        <p class="mock-tag" style="margin-top:0.5rem;">Chelsea Celeste, MSc</p>
-      </div>
+      <img src="covers/live-lean.jpg" alt="The Skinny On How To Live Lean cover" class="cover-img">
       <span class="freebie-visual-tag">Free Ebook</span>
     </div>
     <div class="freebie-content">
@@ -401,31 +382,11 @@
     </div>
     <div class="freebie-visual fv-2">
       <span class="freebie-num">02</span>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; position:relative; z-index:1;">
-        <div class="freebie-mock" style="width:auto; padding:0.8rem;">
-          <div class="mock-top mt-sage"></div>
-          <p class="mock-tag">Type 1</p>
-          <div class="mock-line" style="margin-top:0.4rem;"></div>
-          <div class="mock-line short"></div>
-        </div>
-        <div class="freebie-mock" style="width:auto; padding:0.8rem;">
-          <div class="mock-top mt-sage"></div>
-          <p class="mock-tag">Type 2</p>
-          <div class="mock-line" style="margin-top:0.4rem;"></div>
-          <div class="mock-line short"></div>
-        </div>
-        <div class="freebie-mock" style="width:auto; padding:0.8rem;">
-          <div class="mock-top mt-sage"></div>
-          <p class="mock-tag">Type 3</p>
-          <div class="mock-line" style="margin-top:0.4rem;"></div>
-          <div class="mock-line short"></div>
-        </div>
-        <div class="freebie-mock" style="width:auto; padding:0.8rem;">
-          <div class="mock-top mt-sage"></div>
-          <p class="mock-tag">+ 6 more</p>
-          <div class="mock-line" style="margin-top:0.4rem;"></div>
-          <div class="mock-line short"></div>
-        </div>
+      <div class="cover-grid">
+        <img src="covers/enneagram-1.jpg" alt="Enneagram Type 1 poster" class="cover-img">
+        <img src="covers/enneagram-2.jpg" alt="Enneagram Type 2 poster" class="cover-img">
+        <img src="covers/enneagram-3.jpg" alt="Enneagram Type 3 poster" class="cover-img">
+        <img src="covers/enneagram-4.jpg" alt="Enneagram Type 4 poster" class="cover-img">
       </div>
       <span class="freebie-visual-tag">9 Print-Ready Posters</span>
     </div>
@@ -435,15 +396,7 @@
   <div class="freebie-card layout-left" id="freebie-3">
     <div class="freebie-visual fv-3">
       <span class="freebie-num">03</span>
-      <div class="freebie-mock">
-        <div class="mock-top mt-blush"></div>
-        <p class="mock-title">Understanding EoE</p>
-        <div class="mock-line"></div>
-        <div class="mock-line short"></div>
-        <div class="mock-line"></div>
-        <div class="mock-line short"></div>
-        <p class="mock-tag" style="margin-top:0.5rem;">Book 1 of the Be Free Series</p>
-      </div>
+      <img src="covers/freebie-eoe-book1.jpg" alt="Understanding EoE cover" class="cover-img">
       <span class="freebie-visual-tag">Free Ebook</span>
     </div>
     <div class="freebie-content">
@@ -499,26 +452,7 @@
     </div>
     <div class="freebie-visual fv-4">
       <span class="freebie-num">04</span>
-      <div class="freebie-mock" style="position:relative; z-index:1;">
-        <div class="mock-top mt-blue" style="background:#8A9EBF;"></div>
-        <p class="mock-title">Model Fit Inspired HIIT Circuit</p>
-        <div class="mock-line"></div>
-        <div style="display:flex; flex-direction:column; gap:0.4rem; margin-top:0.3rem;">
-          <div style="display:flex; align-items:center; gap:0.4rem;">
-            <div style="width:5px;height:5px;border-radius:50%;background:#8A9EBF;flex-shrink:0;"></div>
-            <div class="mock-line" style="flex:1; margin:0;"></div>
-          </div>
-          <div style="display:flex; align-items:center; gap:0.4rem;">
-            <div style="width:5px;height:5px;border-radius:50%;background:#8A9EBF;flex-shrink:0;"></div>
-            <div class="mock-line short" style="flex:1; margin:0;"></div>
-          </div>
-          <div style="display:flex; align-items:center; gap:0.4rem;">
-            <div style="width:5px;height:5px;border-radius:50%;background:#8A9EBF;flex-shrink:0;"></div>
-            <div class="mock-line" style="flex:1; margin:0;"></div>
-          </div>
-        </div>
-        <p class="mock-tag" style="margin-top:0.6rem;">Chelsea Celeste, MSc</p>
-      </div>
+      <img src="covers/model-fit.jpg" alt="Model Fit Workout PDF cover" class="cover-img">
       <span class="freebie-visual-tag">Free Workout PDF</span>
     </div>
   </div>
