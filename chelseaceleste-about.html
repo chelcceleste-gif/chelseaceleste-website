@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Chelsea — Chelsea Celeste</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #FAF8F4;
+    --warm-white: #FDFCF9;
+    --sand: #EDE8DF;
+    --tan: #C9BBA8;
+    --bark: #8C7B68;
+    --charcoal: #2E2B27;
+    --soft-black: #1A1815;
+    --accent: #A67C5B;
+    --sage: #8A9E7F;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Jost', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); background: var(--warm-white); color: var(--charcoal); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(253,252,249,0.93); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201,187,168,0.3);
+  }
+  .nav-logo { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 400; letter-spacing: 0.04em; color: var(--soft-black); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bark); text-decoration: none; transition: color 0.3s; font-weight: 400; }
+  .nav-links a:hover, .nav-links a.active { color: var(--soft-black); }
+  .nav-cta { color: var(--warm-white) !important; background: var(--charcoal); padding: 0.55rem 1.4rem; transition: background 0.3s; }
+  .nav-cta:hover { background: var(--accent) !important; }
+
+  /* HERO */
+  .about-hero {
+    min-height: 70vh;
+    padding-top: 80px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--cream);
+  }
+  .hero-content {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 5rem 4rem 5rem 5rem;
+  }
+  .eyebrow {
+    font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.2rem; font-weight: 400;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
+  .hero-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 300; line-height: 1.05; color: var(--soft-black);
+    margin-bottom: 1.2rem;
+  }
+  .hero-headline em { font-style: italic; color: var(--accent); }
+  .hero-intro {
+    font-family: var(--font-serif); font-size: 1.2rem; font-style: italic;
+    font-weight: 300; color: var(--bark); line-height: 1.6; margin-bottom: 2rem;
+    max-width: 440px;
+  }
+  .hero-tags { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+  .tag {
+    font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--bark); border: 1px solid var(--tan); padding: 0.35rem 0.9rem; font-weight: 400;
+  }
+  .hero-photo {
+    background: linear-gradient(145deg, #DDD5C8 0%, #C8BAAA 60%, #B8A090 100%);
+    display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-end;
+    padding: 3rem; min-height: 500px; position: relative;
+  }
+  .photo-caption {
+    background: var(--charcoal); color: var(--warm-white);
+    padding: 1rem 1.5rem; max-width: 260px;
+    font-size: 0.72rem; line-height: 1.6; font-weight: 300;
+  }
+  .photo-placeholder-note {
+    position: absolute; top: 2rem; right: 2rem;
+    background: rgba(253,252,249,0.85);
+    font-size: 0.6rem; letter-spacing: 0.1em; color: var(--bark);
+    padding: 0.4rem 0.8rem; font-weight: 400;
+  }
+
+  /* MARQUEE */
+  .marquee-strip {
+    background: var(--charcoal); padding: 0.9rem 0;
+    overflow: hidden; white-space: nowrap;
+  }
+  .marquee-inner {
+    display: inline-block; animation: marquee 30s linear infinite;
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--tan); font-weight: 400;
+  }
+  .marquee-inner span { color: var(--accent); margin: 0 2rem; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* MY STORY */
+  .story-section {
+    display: grid; grid-template-columns: 1fr 1fr;
+    min-height: 80vh;
+  }
+  .story-image {
+    background: linear-gradient(150deg, #E0D4C8 0%, #C8B8A8 50%, #B09880 100%);
+    display: flex; flex-direction: column; align-items: flex-end; justify-content: flex-start;
+    padding: 3rem; min-height: 550px;
+  }
+  .story-image-tag {
+    background: var(--warm-white); font-size: 0.6rem; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--bark); padding: 0.4rem 0.8rem; font-weight: 400;
+  }
+  .story-content {
+    padding: 6rem 5rem; background: var(--warm-white);
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .section-eyebrow {
+    font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.2rem; font-weight: 400;
+  }
+  .section-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300; line-height: 1.1; color: var(--soft-black); margin-bottom: 1.5rem;
+  }
+  .section-heading em { font-style: italic; color: var(--accent); }
+  .section-body { font-size: 0.88rem; line-height: 1.95; color: var(--bark); margin-bottom: 1.2rem; font-weight: 300; }
+
+  /* MOTTO BANNER */
+  .motto-banner {
+    background: var(--accent); padding: 4rem 5rem; text-align: center;
+  }
+  .motto-text {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 3.5vw, 3rem);
+    font-weight: 300; font-style: italic; color: var(--warm-white);
+    line-height: 1.3; max-width: 700px; margin: 0 auto;
+  }
+  .motto-attr {
+    display: block; font-family: var(--font-sans);
+    font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.65); font-weight: 400; margin-top: 1.2rem;
+  }
+
+  /* ALL ABOUT ME */
+  .about-grid {
+    padding: 7rem 5rem; background: var(--cream);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .facts-list { display: flex; flex-direction: column; gap: 0; }
+  .fact-row {
+    display: flex; gap: 1.2rem; padding: 1.5rem 0;
+    border-bottom: 1px solid var(--sand); align-items: flex-start;
+  }
+  .fact-row:first-child { border-top: 1px solid var(--sand); }
+  .fact-icon {
+    width: 36px; height: 36px; border: 1px solid var(--tan);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-family: var(--font-serif); font-size: 1rem;
+    color: var(--accent); font-weight: 300;
+  }
+  .fact-label { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--tan); font-weight: 400; margin-bottom: 0.2rem; }
+  .fact-text { font-size: 0.85rem; color: var(--charcoal); font-weight: 300; line-height: 1.5; }
+
+  /* CREDENTIALS */
+  .credentials {
+    padding: 7rem 5rem; background: var(--warm-white);
+  }
+  .cred-header { text-align: center; max-width: 540px; margin: 0 auto 5rem; }
+  .cred-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--sand); border: 1px solid var(--sand); }
+  .cred-card {
+    background: var(--warm-white); padding: 3rem 2.5rem; transition: background 0.3s;
+  }
+  .cred-card:hover { background: var(--cream); }
+  .cred-num {
+    font-family: var(--font-serif); font-size: 3rem; font-weight: 300;
+    color: var(--sand); line-height: 1; display: block; margin-bottom: 1rem;
+  }
+  .cred-title {
+    font-family: var(--font-serif); font-size: 1.2rem; font-weight: 400;
+    color: var(--soft-black); margin-bottom: 0.6rem; line-height: 1.25;
+  }
+  .cred-title em { font-style: italic; color: var(--accent); }
+  .cred-desc { font-size: 0.8rem; color: var(--bark); font-weight: 300; line-height: 1.8; }
+
+  /* FOOD PHILOSOPHY */
+  .philosophy {
+    padding: 7rem 5rem; background: var(--charcoal);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+  }
+  .philosophy .section-eyebrow { color: var(--tan); }
+  .philosophy .section-heading { color: var(--warm-white); }
+  .philosophy .section-body { color: var(--tan); }
+  .philosophy-pillars { display: flex; flex-direction: column; gap: 0; }
+  .pillar-row {
+    padding: 1.5rem 0; border-bottom: 1px solid rgba(201,187,168,0.12);
+    display: flex; align-items: flex-start; gap: 1.2rem;
+  }
+  .pillar-row:first-child { border-top: 1px solid rgba(201,187,168,0.12); }
+  .pillar-dash { font-family: var(--font-serif); font-size: 1rem; color: var(--accent); font-weight: 300; flex-shrink: 0; min-width: 20px; margin-top: 2px; }
+  .pillar-title-sm { font-size: 0.85rem; color: var(--warm-white); font-weight: 400; margin-bottom: 0.25rem; }
+  .pillar-desc-sm { font-size: 0.78rem; color: var(--tan); font-weight: 300; line-height: 1.6; }
+
+  /* SOCIAL + CTA */
+  .social-section {
+    padding: 7rem 5rem; background: var(--cream);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .platforms-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--sand); border: 1px solid var(--sand); }
+  .platform-card {
+    background: var(--warm-white); padding: 2rem;
+    text-decoration: none; display: block; transition: background 0.3s;
+  }
+  .platform-card:hover { background: var(--sand); }
+  .platform-label { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--tan); font-weight: 400; display: block; margin-bottom: 0.4rem; }
+  .platform-handle { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 400; color: var(--soft-black); }
+
+  .btn-primary {
+    display: inline-block; font-size: 0.68rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--warm-white); background: var(--charcoal);
+    padding: 1rem 2.5rem; text-decoration: none; transition: background 0.3s;
+    font-weight: 400; border: none; cursor: pointer; font-family: var(--font-sans);
+  }
+  .btn-primary:hover { background: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    background: var(--soft-black); padding: 3rem 5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(201,187,168,0.1);
+  }
+  .footer-logo { font-family: var(--font-serif); font-size: 1rem; color: var(--warm-white); font-weight: 300; text-decoration: none; }
+  .footer-links-row { display: flex; gap: 2rem; list-style: none; }
+  .footer-links-row a { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bark); text-decoration: none; font-weight: 300; transition: color 0.3s; }
+  .footer-links-row a:hover { color: var(--warm-white); }
+  .footer-copy { font-size: 0.68rem; color: rgba(140,123,104,0.5); font-weight: 300; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .about-hero, .story-section, .about-grid, .philosophy, .social-section { grid-template-columns: 1fr; }
+    .hero-content { padding: 3rem 2rem; }
+    .hero-photo { min-height: 350px; padding: 2rem; }
+    .story-image { display: none; }
+    .story-content { padding: 4rem 2rem; }
+    .motto-banner { padding: 3rem 2rem; }
+    .about-grid, .credentials, .philosophy, .social-section { padding: 4rem 2rem; }
+    .cred-grid { grid-template-columns: 1fr; }
+    .platforms-grid { grid-template-columns: 1fr; }
+    footer { padding: 2rem; flex-direction: column; gap: 1.5rem; text-align: center; }
+    .footer-links-row { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="chelseaceleste-homepage.html" class="nav-logo">Chelsea Celeste</a>
+  <ul class="nav-links">
+    <li><a href="chelseaceleste-homepage.html">Home</a></li>
+    <li><a href="chelseaceleste-blog.html">Blog</a></li>
+    <li><a href="chelseaceleste-homepage.html#shop">Shop</a></li>
+    <li><a href="chelseaceleste-homepage.html#freebie" class="nav-cta">Free Guide</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+  <div class="hero-content">
+    <p class="eyebrow">Meet Chelsea</p>
+    <h1 class="hero-headline">
+      Perfectly<br><em>imperfect.</em>
+    </h1>
+    <p class="hero-intro">Wife. Mom. Dog lover. Mermaid wannabe. MSc Nutritionist. Recovering perfectionist — striving to live with more grace, for others and for myself.</p>
+    <div class="hero-tags">
+      <span class="tag">MSc Nutrition</span>
+      <span class="tag">Certified Teacher</span>
+      <span class="tag">Food Freedom Advocate</span>
+      <span class="tag">Vancouver, BC</span>
+      <span class="tag">@chelcceleste</span>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <span class="photo-placeholder-note">Your photo goes here</span>
+    <div class="photo-caption">
+      "The phrase 'perfectly imperfect' has become a bit of a life motto for me."
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    MSc Nutrition & Human Performance <span>✦</span> Certified Teacher <span>✦</span> Food Freedom <span>✦</span> Anti-Diet <span>✦</span> Recovering Perfectionist <span>✦</span> Vancouver, BC <span>✦</span> Wife & Mom <span>✦</span> @chelcceleste <span>✦</span>
+    MSc Nutrition & Human Performance <span>✦</span> Certified Teacher <span>✦</span> Food Freedom <span>✦</span> Anti-Diet <span>✦</span> Recovering Perfectionist <span>✦</span> Vancouver, BC <span>✦</span> Wife & Mom <span>✦</span> @chelcceleste <span>✦</span>
+  </div>
+</div>
+
+<!-- MY STORY -->
+<section class="story-section">
+  <div class="story-image">
+    <span class="story-image-tag">Your photo here</span>
+  </div>
+  <div class="story-content">
+    <p class="section-eyebrow">My Story</p>
+    <h2 class="section-heading">The pursuit of<br><em>perfection</em> that<br>changed everything.</h2>
+    <p class="section-body">In high school, my desire to avoid all "evil" food and look "modelesque" led me toward a disordered relationship with food and my body. I spent years living with no energy and fearing food — what was supposed to be nourishment had become something I was terrified of.</p>
+    <p class="section-body">That experience led me on an emotional, physical, and mental journey toward health, wellness, and — eventually — food freedom. It wasn't linear. It wasn't pretty. But it was the most important journey I've ever taken.</p>
+    <p class="section-body">If you're anything like me, the desire to achieve perfection can haunt you like a dark shadow. That's why "perfectly imperfect" has become a life motto. As a recovering perfectionist, I'm striving to live with more grace — for others, and especially for myself.</p>
+  </div>
+</section>
+
+<!-- MOTTO BANNER -->
+<div class="motto-banner">
+  <p class="motto-text">"Giving myself the freedom to make more mistakes — and to be okay with that."</p>
+  <span class="motto-attr">— Chelsea Celeste</span>
+</div>
+
+<!-- ALL ABOUT ME -->
+<section class="about-grid">
+  <div>
+    <p class="section-eyebrow">All About Me</p>
+    <h2 class="section-heading">Beyond the<br><em>credentials.</em></h2>
+    <p class="section-body">I'm Chelsea — and underneath the MSc and the content strategy, I'm a wife, a mom, a dog lover, and someone who genuinely believes that your most joyful, energised, glowing life is possible. Not through perfection. Through nourishment.</p>
+    <p class="section-body">I live in Vancouver, BC, and when I'm not creating content or working with women on their nutrition, you'll find me in the kitchen, chasing my kids, or daydreaming about being a mermaid.</p>
+  </div>
+  <div class="facts-list">
+    <div class="fact-row">
+      <div class="fact-icon">♡</div>
+      <div>
+        <p class="fact-label">Personal</p>
+        <p class="fact-text">Wife, new momma, dog lover, mermaid wannabe — based in Vancouver, BC</p>
+      </div>
+    </div>
+    <div class="fact-row">
+      <div class="fact-icon">✦</div>
+      <div>
+        <p class="fact-label">Education</p>
+        <p class="fact-text">Bachelor of Education, Trinity Western University · MSc Nutrition & Human Performance</p>
+      </div>
+    </div>
+    <div class="fact-row">
+      <div class="fact-icon">◇</div>
+      <div>
+        <p class="fact-label">Career</p>
+        <p class="fact-text">7 years as a certified teacher · Nutrition Educator & Consultant · Content Creator</p>
+      </div>
+    </div>
+    <div class="fact-row">
+      <div class="fact-icon">○</div>
+      <div>
+        <p class="fact-label">Philosophy</p>
+        <p class="fact-text">Anti-diet · Food freedom · Perfectly imperfect · Sustainable over perfect</p>
+      </div>
+    </div>
+    <div class="fact-row">
+      <div class="fact-icon">→</div>
+      <div>
+        <p class="fact-label">Mission</p>
+        <p class="fact-text">Using education, mindfulness & sustainable lifestyle changes to help women glow from the inside out</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="credentials">
+  <div class="cred-header">
+    <p class="section-eyebrow">My Credentials</p>
+    <h2 class="section-heading">The experience<br>behind the <em>content.</em></h2>
+  </div>
+  <div class="cred-grid">
+    <div class="cred-card">
+      <span class="cred-num">MSc</span>
+      <h3 class="cred-title">Nutrition &<br><em>Human Performance</em></h3>
+      <p class="cred-desc">A deep, science-backed education in how the body responds to food, lifestyle, and movement — the foundation of every piece of content and every product I create.</p>
+    </div>
+    <div class="cred-card">
+      <span class="cred-num">7</span>
+      <h3 class="cred-title">Years as a<br><em>Certified Teacher</em></h3>
+      <p class="cred-desc">My Bachelor of Education from Trinity Western University and seven years in the classroom taught me how to translate complex information into something genuinely accessible and actionable.</p>
+    </div>
+    <div class="cred-card">
+      <span class="cred-num">∞</span>
+      <h3 class="cred-title">Personal<br><em>Experience</em></h3>
+      <p class="cred-desc">From disordered eating to food freedom. From overwhelmed new mom to thriving nutritionist and content creator. I've lived the journey I help others navigate — and that changes everything.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOD PHILOSOPHY -->
+<section class="philosophy">
+  <div>
+    <p class="section-eyebrow">My Food Philosophy</p>
+    <h2 class="section-heading">Food is a<br><em>gift.</em> Not a weapon.</h2>
+    <p class="section-body">Food can be medicine for both the body and the soul. Unfortunately, food can also become a weapon we use to hurt ourselves — through emotional eating, binging, starving, overindulging, and the relentless counting that diet culture has normalised.</p>
+    <p class="section-body">I believe in a different way. One where food is pleasure, fuel, nourishment, and healing — all at once. Where no food is "evil" and no meal requires guilt.</p>
+  </div>
+  <div class="philosophy-pillars">
+    <div class="pillar-row">
+      <span class="pillar-dash">—</span>
+      <div>
+        <p class="pillar-title-sm">Eat without counting</p>
+        <p class="pillar-desc-sm">No calorie counting. No macro tracking. No obsessive planning. Just learning to eat intuitively and honour what your body actually needs.</p>
+      </div>
+    </div>
+    <div class="pillar-row">
+      <span class="pillar-dash">—</span>
+      <div>
+        <p class="pillar-title-sm">No food is demonised</p>
+        <p class="pillar-desc-sm">We don't use the concept of "cheating." We use education, mindset, and simple sustainable substitutions to feel empowered — not punished.</p>
+      </div>
+    </div>
+    <div class="pillar-row">
+      <span class="pillar-dash">—</span>
+      <div>
+        <p class="pillar-title-sm">Pleasure is part of health</p>
+        <p class="pillar-desc-sm">Allowing yourself to enjoy your favourite foods without guilt or shame is not a failure of discipline. It's an act of self-respect.</p>
+      </div>
+    </div>
+    <div class="pillar-row">
+      <span class="pillar-dash">—</span>
+      <div>
+        <p class="pillar-title-sm">Sustainable over perfect</p>
+        <p class="pillar-desc-sm">Every resource I create is designed to fit into your real life — not an aspirational one. Because consistent and imperfect beats perfect and unsustainable every time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL + CTA -->
+<section class="social-section">
+  <div>
+    <p class="section-eyebrow">Find Me Online</p>
+    <h2 class="section-heading">Let's stay<br><em>connected.</em></h2>
+    <p class="section-body">I create content across YouTube, Instagram, TikTok, and Substack — recipes, nutrition education, honest wellness conversations, and the occasional glimpse into my real life as a mom in Vancouver.</p>
+    <p class="section-body" style="margin-bottom:2rem;">For brand partnerships, UGC inquiries, or collaborations, I'd love to hear from you.</p>
+    <a href="chelseaceleste-homepage.html#contact" class="btn-primary">Get in Touch</a>
+  </div>
+  <div class="platforms-grid">
+    <a href="https://www.youtube.com/@chelseacelestenutrition" class="platform-card" target="_blank">
+      <span class="platform-label">YouTube</span>
+      <p class="platform-handle">@chelseaceleste<br>nutrition</p>
+    </a>
+    <a href="https://www.instagram.com/chelsea.celeste/" class="platform-card" target="_blank">
+      <span class="platform-label">Instagram</span>
+      <p class="platform-handle">@chelsea<br>.celeste</p>
+    </a>
+    <a href="https://www.tiktok.com/@chelcceleste" class="platform-card" target="_blank">
+      <span class="platform-label">TikTok</span>
+      <p class="platform-handle">@chelc<br>celeste</p>
+    </a>
+    <a href="https://www.pinterest.ca/chelcceleste" class="platform-card" target="_blank">
+      <span class="platform-label">Pinterest</span>
+      <p class="platform-handle">chelc<br>celeste</p>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <a href="chelseaceleste-homepage.html" class="footer-logo">Chelsea Celeste</a>
+  <ul class="footer-links-row">
+    <li><a href="chelseaceleste-homepage.html">Home</a></li>
+    <li><a href="chelseaceleste-blog.html">Blog</a></li>
+    <li><a href="chelseaceleste-homepage.html#shop">Shop</a></li>
+    <li><a href="chelseaceleste-homepage.html#freebie">Free Guide</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 Chelsea Celeste</p>
+</footer>
+
+</body>
+</html>

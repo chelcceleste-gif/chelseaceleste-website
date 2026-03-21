@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Resources — Chelsea Celeste</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #FAF8F4;
+    --warm-white: #FDFCF9;
+    --sand: #EDE8DF;
+    --tan: #C9BBA8;
+    --bark: #8C7B68;
+    --charcoal: #2E2B27;
+    --soft-black: #1A1815;
+    --accent: #A67C5B;
+    --sage: #8A9E7F;
+    --blush: #C4A8A0;
+    --rose: #B8907E;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Jost', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); background: var(--warm-white); color: var(--charcoal); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(253,252,249,0.93); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201,187,168,0.3);
+  }
+  .nav-logo { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 400; letter-spacing: 0.04em; color: var(--soft-black); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bark); text-decoration: none; transition: color 0.3s; font-weight: 400; }
+  .nav-links a:hover { color: var(--soft-black); }
+  .nav-cta { color: var(--warm-white) !important; background: var(--charcoal); padding: 0.55rem 1.4rem; transition: background 0.3s; }
+  .nav-cta:hover { background: var(--accent) !important; }
+
+  /* HERO */
+  .hero {
+    padding-top: 80px;
+    background: var(--cream);
+    min-height: 52vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding-left: 5rem; padding-right: 5rem; padding-bottom: 0;
+    border-bottom: 1px solid var(--sand);
+  }
+  .hero-inner { max-width: 680px; padding: 5rem 0 4rem; }
+  .eyebrow {
+    font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.2rem; font-weight: 400;
+    display: flex; align-items: center; justify-content: center; gap: 0.8rem;
+  }
+  .eyebrow::before, .eyebrow::after { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
+  .hero-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    font-weight: 300; line-height: 1.02; color: var(--soft-black); margin-bottom: 1.2rem;
+  }
+  .hero-headline em { font-style: italic; color: var(--accent); }
+  .hero-subhead {
+    font-family: var(--font-serif); font-size: 1.2rem; font-style: italic;
+    font-weight: 300; color: var(--bark); line-height: 1.6; margin-bottom: 2rem;
+  }
+  .freebie-count-row {
+    display: flex; align-items: center; justify-content: center; gap: 3rem;
+    padding-top: 2rem; border-top: 1px solid var(--sand);
+  }
+  .count-item { text-align: center; }
+  .count-num { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 300; color: var(--soft-black); display: block; line-height: 1; }
+  .count-label { font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--tan); font-weight: 400; }
+  .count-divider { width: 1px; height: 40px; background: var(--sand); }
+
+  /* MARQUEE */
+  .marquee-strip {
+    background: var(--charcoal); padding: 0.85rem 0;
+    overflow: hidden; white-space: nowrap;
+  }
+  .marquee-inner {
+    display: inline-block; animation: marquee 30s linear infinite;
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--tan); font-weight: 400;
+  }
+  .marquee-inner span { color: var(--accent); margin: 0 2rem; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* FREEBIE CARDS */
+  .freebies-section { padding: 6rem 5rem 8rem; background: var(--warm-white); }
+
+  .freebie-card {
+    display: grid;
+    gap: 0;
+    border: 1px solid var(--sand);
+    margin-bottom: 2px;
+    background: var(--warm-white);
+    transition: background 0.3s;
+    overflow: hidden;
+  }
+  .freebie-card:hover { background: var(--cream); }
+  .freebie-card.layout-left  { grid-template-columns: 340px 1fr; }
+  .freebie-card.layout-right { grid-template-columns: 1fr 340px; }
+
+  /* Visual panel */
+  .freebie-visual {
+    position: relative; min-height: 420px;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center; padding: 3rem 2rem; gap: 1.2rem;
+  }
+  .fv-1 { background: linear-gradient(145deg, #E8DED8 0%, #D4C4B8 60%, #C0A898 100%); }
+  .fv-2 { background: linear-gradient(145deg, #D8E4D4 0%, #BED0B8 60%, #A4BAA0 100%); }
+  .fv-3 { background: linear-gradient(145deg, #DCD8E8 0%, #C4BCD4 60%, #ACAABC 100%); }
+  .fv-4 { background: linear-gradient(145deg, #D8DCEC 0%, #C0C8E0 60%, #A8B4D0 100%); }
+
+  .freebie-num {
+    position: absolute; top: 1.5rem; left: 1.5rem;
+    font-family: var(--font-serif); font-size: 5rem; font-weight: 300;
+    color: rgba(255,255,255,0.15); line-height: 1; pointer-events: none;
+  }
+
+  .freebie-mock {
+    background: var(--warm-white); border: 1px solid rgba(255,255,255,0.5);
+    width: 160px; padding: 1.4rem 1.2rem; position: relative; z-index: 1;
+    box-shadow: 6px 6px 0 rgba(46,43,39,0.08);
+  }
+  .mock-top { height: 6px; margin-bottom: 0.8rem; border-radius: 1px; }
+  .mt-accent { background: var(--accent); }
+  .mt-sage   { background: var(--sage); }
+  .mt-blush  { background: var(--blush); }
+  .mt-blue   { background: #8A9EBF; }
+
+  .mock-line { height: 1px; background: var(--sand); margin-bottom: 0.5rem; }
+  .mock-line.short { width: 70%; }
+  .mock-title {
+    font-family: var(--font-serif); font-size: 0.75rem; font-weight: 400;
+    color: var(--soft-black); line-height: 1.3; margin-bottom: 0.6rem;
+  }
+  .mock-tag {
+    font-size: 0.5rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--tan); font-weight: 400;
+  }
+
+  .freebie-visual-tag {
+    background: var(--charcoal); color: var(--warm-white);
+    font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.4rem 1rem; font-weight: 400; position: relative; z-index: 1;
+  }
+
+  /* Content panel */
+  .freebie-content {
+    padding: 3.5rem 4rem;
+    display: flex; flex-direction: column; justify-content: center;
+    border-left: 1px solid var(--sand);
+  }
+  .layout-right .freebie-content { border-left: none; border-right: 1px solid var(--sand); }
+
+  .freebie-tag {
+    font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); font-weight: 400; margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .freebie-tag::before { content: ''; display: inline-block; width: 16px; height: 1px; background: var(--accent); }
+
+  .freebie-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+    font-weight: 400; line-height: 1.15; color: var(--soft-black); margin-bottom: 1rem;
+  }
+  .freebie-title em { font-style: italic; color: var(--accent); }
+
+  .freebie-desc {
+    font-size: 0.85rem; color: var(--bark); font-weight: 300; line-height: 1.9;
+    margin-bottom: 1.8rem;
+  }
+
+  /* What you get list */
+  .freebie-includes {
+    list-style: none; display: flex; flex-direction: column;
+    gap: 0.5rem; margin-bottom: 2rem;
+  }
+  .freebie-includes li {
+    display: flex; align-items: flex-start; gap: 0.7rem;
+    font-size: 0.8rem; color: var(--bark); font-weight: 300; line-height: 1.5;
+  }
+  .freebie-includes li::before {
+    content: ''; width: 5px; height: 5px; background: var(--sage);
+    display: block; flex-shrink: 0; margin-top: 7px; border-radius: 50%;
+  }
+
+  /* Inline form */
+  .freebie-form { display: flex; flex-direction: column; gap: 0.7rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.7rem; }
+  .freebie-input {
+    background: var(--cream); border: 1px solid var(--sand);
+    padding: 0.85rem 1.1rem; color: var(--charcoal);
+    font-family: var(--font-sans); font-size: 0.82rem; font-weight: 300;
+    outline: none; transition: border-color 0.3s; width: 100%;
+  }
+  .freebie-input::placeholder { color: var(--tan); }
+  .freebie-input:focus { border-color: var(--accent); background: var(--warm-white); }
+
+  .freebie-submit {
+    background: var(--charcoal); border: none; padding: 0.9rem 1.5rem;
+    color: var(--warm-white); font-family: var(--font-sans);
+    font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 400; cursor: pointer; transition: background 0.3s; width: 100%;
+  }
+  .freebie-submit:hover { background: var(--accent); }
+
+  .freebie-submit.sage-btn { background: var(--sage); }
+  .freebie-submit.sage-btn:hover { background: var(--bark); }
+
+  .freebie-submit.blush-btn { background: var(--blush); }
+  .freebie-submit.blush-btn:hover { background: var(--bark); }
+
+  .freebie-submit.blue-btn { background: #8A9EBF; }
+  .freebie-submit.blue-btn:hover { background: var(--bark); }
+
+  .form-fine {
+    font-size: 0.65rem; color: var(--tan); font-weight: 300;
+    text-align: center; letter-spacing: 0.04em;
+  }
+
+  /* Success state */
+  .success-msg {
+    display: none; background: var(--cream); border: 1px solid var(--sage);
+    padding: 1.2rem 1.5rem; text-align: center;
+  }
+  .success-msg p {
+    font-family: var(--font-serif); font-size: 1rem; font-style: italic;
+    color: var(--sage); font-weight: 300;
+  }
+
+  /* BOTTOM CTA */
+  .bottom-cta {
+    background: var(--charcoal); padding: 6rem 5rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .cta-heading {
+    font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 3.2rem);
+    font-weight: 300; color: var(--warm-white); line-height: 1.1; margin-bottom: 1rem;
+  }
+  .cta-heading em { font-style: italic; color: var(--accent); }
+  .cta-sub { font-size: 0.85rem; color: var(--tan); font-weight: 300; line-height: 1.85; }
+
+  .cta-links { display: flex; flex-direction: column; gap: 1px; }
+  .cta-link-card {
+    background: rgba(255,255,255,0.05); border: 1px solid rgba(201,187,168,0.12);
+    padding: 1.5rem 2rem; text-decoration: none; color: inherit;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: background 0.3s; gap: 1rem;
+  }
+  .cta-link-card:hover { background: rgba(255,255,255,0.09); }
+  .cta-link-inner { }
+  .cta-link-label { font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 400; display: block; margin-bottom: 0.3rem; }
+  .cta-link-title { font-family: var(--font-serif); font-size: 1.05rem; font-weight: 400; color: var(--warm-white); }
+  .cta-link-arrow { color: var(--tan); font-size: 1rem; flex-shrink: 0; transition: color 0.3s; }
+  .cta-link-card:hover .cta-link-arrow { color: var(--accent); }
+
+  /* FOOTER */
+  footer {
+    background: var(--soft-black); padding: 3rem 5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(201,187,168,0.1);
+  }
+  .footer-logo { font-family: var(--font-serif); font-size: 1rem; color: var(--warm-white); font-weight: 300; text-decoration: none; }
+  .footer-links-row { display: flex; gap: 2rem; list-style: none; }
+  .footer-links-row a { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bark); text-decoration: none; font-weight: 300; transition: color 0.3s; }
+  .footer-links-row a:hover { color: var(--warm-white); }
+  .footer-copy { font-size: 0.68rem; color: rgba(140,123,104,0.5); font-weight: 300; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 4rem 2rem 0; }
+    .freebie-count-row { gap: 1.5rem; }
+    .freebies-section { padding: 4rem 2rem 6rem; }
+    .freebie-card.layout-left,
+    .freebie-card.layout-right { grid-template-columns: 1fr; }
+    .freebie-visual { min-height: 280px; }
+    .layout-right .freebie-visual { order: -1; }
+    .freebie-content { padding: 2.5rem 2rem; border-left: none !important; border-right: none !important; border-top: 1px solid var(--sand); }
+    .form-row { grid-template-columns: 1fr; }
+    .bottom-cta { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
+    footer { padding: 2rem; flex-direction: column; gap: 1.5rem; text-align: center; }
+    .footer-links-row { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="chelseaceleste-homepage.html" class="nav-logo">Chelsea Celeste</a>
+  <ul class="nav-links">
+    <li><a href="chelseaceleste-homepage.html">Home</a></li>
+    <li><a href="chelseaceleste-homepage.html#shop">Shop</a></li>
+    <li><a href="chelseaceleste-favorites.html">Favorites</a></li>
+    <li><a href="chelseaceleste-blog.html">Blog</a></li>
+    <li><a href="chelseaceleste-about.html">About</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">Free Resources</p>
+    <h1 class="hero-headline">Good things,<br><em>completely free.</em></h1>
+    <p class="hero-subhead">Four resources to help you nourish your body, understand your health, and glow from the inside out — no credit card required.</p>
+    <div class="freebie-count-row">
+      <div class="count-item">
+        <span class="count-num">4</span>
+        <span class="count-label">Free Downloads</span>
+      </div>
+      <div class="count-divider"></div>
+      <div class="count-item">
+        <span class="count-num">430+</span>
+        <span class="count-label">Women Downloaded</span>
+      </div>
+      <div class="count-divider"></div>
+      <div class="count-item">
+        <span class="count-num">$0</span>
+        <span class="count-label">Cost. Ever.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    Free Downloads <span>✦</span> No Credit Card <span>✦</span> Instant Delivery <span>✦</span> MSc-Backed Resources <span>✦</span> Nutrition Education <span>✦</span> Wellness Guides <span>✦</span> For Busy Women <span>✦</span> Delivered to Your Inbox <span>✦</span>
+    Free Downloads <span>✦</span> No Credit Card <span>✦</span> Instant Delivery <span>✦</span> MSc-Backed Resources <span>✦</span> Nutrition Education <span>✦</span> Wellness Guides <span>✦</span> For Busy Women <span>✦</span> Delivered to Your Inbox <span>✦</span>
+  </div>
+</div>
+
+<!-- FREEBIES -->
+<section class="freebies-section">
+
+  <!-- FREEBIE 01 — The Skinny On How To Live Lean -->
+  <div class="freebie-card layout-left" id="freebie-1">
+    <div class="freebie-visual fv-1">
+      <span class="freebie-num">01</span>
+      <div class="freebie-mock">
+        <div class="mock-top mt-accent"></div>
+        <p class="mock-title">The Skinny On How To Live Lean</p>
+        <div class="mock-line"></div>
+        <div class="mock-line short"></div>
+        <div class="mock-line"></div>
+        <p class="mock-tag" style="margin-top:0.5rem;">Chelsea Celeste, MSc</p>
+      </div>
+      <span class="freebie-visual-tag">Free Ebook</span>
+    </div>
+    <div class="freebie-content">
+      <span class="freebie-tag">Freebie 01 · Nutrition</span>
+      <h2 class="freebie-title">The Skinny On<br>How To <em>Live Lean</em></h2>
+      <p class="freebie-desc">Ready to build a strong mind-body connection that helps you know what and when your body truly wants to eat? This free ebook bridges the gap between nutrition education and intuitive living — with practical tips you can start using today.</p>
+      <ul class="freebie-includes">
+        <li>How to develop a real mind-body connection with food</li>
+        <li>Tips for losing weight without restriction or counting</li>
+        <li>How to feel confident and in control of what you eat</li>
+        <li>The mindset shifts that make healthy eating sustainable</li>
+      </ul>
+      <div class="freebie-form" id="form-1">
+        <div class="form-row">
+          <input type="text" class="freebie-input" placeholder="First name">
+          <input type="email" class="freebie-input" placeholder="Email address">
+        </div>
+        <button class="freebie-submit" onclick="submitForm('form-1', 'success-1')">Send Me the Ebook — It's Free</button>
+        <p class="form-fine">Delivered instantly to your inbox. No spam, ever.</p>
+      </div>
+      <div class="success-msg" id="success-1">
+        <p>You're in! Check your inbox for The Skinny On How To Live Lean. ♡</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FREEBIE 02 — Enneagram Posters -->
+  <div class="freebie-card layout-right" id="freebie-2">
+    <div class="freebie-content">
+      <span class="freebie-tag">Freebie 02 · Mindset</span>
+      <h2 class="freebie-title">Enneagram &<br><em>Eating</em> Poster Set</h2>
+      <p class="freebie-desc">Nine beautifully designed, print-ready posters exploring the connection between your Enneagram type and your relationship with food and eating. A one-of-a-kind resource that bridges personality and nutrition in a way you won't find anywhere else.</p>
+      <ul class="freebie-includes">
+        <li>9 high-quality ready-to-print posters</li>
+        <li>One poster for each Enneagram type</li>
+        <li>How your personality type shapes your eating patterns</li>
+        <li>Downloadable images — print at home or at a print shop</li>
+      </ul>
+      <div class="freebie-form" id="form-2">
+        <div class="form-row">
+          <input type="text" class="freebie-input" placeholder="First name">
+          <input type="email" class="freebie-input" placeholder="Email address">
+        </div>
+        <button class="freebie-submit sage-btn" onclick="submitForm('form-2', 'success-2')">Send Me the Posters — Free</button>
+        <p class="form-fine">Delivered instantly to your inbox. Print and enjoy.</p>
+      </div>
+      <div class="success-msg" id="success-2">
+        <p>On its way! Check your inbox for your Enneagram & Eating poster set. ♡</p>
+      </div>
+    </div>
+    <div class="freebie-visual fv-2">
+      <span class="freebie-num">02</span>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:6px; position:relative; z-index:1;">
+        <div class="freebie-mock" style="width:auto; padding:0.8rem;">
+          <div class="mock-top mt-sage"></div>
+          <p class="mock-tag">Type 1</p>
+          <div class="mock-line" style="margin-top:0.4rem;"></div>
+          <div class="mock-line short"></div>
+        </div>
+        <div class="freebie-mock" style="width:auto; padding:0.8rem;">
+          <div class="mock-top mt-sage"></div>
+          <p class="mock-tag">Type 2</p>
+          <div class="mock-line" style="margin-top:0.4rem;"></div>
+          <div class="mock-line short"></div>
+        </div>
+        <div class="freebie-mock" style="width:auto; padding:0.8rem;">
+          <div class="mock-top mt-sage"></div>
+          <p class="mock-tag">Type 3</p>
+          <div class="mock-line" style="margin-top:0.4rem;"></div>
+          <div class="mock-line short"></div>
+        </div>
+        <div class="freebie-mock" style="width:auto; padding:0.8rem;">
+          <div class="mock-top mt-sage"></div>
+          <p class="mock-tag">+ 6 more</p>
+          <div class="mock-line" style="margin-top:0.4rem;"></div>
+          <div class="mock-line short"></div>
+        </div>
+      </div>
+      <span class="freebie-visual-tag">9 Print-Ready Posters</span>
+    </div>
+  </div>
+
+  <!-- FREEBIE 03 — Understanding EoE -->
+  <div class="freebie-card layout-left" id="freebie-3">
+    <div class="freebie-visual fv-3">
+      <span class="freebie-num">03</span>
+      <div class="freebie-mock">
+        <div class="mock-top mt-blush"></div>
+        <p class="mock-title">Understanding EoE</p>
+        <div class="mock-line"></div>
+        <div class="mock-line short"></div>
+        <div class="mock-line"></div>
+        <div class="mock-line short"></div>
+        <p class="mock-tag" style="margin-top:0.5rem;">Book 1 of the Be Free Series</p>
+      </div>
+      <span class="freebie-visual-tag">Free Ebook</span>
+    </div>
+    <div class="freebie-content">
+      <span class="freebie-tag" style="color: var(--blush);">Freebie 03 · EoE Education</span>
+      <h2 class="freebie-title">Understanding<br><em>EoE</em> — Free Ebook</h2>
+      <p class="freebie-desc">So many people with EoE are told what medications to take — but never told what the root cause of their illness actually is. This free ebook, the first in the Be Free From EoE series, is designed to change that. In order to fully heal the body, we first need to understand what is happening to it.</p>
+      <ul class="freebie-includes">
+        <li>What Eosinophilic Esophagitis actually is — explained clearly</li>
+        <li>Why you have EoE and what triggers the immune response</li>
+        <li>The root causes most doctors don't discuss with patients</li>
+        <li>First steps toward taking control of your own healing</li>
+      </ul>
+      <div class="freebie-form" id="form-3">
+        <div class="form-row">
+          <input type="text" class="freebie-input" placeholder="First name">
+          <input type="email" class="freebie-input" placeholder="Email address">
+        </div>
+        <button class="freebie-submit blush-btn" onclick="submitForm('form-3', 'success-3')">Send Me the EoE Ebook — Free</button>
+        <p class="form-fine">Delivered to your inbox instantly. Check junk if you don't see it.</p>
+      </div>
+      <div class="success-msg" id="success-3">
+        <p>It's on its way! Check your inbox for Understanding EoE. ♡</p>
+      </div>
+      <p style="font-size:0.75rem; color:var(--tan); font-weight:300; margin-top:1.2rem;">
+        Want the full 5-ebook bundle? <a href="chelseaceleste-eoe-sales-page.html" style="color:var(--accent); text-decoration:none; border-bottom:1px solid rgba(166,124,91,0.4);">See Be Free From EoE →</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- FREEBIE 04 — Model Fit Workout PDF -->
+  <div class="freebie-card layout-right" id="freebie-4">
+    <div class="freebie-content">
+      <span class="freebie-tag" style="color:#8A9EBF;">Freebie 04 · Fitness</span>
+      <h2 class="freebie-title">Model Fit<br><em>Workout PDF</em></h2>
+      <p class="freebie-desc">A quick, effective HIIT circuit focused on waist and hip reduction — designed for real life, not a gym membership. HIIT and strength training are scientifically proven to rev your metabolism and deliver greater results in less time. This one is short, practical, and actually doable.</p>
+      <ul class="freebie-includes">
+        <li>Full HIIT circuit targeting waist and hip reduction</li>
+        <li>Uses light 2–3lb hand weights or 2lb ankle weights</li>
+        <li>Scientifically proven to boost metabolism and burn fat</li>
+        <li>Quick enough for busy moms — no hour-long gym sessions required</li>
+      </ul>
+      <div class="freebie-form" id="form-4">
+        <div class="form-row">
+          <input type="text" class="freebie-input" placeholder="First name">
+          <input type="email" class="freebie-input" placeholder="Email address">
+        </div>
+        <button class="freebie-submit blue-btn" onclick="submitForm('form-4', 'success-4')">Send Me the Workout PDF — Free</button>
+        <p class="form-fine">Instant delivery to your inbox. No gym required.</p>
+      </div>
+      <div class="success-msg" id="success-4">
+        <p>You've got it! Check your inbox for the Model Fit Workout PDF. ♡</p>
+      </div>
+    </div>
+    <div class="freebie-visual fv-4">
+      <span class="freebie-num">04</span>
+      <div class="freebie-mock" style="position:relative; z-index:1;">
+        <div class="mock-top mt-blue" style="background:#8A9EBF;"></div>
+        <p class="mock-title">Model Fit Inspired HIIT Circuit</p>
+        <div class="mock-line"></div>
+        <div style="display:flex; flex-direction:column; gap:0.4rem; margin-top:0.3rem;">
+          <div style="display:flex; align-items:center; gap:0.4rem;">
+            <div style="width:5px;height:5px;border-radius:50%;background:#8A9EBF;flex-shrink:0;"></div>
+            <div class="mock-line" style="flex:1; margin:0;"></div>
+          </div>
+          <div style="display:flex; align-items:center; gap:0.4rem;">
+            <div style="width:5px;height:5px;border-radius:50%;background:#8A9EBF;flex-shrink:0;"></div>
+            <div class="mock-line short" style="flex:1; margin:0;"></div>
+          </div>
+          <div style="display:flex; align-items:center; gap:0.4rem;">
+            <div style="width:5px;height:5px;border-radius:50%;background:#8A9EBF;flex-shrink:0;"></div>
+            <div class="mock-line" style="flex:1; margin:0;"></div>
+          </div>
+        </div>
+        <p class="mock-tag" style="margin-top:0.6rem;">Chelsea Celeste, MSc</p>
+      </div>
+      <span class="freebie-visual-tag">Free Workout PDF</span>
+    </div>
+  </div>
+
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="bottom-cta">
+  <div>
+    <p style="font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--tan); font-weight:400; margin-bottom:1rem;">Ready to go deeper?</p>
+    <h2 class="cta-heading">Love what you're<br>getting for <em>free?</em></h2>
+    <p class="cta-sub">These freebies are just the beginning. If you want the full frameworks, meal plans, recipes, and deep dives — my paid bundles go much further. Same warmth, same science, more transformation.</p>
+  </div>
+  <div class="cta-links">
+    <a href="chelseaceleste-eoe-sales-page.html" class="cta-link-card">
+      <div class="cta-link-inner">
+        <span class="cta-link-label">For EoE Warriors</span>
+        <p class="cta-link-title">Be Free From EoE — Full 5-Ebook Bundle</p>
+      </div>
+      <span class="cta-link-arrow">→</span>
+    </a>
+    <a href="chelseaceleste-nutrition-bundle.html" class="cta-link-card">
+      <div class="cta-link-inner">
+        <span class="cta-link-label">Nutrition Education</span>
+        <p class="cta-link-title">Sustainable Nutrition & Wellness Bundle</p>
+      </div>
+      <span class="cta-link-arrow">→</span>
+    </a>
+    <a href="chelseaceleste-intuitive-eating.html" class="cta-link-card">
+      <div class="cta-link-inner">
+        <span class="cta-link-label">Food Freedom</span>
+        <p class="cta-link-title">Intuitive Eating Guide & Workbook</p>
+      </div>
+      <span class="cta-link-arrow">→</span>
+    </a>
+    <a href="chelseaceleste-homepage.html#shop" class="cta-link-card">
+      <div class="cta-link-inner">
+        <span class="cta-link-label">New Era</span>
+        <p class="cta-link-title">Eat Your Skincare Bundle</p>
+      </div>
+      <span class="cta-link-arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <a href="chelseaceleste-homepage.html" class="footer-logo">Chelsea Celeste</a>
+  <ul class="footer-links-row">
+    <li><a href="chelseaceleste-homepage.html">Home</a></li>
+    <li><a href="chelseaceleste-homepage.html#shop">Shop</a></li>
+    <li><a href="chelseaceleste-blog.html">Blog</a></li>
+    <li><a href="chelseaceleste-about.html">About</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 Chelsea Celeste</p>
+</footer>
+
+<script>
+function submitForm(formId, successId) {
+  const form = document.getElementById(formId);
+  const success = document.getElementById(successId);
+  const inputs = form.querySelectorAll('.freebie-input');
+  let valid = true;
+  inputs.forEach(input => {
+    if (!input.value.trim()) {
+      input.style.borderColor = '#C4A8A0';
+      valid = false;
+    } else {
+      input.style.borderColor = '';
+    }
+  });
+  if (!valid) return;
+  form.style.display = 'none';
+  success.style.display = 'block';
+}
+</script>
+
+</body>
+</html>

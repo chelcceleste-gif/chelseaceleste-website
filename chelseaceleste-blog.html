@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog — Chelsea Celeste</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #FAF8F4;
+    --warm-white: #FDFCF9;
+    --sand: #EDE8DF;
+    --tan: #C9BBA8;
+    --bark: #8C7B68;
+    --charcoal: #2E2B27;
+    --soft-black: #1A1815;
+    --accent: #A67C5B;
+    --sage: #8A9E7F;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Jost', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); background: var(--warm-white); color: var(--charcoal); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(253,252,249,0.93); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201,187,168,0.3);
+  }
+  .nav-logo { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 400; letter-spacing: 0.04em; color: var(--soft-black); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bark); text-decoration: none; transition: color 0.3s; font-weight: 400; }
+  .nav-links a:hover { color: var(--soft-black); }
+  .nav-cta { color: var(--warm-white) !important; background: var(--charcoal); padding: 0.55rem 1.4rem; transition: background 0.3s; }
+  .nav-cta:hover { background: var(--accent) !important; }
+
+  /* HERO */
+  .blog-hero {
+    padding-top: 80px;
+    background: var(--cream);
+    padding-bottom: 0;
+    border-bottom: 1px solid var(--sand);
+  }
+  .blog-hero-inner {
+    padding: 5rem 5rem 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+  .blog-hero-left { }
+  .eyebrow {
+    font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1rem; font-weight: 400;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
+  .blog-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 5vw, 5rem);
+    font-weight: 300; line-height: 1.05; color: var(--soft-black); margin-bottom: 1rem;
+  }
+  .blog-headline em { font-style: italic; color: var(--accent); }
+  .blog-hero-sub {
+    font-family: var(--font-serif); font-size: 1.1rem; font-style: italic;
+    font-weight: 300; color: var(--bark); max-width: 400px; line-height: 1.5;
+    padding-bottom: 3rem;
+  }
+  .post-count {
+    text-align: right; padding-bottom: 3rem; flex-shrink: 0;
+  }
+  .post-count-num {
+    font-family: var(--font-serif); font-size: 4rem; font-weight: 300;
+    color: var(--sand); display: block; line-height: 1;
+  }
+  .post-count-label {
+    font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--tan); font-weight: 400;
+  }
+
+  /* CATEGORY FILTER */
+  .category-filter {
+    padding: 0 5rem;
+    background: var(--cream);
+    display: flex;
+    gap: 0;
+    border-top: 1px solid var(--sand);
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .cat-btn {
+    font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--bark); background: none; border: none; border-bottom: 2px solid transparent;
+    padding: 1.2rem 1.5rem; cursor: pointer; font-family: var(--font-sans);
+    font-weight: 400; transition: all 0.2s; white-space: nowrap;
+  }
+  .cat-btn:hover { color: var(--soft-black); }
+  .cat-btn.active { color: var(--soft-black); border-bottom-color: var(--accent); }
+
+  /* FEATURED POST */
+  .featured-post {
+    padding: 4rem 5rem;
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--sand);
+  }
+  .featured-label {
+    font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent); font-weight: 400; margin-bottom: 1.5rem; display: block;
+  }
+  .featured-card {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+    border: 1px solid var(--sand); background: var(--warm-white);
+    text-decoration: none; color: inherit;
+    transition: background 0.3s;
+  }
+  .featured-card:hover { background: var(--cream); }
+  .featured-thumb {
+    background: linear-gradient(140deg, #DACED1 0%, #C4B8B0 50%, #A8997E 100%);
+    min-height: 360px;
+    display: flex; align-items: flex-end; padding: 2rem;
+    position: relative;
+  }
+  .featured-cat-badge {
+    background: var(--charcoal); color: var(--warm-white);
+    font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.35rem 0.8rem; font-weight: 400;
+  }
+  .featured-content { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+  .featured-post-cat {
+    font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); font-weight: 400; margin-bottom: 0.8rem; display: block;
+  }
+  .featured-title {
+    font-family: var(--font-serif); font-size: 1.9rem; font-weight: 400;
+    color: var(--soft-black); line-height: 1.2; margin-bottom: 1rem;
+  }
+  .featured-excerpt {
+    font-size: 0.83rem; color: var(--bark); font-weight: 300; line-height: 1.85;
+    margin-bottom: 1.5rem;
+  }
+  .read-more {
+    font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--charcoal); font-weight: 400; border-bottom: 1px solid var(--tan);
+    padding-bottom: 2px; display: inline-block; transition: color 0.3s, border-color 0.3s;
+  }
+  .featured-card:hover .read-more { color: var(--accent); border-color: var(--accent); }
+
+  /* BLOG GRID */
+  .blog-grid-section {
+    padding: 4rem 5rem 7rem;
+    background: var(--warm-white);
+  }
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .blog-card {
+    border: 1px solid var(--sand);
+    background: var(--warm-white);
+    text-decoration: none; color: inherit;
+    display: block; transition: background 0.3s;
+    cursor: pointer;
+  }
+  .blog-card:hover { background: var(--cream); }
+  .blog-card.hidden { display: none; }
+  .card-thumb {
+    background: linear-gradient(135deg, #E8E0D8 0%, #D4C8BC 100%);
+    height: 200px; position: relative; overflow: hidden;
+  }
+  .card-thumb-beauty { background: linear-gradient(135deg, #E8D8D4 0%, #D4B8B0 100%); }
+  .card-thumb-nutrition { background: linear-gradient(135deg, #D8E4D4 0%, #B8C8B0 100%); }
+  .card-thumb-lifestyle { background: linear-gradient(135deg, #E8DED4 0%, #D0C0A8 100%); }
+  .card-thumb-fitness { background: linear-gradient(135deg, #D4DCE8 0%, #B0BCD0 100%); }
+  .card-thumb-baby { background: linear-gradient(135deg, #EAE0EC 0%, #D0B8D8 100%); }
+  .card-thumb-recipes { background: linear-gradient(135deg, #ECE8D4 0%, #D4C890 100%); }
+  .card-cat-pill {
+    position: absolute; bottom: 1rem; left: 1rem;
+    background: var(--charcoal); color: var(--warm-white);
+    font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.3rem 0.7rem; font-weight: 400;
+  }
+  .card-body { padding: 1.5rem; }
+  .card-category {
+    font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); font-weight: 400; margin-bottom: 0.5rem; display: block;
+  }
+  .card-title {
+    font-family: var(--font-serif); font-size: 1.1rem; font-weight: 400;
+    color: var(--soft-black); line-height: 1.3; margin-bottom: 0.7rem;
+  }
+  .card-excerpt {
+    font-size: 0.78rem; color: var(--bark); font-weight: 300; line-height: 1.7;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .card-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--sand);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .card-read {
+    font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--bark); font-weight: 400; transition: color 0.3s;
+  }
+  .blog-card:hover .card-read { color: var(--accent); }
+  .card-arrow { color: var(--tan); font-size: 0.8rem; transition: color 0.3s; }
+  .blog-card:hover .card-arrow { color: var(--accent); }
+
+  /* NO RESULTS */
+  .no-results {
+    grid-column: 1/-1; text-align: center; padding: 4rem;
+    display: none;
+  }
+  .no-results.visible { display: block; }
+  .no-results p { font-family: var(--font-serif); font-size: 1.3rem; font-style: italic; color: var(--tan); font-weight: 300; }
+
+  /* EMAIL CTA */
+  .email-cta {
+    background: var(--charcoal); padding: 5rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .cta-heading {
+    font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 300; color: var(--warm-white); line-height: 1.1; margin-bottom: 0.8rem;
+  }
+  .cta-heading em { font-style: italic; color: var(--accent); }
+  .cta-sub { font-size: 0.83rem; color: var(--tan); font-weight: 300; line-height: 1.8; }
+  .cta-form { display: flex; flex-direction: column; gap: 0.8rem; }
+  .cta-input {
+    background: transparent; border: 1px solid rgba(201,187,168,0.3);
+    padding: 0.85rem 1.2rem; color: var(--warm-white);
+    font-family: var(--font-sans); font-size: 0.83rem; font-weight: 300;
+    outline: none; transition: border-color 0.3s; width: 100%;
+  }
+  .cta-input::placeholder { color: rgba(201,187,168,0.4); }
+  .cta-input:focus { border-color: var(--accent); }
+  .cta-submit {
+    background: var(--accent); border: none; padding: 0.9rem;
+    color: var(--warm-white); font-family: var(--font-sans);
+    font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 400; cursor: pointer; transition: background 0.3s;
+  }
+  .cta-submit:hover { background: var(--bark); }
+  .cta-fine { font-size: 0.65rem; color: rgba(201,187,168,0.4); font-weight: 300; text-align: center; }
+
+  /* FOOTER */
+  footer {
+    background: var(--soft-black); padding: 3rem 5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(201,187,168,0.1);
+  }
+  .footer-logo { font-family: var(--font-serif); font-size: 1rem; color: var(--warm-white); font-weight: 300; text-decoration: none; }
+  .footer-links-row { display: flex; gap: 2rem; list-style: none; }
+  .footer-links-row a { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bark); text-decoration: none; font-weight: 300; transition: color 0.3s; }
+  .footer-links-row a:hover { color: var(--warm-white); }
+  .footer-copy { font-size: 0.68rem; color: rgba(140,123,104,0.5); font-weight: 300; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .blog-hero-inner { flex-direction: column; padding: 3rem 2rem 0; }
+    .post-count { text-align: left; padding-bottom: 0; }
+    .blog-hero-sub { padding-bottom: 2rem; }
+    .category-filter { padding: 0 1rem; }
+    .featured-post { padding: 3rem 2rem; }
+    .featured-card { grid-template-columns: 1fr; }
+    .featured-thumb { min-height: 220px; }
+    .featured-content { padding: 2rem; }
+    .blog-grid-section { padding: 3rem 2rem 5rem; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .email-cta { grid-template-columns: 1fr; padding: 3rem 2rem; gap: 2.5rem; }
+    footer { padding: 2rem; flex-direction: column; gap: 1.5rem; text-align: center; }
+    .footer-links-row { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="chelseaceleste-homepage.html" class="nav-logo">Chelsea Celeste</a>
+  <ul class="nav-links">
+    <li><a href="chelseaceleste-homepage.html">Home</a></li>
+    <li><a href="chelseaceleste-about.html">About</a></li>
+    <li><a href="chelseaceleste-homepage.html#shop">Shop</a></li>
+    <li><a href="chelseaceleste-homepage.html#freebie" class="nav-cta">Free Guide</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="blog-hero">
+  <div class="blog-hero-inner">
+    <div class="blog-hero-left">
+      <p class="eyebrow">The Chelsea Celeste Blog</p>
+      <h1 class="blog-headline">Nutrition. Beauty.<br><em>Real life.</em></h1>
+      <p class="blog-hero-sub">Science-backed wellness, honest beauty finds, and the messy reality of motherhood — all in one place.</p>
+    </div>
+    <div class="post-count">
+      <span class="post-count-num">17</span>
+      <span class="post-count-label">Articles & Counting</span>
+    </div>
+  </div>
+  <div class="category-filter">
+    <button class="cat-btn active" onclick="filterPosts('all', this)">All</button>
+    <button class="cat-btn" onclick="filterPosts('beauty', this)">Beauty</button>
+    <button class="cat-btn" onclick="filterPosts('nutrition', this)">Nutrition</button>
+    <button class="cat-btn" onclick="filterPosts('lifestyle', this)">Lifestyle</button>
+    <button class="cat-btn" onclick="filterPosts('fitness', this)">Fitness</button>
+    <button class="cat-btn" onclick="filterPosts('baby', this)">Baby</button>
+    <button class="cat-btn" onclick="filterPosts('recipes', this)">Recipes</button>
+  </div>
+</div>
+
+<!-- FEATURED POST -->
+<section class="featured-post" id="featured-section">
+  <span class="featured-label">Featured Post</span>
+  <a href="https://chelseajohannesson.wixsite.com/my-site/post/why-skinnytok-was-banned-and-what-it-actually-taught-us-about-discipline-confidence-freedom" target="_blank" class="featured-card">
+    <div class="featured-thumb">
+      <span class="featured-cat-badge">Lifestyle</span>
+    </div>
+    <div class="featured-content">
+      <span class="featured-post-cat">Lifestyle</span>
+      <h2 class="featured-title">Why SkinnyTok Was Banned — And What It Actually Taught Us About Discipline, Confidence & Freedom</h2>
+      <p class="featured-excerpt">When regulators forced TikTok to ban #SkinnyTok in mid-2025, the internet had mixed feelings. Some called it toxic and triggering. Others quietly missed it. Here's the thing: most people didn't fall in love with "SkinnyTok" because of how it looked. They fell in love with how it felt — the habits, the discipline, the calm that came from structure after years of chaos.</p>
+      <span class="read-more">Read Article →</span>
+    </div>
+  </a>
+</section>
+
+<!-- BLOG GRID -->
+<section class="blog-grid-section">
+  <div class="blog-grid" id="blog-grid">
+
+    <a href="https://chelseajohannesson.wixsite.com/my-site/post/collagen-coffee-recipe-4-ingredients-that-transform-your-morning-science-backed" target="_blank" class="blog-card" data-category="nutrition recipes">
+      <div class="card-thumb card-thumb-nutrition">
+        <span class="card-cat-pill">Nutrition</span>
+      </div>
+      <div class="card-body">
+        <span class="card-category">Nutrition · Recipes</span>
+        <h3 class="card-title">Collagen Coffee Recipe: 4 Ingredients That Transform Your Morning (Science-Backed)</h3>
+        <p class="card-excerpt">What if your morning coffee could support your skin, boost your metabolism, improve your gut health, and stabilize blood sugar — all without adding extra steps? Discover the four simple ingredients that changed my mornings.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">Read Article</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://chelseajohannesson.wixsite.com/my-site/post/lindsay-lohan-s-nutrition-fitness-secrets" target="_blank" class="blog-card" data-category="nutrition fitness">
+      <div class="card-thumb card-thumb-fitness">
+        <span class="card-cat-pill">Nutrition</span>
+      </div>
+      <div class="card-body">
+        <span class="card-category">Nutrition · Fitness</span>
+        <h3 class="card-title">Lindsay Lohan's Nutrition & Fitness Secrets</h3>
+        <p class="card-excerpt">Lindsay Lohan is officially back — confident, radiant, and thriving. She's proving the "Lohanaissance" isn't just about new movies. Here's what her nutrition and fitness routine actually looks like.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">Read Article</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://chelseajohannesson.wixsite.com/my-site/post/if-you-ve-been-struggling-with-under-eye-wrinkles" target="_blank" class="blog-card" data-category="beauty">
+      <div class="card-thumb card-thumb-beauty">
+        <span class="card-cat-pill">Beauty</span>
+      </div>
+      <div class="card-body">
+        <span class="card-category">Beauty</span>
+        <h3 class="card-title">If You've Been Struggling With Under-Eye Wrinkles...</h3>
+        <p class="card-excerpt">Maybe you're in your late 20s or early 30s and starting to notice the fine lines. Maybe you're a tired mom (like me), hormonal, or just over waking up looking more exhausted than you feel. Here's what actually works.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">Read Article</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://chelseajohannesson.wixsite.com/my-site/post/the-specific-nutrition-and-fitness-routines-of-the-mormon-wives-cast" target="_blank" class="blog-card" data-category="nutrition fitness">
+      <div class="card-thumb card-thumb-nutrition">
+        <span class="card-cat-pill">Nutrition</span>
+      </div>
+      <div class="card-body">
+        <span class="card-category">Nutrition · Fitness</span>
+        <h3 class="card-title">The Specific Nutrition and Fitness Routines of the Mormon Wives Cast</h3>
+        <p class="card-excerpt">Ever wondered how the "MomTok" stars from The Secret Lives of Mormon Wives stay so fit with everything going on? Between the drama, the kids, and the camera, their routines are surprisingly real.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">Read Article</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://chelseajohannesson.wixsite.com/my-site/post/the-new-system-how-i-eat-to-stay-slim-without-counting-calories" target="_blank" class="blog-card" data-category="nutrition lifestyle">
+      <div class="card-thumb card-thumb-lifestyle">
+        <span class="card-cat-pill">Nutrition</span>
+      </div>
+      <div class="card-body">
+        <span class="card-category">Nutrition · Lifestyle</span>
+        <h3 class="card-title">The New System: How I Eat to Stay Slim Without Counting Calories</h3>
+        <p class="card-excerpt">For years, I tracked everything. Every bite, every snack, every "just a taste." I knew the calories in a medium apple vs. a large one. Then I found a better way — and I've never looked back.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">Read Article</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://chelseajohannesson.wixsite.com/my-site/post/10-habits-that-make-you-eat-less-without-even-trying" target="_blank" class="blog-card" data-category="lifestyle nutrition">
+      <div class="card-thumb card-thumb-lifestyle">
+        <span class="card-cat-pill">Lifestyle</span>
+      </div>
+      <div class="card-body">
+        <span class="card-category">Lifestyle</span>
+        <h3 class="card-title">10 Habits That Make You Eat Less (Without Even Trying)</h3>
+        <p class="card-excerpt">We've all been there — promising ourselves we'll "eat better," only to find ourselves knee-deep in snacks by 8PM. But what if eating less didn't require any willpower at all?</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">Read Article</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://chelseajohannesson.wixsite.com/my-site/post/you-re-not-ugly-you-re-just-poor-the-truth-about-influencer-beauty" target="_blank" class="blog-card" data-category="beauty lifestyle">
+      <div class="card-thumb card-thumb-beauty">
+        <span class="card-cat-pill">Beauty</span>
+      </div>
+      <div class="card-body">
+        <span class="card-category">Beauty · Lifestyle</span>
+        <h3 class="card-title">You're Not Ugly. You're Just Poor: The Truth About Influencer Beauty</h3>
+        <p class="card-excerpt">What if I told you the only difference between you and "that girl" you see on your feed isn't genetics — it's access? The brutal truth about influencer beauty, and why it's not your fault.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">Read Article</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://chelseajohannesson.wixsite.com/my-site/post/how-models-really-eat-to-stay-slim-without-going-crazy" target="_blank" class="blog-card" data-category="nutrition lifestyle">
+      <div class="card-thumb card-thumb-nutrition">
+        <span class="card-cat-pill">Lifestyle</span>
+      </div>
+      <div class="card-body">
+        <span class="card-category">Lifestyle · Nutrition</span>
+        <h3 class="card-title">How Models Really Eat to Stay Slim (Without Going Crazy)</h3>
+        <p class="card-excerpt">You don't have to starve yourself to look like a model — but you do need to learn how to eat like one. Forget the PR soundbites. Here's what the research and real routines actually reveal.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">Read Article</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://chelseajohannesson.wixsite.com/my-site/post/how-i-healed-my-acne-scars-boosted-collagen-naturally" target="_blank" class="blog-card" data-category="beauty">
+      <div class="card-thumb card-thumb-beauty">
+        <span class="card-cat-pill">Beauty</span>
+      </div>
+      <div class="card-body">
+        <span class="card-category">Beauty</span>
+        <h3 class="card-title">How I Healed My Acne Scars & Boosted Collagen Naturally</h3>
+        <p class="card-excerpt">My honest journey from scars, stretch marks, and fine lines — to smoother, glowier skin. What I tried, what worked, and the nutrition connection most skincare content completely ignores.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">Read Article</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://chelseajohannesson.wixsite.com/my-site/post/the-skinny-system-nothing-tastes-as-good-as-discipline-feels" target="_blank" class="blog-card" data-category="lifestyle nutrition">
+      <div class="card-thumb card-thumb-lifestyle">
+        <span class="card-cat-pill">Lifestyle</span>
+      </div>
+      <div class="card-body">
+        <span class="card-category">Lifestyle</span>
+        <h3 class="card-title">The Skinny System: Nothing Tastes As Good As Discipline Feels</h3>
+        <p class="card-excerpt">You're not lazy. You're not broken. You're just done with chaos — and ready to feel calm, clear, and in control. Welcome to The Skinny System.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">Read Article</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://chelseajohannesson.wixsite.com/my-site/post/bethenny-frankel-the-original-skinnytok-queen" target="_blank" class="blog-card" data-category="lifestyle nutrition">
+      <div class="card-thumb card-thumb-lifestyle">
+        <span class="card-cat-pill">Lifestyle</span>
+      </div>
+      <div class="card-body">
+        <span class="card-category">Lifestyle</span>
+        <h3 class="card-title">Bethenny Frankel: The Original SkinnyTok Queen</h3>
+        <p class="card-excerpt">How she eats fries and ice cream — and still stays naturally thin. Have you ever looked at someone and wondered, "How does she eat that and look like that?" Bethenny has the answer.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">Read Article</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://chelseajohannesson.wixsite.com/my-site/post/how-to-naturally-eat-less-so-you-can-lose-weight-skinnytok-approved" target="_blank" class="blog-card" data-category="lifestyle nutrition">
+      <div class="card-thumb card-thumb-lifestyle">
+        <span class="card-cat-pill">Lifestyle</span>
+      </div>
+      <div class="card-body">
+        <span class="card-category">Lifestyle · Nutrition</span>
+        <h3 class="card-title">How To Naturally Eat Less So You Can Lose Weight (SkinnyTok Approved)</h3>
+        <p class="card-excerpt">It's not about starving yourself. Summer is just a few months away — here's how to feel trim, slim, and confident without feeling deprived, miserable, or like you're on a diet.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">Read Article</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://chelseajohannesson.wixsite.com/my-site/post/my-go-to-spring-makeup-look-soft-fresh-glowy" target="_blank" class="blog-card" data-category="beauty">
+      <div class="card-thumb card-thumb-beauty">
+        <span class="card-cat-pill">Beauty</span>
+      </div>
+      <div class="card-body">
+        <span class="card-category">Beauty</span>
+        <h3 class="card-title">My Go-To Spring Makeup Look: Soft, Fresh & Glowy</h3>
+        <p class="card-excerpt">Spring is finally here, and there's no better time to switch things up with a soft, glowy makeup routine that feels light and effortless. Here's exactly what I'm wearing this season.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">Read Article</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://chelseajohannesson.wixsite.com/my-site/post/is-skinnytok-toxic-or-transformative" target="_blank" class="blog-card" data-category="lifestyle">
+      <div class="card-thumb card-thumb-lifestyle">
+        <span class="card-cat-pill">Lifestyle</span>
+      </div>
+      <div class="card-body">
+        <span class="card-category">Lifestyle</span>
+        <h3 class="card-title">Is SkinnyTok Toxic Or Transformative?</h3>
+        <p class="card-excerpt">What makes people uncomfortable isn't the tips — it's the tone. These creators don't promote starvation or obsession. So why does it feel so controversial? An honest look at both sides.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">Read Article</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://chelseajohannesson.wixsite.com/my-site/post/get-the-smoothest-silkiest-skin-of-your-life" target="_blank" class="blog-card" data-category="beauty">
+      <div class="card-thumb card-thumb-beauty">
+        <span class="card-cat-pill">Beauty</span>
+      </div>
+      <div class="card-body">
+        <span class="card-category">Beauty</span>
+        <h3 class="card-title">Get The Smoothest, Silkiest Skin of Your Life</h3>
+        <p class="card-excerpt">Summer is just around the corner and this is the routine I swear by for the smoothest skin of my life. The full breakdown — products, timing, and the one step most people skip.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">Read Article</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://chelseajohannesson.wixsite.com/my-site/post/bre-tiesi-s-game-changing-nutrition-and-fitness-tips" target="_blank" class="blog-card" data-category="nutrition fitness">
+      <div class="card-thumb card-thumb-nutrition">
+        <span class="card-cat-pill">Nutrition</span>
+      </div>
+      <div class="card-body">
+        <span class="card-category">Nutrition · Fitness</span>
+        <h3 class="card-title">Bre Tiesi's Game-Changing Nutrition and Fitness Tips</h3>
+        <p class="card-excerpt">Bre Tiesi is a 32-year-old reality TV star, realtor, and mom. One thing that stands out? Her wellness approach is surprisingly sustainable. Here's what she actually does — and what you can take from it.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">Read Article</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://chelseajohannesson.wixsite.com/my-site/post/holly-scarfone-s-weight-loss-journey-losing-20-pounds-in-3-months" target="_blank" class="blog-card" data-category="fitness nutrition">
+      <div class="card-thumb card-thumb-fitness">
+        <span class="card-cat-pill">Fitness</span>
+      </div>
+      <div class="card-body">
+        <span class="card-category">Fitness · Nutrition</span>
+        <h3 class="card-title">Holly Scarfone's Weight Loss Journey: Losing 20 Pounds in 3 Months</h3>
+        <p class="card-excerpt">If you're a fan of Netflix reality TV, you might have heard of Holly Scarfone. This beauty became popular after appearing on Too Hot to Handle — and her wellness journey is genuinely worth talking about.</p>
+      </div>
+      <div class="card-footer">
+        <span class="card-read">Read Article</span>
+        <span class="card-arrow">→</span>
+      </div>
+    </a>
+
+    <div class="no-results" id="no-results">
+      <p>No posts in this category yet — check back soon.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- EMAIL CTA -->
+<section class="email-cta">
+  <div>
+    <p style="font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--tan); font-weight:400; margin-bottom:1rem;">Never miss a post</p>
+    <h2 class="cta-heading">Get new articles<br>straight to your <em>inbox.</em></h2>
+    <p class="cta-sub">Join 430+ women who get weekly nutrition tips, beauty finds, and honest wellness content — no spam, no diet culture, just real talk.</p>
+  </div>
+  <div class="cta-form">
+    <input type="text" class="cta-input" placeholder="First name">
+    <input type="email" class="cta-input" placeholder="Email address">
+    <button class="cta-submit">Subscribe — It's Free</button>
+    <p class="cta-fine">Unsubscribe anytime. Your inbox is sacred.</p>
+  </div>
+</section>
+
+<footer>
+  <a href="chelseaceleste-homepage.html" class="footer-logo">Chelsea Celeste</a>
+  <ul class="footer-links-row">
+    <li><a href="chelseaceleste-homepage.html">Home</a></li>
+    <li><a href="chelseaceleste-about.html">About</a></li>
+    <li><a href="chelseaceleste-homepage.html#shop">Shop</a></li>
+    <li><a href="chelseaceleste-homepage.html#freebie">Free Guide</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 Chelsea Celeste</p>
+</footer>
+
+<script>
+function filterPosts(category, btn) {
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  const cards = document.querySelectorAll('.blog-card');
+  const featuredSection = document.getElementById('featured-section');
+  let visibleCount = 0;
+
+  cards.forEach(card => {
+    const cats = card.dataset.category || '';
+    if (category === 'all' || cats.includes(category)) {
+      card.classList.remove('hidden');
+      visibleCount++;
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+
+  featuredSection.style.display = (category === 'all') ? 'block' : 'none';
+
+  const noResults = document.getElementById('no-results');
+  noResults.classList.toggle('visible', visibleCount === 0);
+}
+</script>
+
+</body>
+</html>

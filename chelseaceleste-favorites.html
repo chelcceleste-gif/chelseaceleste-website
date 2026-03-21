@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Favorites — Chelsea Celeste</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #FAF8F4;
+    --warm-white: #FDFCF9;
+    --sand: #EDE8DF;
+    --tan: #C9BBA8;
+    --bark: #8C7B68;
+    --charcoal: #2E2B27;
+    --soft-black: #1A1815;
+    --accent: #A67C5B;
+    --sage: #8A9E7F;
+    --blush: #C4A8A0;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Jost', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); background: var(--warm-white); color: var(--charcoal); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(253,252,249,0.93); backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201,187,168,0.3);
+  }
+  .nav-logo { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 400; letter-spacing: 0.04em; color: var(--soft-black); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bark); text-decoration: none; transition: color 0.3s; font-weight: 400; }
+  .nav-links a:hover { color: var(--soft-black); }
+  .nav-cta { color: var(--warm-white) !important; background: var(--charcoal); padding: 0.55rem 1.4rem; transition: background 0.3s; }
+  .nav-cta:hover { background: var(--accent) !important; }
+
+  /* SHARED */
+  .eyebrow {
+    font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1.2rem; font-weight: 400;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--accent); }
+  .section-eyebrow { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; font-weight: 400; }
+  .section-heading { font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; line-height: 1.1; color: var(--soft-black); margin-bottom: 1.5rem; }
+  .section-heading em { font-style: italic; color: var(--accent); }
+  .section-body { font-size: 0.88rem; line-height: 1.95; color: var(--bark); margin-bottom: 1.2rem; font-weight: 300; }
+
+  .btn-primary {
+    display: inline-block; font-size: 0.68rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--warm-white); background: var(--charcoal);
+    padding: 1rem 2.5rem; text-decoration: none; transition: background 0.3s;
+    font-weight: 400; border: none; cursor: pointer; font-family: var(--font-sans);
+  }
+  .btn-primary:hover { background: var(--accent); }
+
+  .btn-outline {
+    display: inline-block; font-size: 0.68rem; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--charcoal); background: transparent;
+    padding: 0.9rem 2rem; text-decoration: none; transition: all 0.3s;
+    font-weight: 400; border: 1px solid var(--tan); font-family: var(--font-sans);
+  }
+  .btn-outline:hover { background: var(--charcoal); color: var(--warm-white); border-color: var(--charcoal); }
+
+  /* HERO */
+  .hero {
+    min-height: 90vh;
+    padding-top: 80px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    background: var(--cream);
+  }
+
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 5rem 4rem 5rem 5rem;
+  }
+
+  .hero-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    font-weight: 300; line-height: 1.02; color: var(--soft-black); margin-bottom: 1.2rem;
+  }
+  .hero-headline em { font-style: italic; color: var(--accent); }
+
+  .hero-subhead {
+    font-family: var(--font-serif); font-size: 1.25rem; font-style: italic;
+    font-weight: 300; color: var(--bark); line-height: 1.55; margin-bottom: 2rem; max-width: 440px;
+  }
+
+  .hero-body {
+    font-size: 0.88rem; color: var(--bark); font-weight: 300; line-height: 1.9;
+    max-width: 440px; margin-bottom: 2.5rem;
+  }
+
+  .hero-cta-row { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+
+  .hero-disclaimer {
+    font-size: 0.65rem; color: var(--tan); font-weight: 300;
+    margin-top: 1.5rem; letter-spacing: 0.04em;
+    border-top: 1px solid var(--sand); padding-top: 1.2rem; max-width: 440px;
+  }
+
+  .hero-right {
+    background: var(--warm-white);
+    border-left: 1px solid var(--sand);
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+
+  /* Editorial product collage in hero */
+  .hero-collage {
+    flex: 1;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--sand);
+  }
+
+  .collage-cell {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 2rem 1.5rem; gap: 0.8rem;
+    background: var(--warm-white); transition: background 0.3s;
+    text-align: center;
+  }
+  .collage-cell:hover { background: var(--cream); }
+
+  .collage-icon {
+    width: 56px; height: 56px;
+    border: 1px solid var(--sand);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 0.2rem;
+  }
+  .collage-icon svg { width: 24px; height: 24px; stroke: var(--accent); fill: none; stroke-width: 1.2; }
+
+  .collage-cat {
+    font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--tan); font-weight: 400;
+  }
+  .collage-name {
+    font-family: var(--font-serif); font-size: 1rem; font-weight: 400;
+    color: var(--soft-black); line-height: 1.2;
+  }
+
+  .hero-shopmy-bar {
+    background: var(--charcoal); padding: 1.2rem 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem;
+  }
+  .shopmy-bar-text {
+    font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--tan); font-weight: 400;
+  }
+  .shopmy-bar-link {
+    font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); font-weight: 400; text-decoration: none;
+    border-bottom: 1px solid rgba(166,124,91,0.4); padding-bottom: 1px;
+    transition: color 0.3s, border-color 0.3s; white-space: nowrap;
+  }
+  .shopmy-bar-link:hover { color: var(--warm-white); border-color: var(--warm-white); }
+
+  /* MARQUEE */
+  .marquee-strip {
+    background: var(--accent); padding: 0.85rem 0;
+    overflow: hidden; white-space: nowrap;
+  }
+  .marquee-inner {
+    display: inline-block; animation: marquee 28s linear infinite;
+    font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.8); font-weight: 400;
+  }
+  .marquee-inner span { color: rgba(255,255,255,0.4); margin: 0 2rem; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* MY PHILOSOPHY OF RECOMMENDING */
+  .why-section {
+    padding: 6rem 5rem;
+    background: var(--warm-white);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center;
+  }
+  .why-pillars { display: flex; flex-direction: column; gap: 0; }
+  .why-row {
+    display: flex; gap: 1.2rem; padding: 1.5rem 0;
+    border-bottom: 1px solid var(--sand); align-items: flex-start;
+  }
+  .why-row:first-child { border-top: 1px solid var(--sand); }
+  .why-num {
+    font-family: var(--font-serif); font-size: 1.4rem; font-weight: 300;
+    color: var(--sand); flex-shrink: 0; min-width: 28px; line-height: 1; margin-top: 2px;
+  }
+  .why-title { font-size: 0.85rem; color: var(--soft-black); font-weight: 400; margin-bottom: 0.25rem; }
+  .why-desc { font-size: 0.78rem; color: var(--bark); font-weight: 300; line-height: 1.65; }
+
+  /* SHOPMY EMBED SECTION */
+  .shopmy-section {
+    padding: 7rem 5rem;
+    background: var(--cream);
+  }
+
+  .shopmy-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 4rem; flex-wrap: wrap; gap: 1.5rem;
+  }
+
+  /* Category tabs */
+  .cat-tabs {
+    display: flex; gap: 0;
+    border: 1px solid var(--sand); overflow: hidden; flex-wrap: wrap;
+  }
+  .cat-tab {
+    font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--bark); background: var(--warm-white); border: none;
+    padding: 0.85rem 1.5rem; cursor: pointer; font-family: var(--font-sans);
+    font-weight: 400; transition: all 0.2s; border-right: 1px solid var(--sand);
+  }
+  .cat-tab:last-child { border-right: none; }
+  .cat-tab:hover { background: var(--cream); color: var(--soft-black); }
+  .cat-tab.active { background: var(--charcoal); color: var(--warm-white); border-color: var(--charcoal); }
+
+  /* Product grid */
+  .product-panel { display: none; }
+  .product-panel.active { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--sand); border: 1px solid var(--sand); }
+
+  .product-card {
+    background: var(--warm-white); transition: background 0.3s;
+    text-decoration: none; color: inherit; display: block;
+  }
+  .product-card:hover { background: var(--cream); }
+
+  .product-img {
+    aspect-ratio: 4/5; position: relative; overflow: hidden;
+  }
+  .product-img-fill {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 0.6rem; padding: 1.5rem;
+    transition: transform 0.5s;
+  }
+  .product-card:hover .product-img-fill { transform: scale(1.03); }
+
+  /* Gradient palettes per category */
+  .bg-skincare-1 { background: linear-gradient(140deg, #E8DED8 0%, #D4C4BC 100%); }
+  .bg-skincare-2 { background: linear-gradient(140deg, #DDE4DC 0%, #C4D0C0 100%); }
+  .bg-skincare-3 { background: linear-gradient(140deg, #E4DCE8 0%, #C8B8D0 100%); }
+  .bg-skincare-4 { background: linear-gradient(140deg, #E8E0D4 0%, #D4C8B0 100%); }
+  .bg-skincare-5 { background: linear-gradient(140deg, #E0E8E4 0%, #BCCCBC 100%); }
+  .bg-skincare-6 { background: linear-gradient(140deg, #E8D8D4 0%, #D0B8B0 100%); }
+  .bg-supp-1 { background: linear-gradient(140deg, #D8E4DC 0%, #B8CCC0 100%); }
+  .bg-supp-2 { background: linear-gradient(140deg, #E4E0D4 0%, #C8C0A8 100%); }
+  .bg-supp-3 { background: linear-gradient(140deg, #DCD8E4 0%, #C0B8CC 100%); }
+  .bg-supp-4 { background: linear-gradient(140deg, #E4D8D4 0%, #CCC0B8 100%); }
+  .bg-supp-5 { background: linear-gradient(140deg, #D8DCDC 0%, #B8C4C0 100%); }
+  .bg-supp-6 { background: linear-gradient(140deg, #E0E4D8 0%, #C4CEB8 100%); }
+
+  .product-img-icon { font-size: 1.4rem; color: rgba(46,43,39,0.25); }
+  .product-img-label {
+    font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: rgba(46,43,39,0.4); text-align: center; font-weight: 400;
+  }
+
+  .product-badge {
+    position: absolute; top: 1rem; left: 1rem;
+    background: var(--charcoal); color: var(--warm-white);
+    font-size: 0.55rem; letter-spacing: 0.14em; text-transform: uppercase;
+    padding: 0.3rem 0.7rem; font-weight: 400;
+  }
+  .product-badge.fave { background: var(--accent); }
+
+  .product-info { padding: 1.2rem 1.5rem; }
+  .product-brand {
+    font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--tan); font-weight: 400; display: block; margin-bottom: 0.3rem;
+  }
+  .product-name {
+    font-family: var(--font-serif); font-size: 1rem; font-weight: 400;
+    color: var(--soft-black); line-height: 1.3; margin-bottom: 0.4rem;
+  }
+  .product-note {
+    font-size: 0.75rem; color: var(--bark); font-weight: 300; line-height: 1.6;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .product-footer {
+    padding: 0.9rem 1.5rem; border-top: 1px solid var(--sand);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .shop-link {
+    font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--bark); font-weight: 400; transition: color 0.3s;
+  }
+  .product-card:hover .shop-link { color: var(--accent); }
+  .shop-arrow { color: var(--tan); font-size: 0.85rem; transition: color 0.3s; }
+  .product-card:hover .shop-arrow { color: var(--accent); }
+
+  /* SHOPMY CTA BANNER */
+  .shopmy-cta {
+    margin-top: 3rem;
+    background: var(--charcoal);
+    padding: 2.5rem 3rem;
+    display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .shopmy-cta-left { }
+  .shopmy-cta-title {
+    font-family: var(--font-serif); font-size: 1.4rem; font-weight: 300;
+    color: var(--warm-white); font-style: italic; margin-bottom: 0.3rem;
+  }
+  .shopmy-cta-sub {
+    font-size: 0.78rem; color: var(--tan); font-weight: 300;
+  }
+  .btn-shopmy {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--warm-white); background: var(--accent);
+    padding: 1rem 2rem; text-decoration: none; transition: background 0.3s;
+    font-weight: 400; white-space: nowrap;
+  }
+  .btn-shopmy:hover { background: var(--bark); }
+
+  /* AMAZON SECTION */
+  .amazon-section {
+    padding: 7rem 5rem;
+    background: var(--warm-white);
+    border-top: 1px solid var(--sand);
+  }
+  .amazon-header {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem;
+    align-items: center; margin-bottom: 4rem;
+  }
+  .amazon-visual {
+    background: var(--cream);
+    border: 1px solid var(--sand);
+    padding: 2.5rem;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .amazon-tag-row {
+    display: flex; align-items: center; gap: 0.8rem;
+    padding: 1rem; background: var(--warm-white);
+    border: 1px solid var(--sand); text-decoration: none;
+    transition: background 0.3s; color: inherit;
+  }
+  .amazon-tag-row:hover { background: var(--cream); }
+  .amazon-tag-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  .amazon-tag-text { font-size: 0.82rem; color: var(--charcoal); font-weight: 300; }
+  .amazon-tag-arrow { margin-left: auto; font-size: 0.8rem; color: var(--tan); }
+
+  .amazon-find-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 1px; background: var(--sand); border: 1px solid var(--sand);
+  }
+  .amazon-find {
+    background: var(--warm-white); padding: 2rem 1.5rem;
+    text-align: center; transition: background 0.3s;
+    text-decoration: none; color: inherit; display: block;
+  }
+  .amazon-find:hover { background: var(--cream); }
+  .amazon-find-icon {
+    width: 48px; height: 48px; border: 1px solid var(--sand);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1rem; font-family: var(--font-serif);
+    font-size: 1.1rem; color: var(--accent); font-weight: 300;
+  }
+  .amazon-find-label {
+    font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--tan); font-weight: 400; display: block; margin-bottom: 0.4rem;
+  }
+  .amazon-find-name {
+    font-family: var(--font-serif); font-size: 0.95rem; font-weight: 400;
+    color: var(--soft-black); line-height: 1.3;
+  }
+
+  .amazon-btn-row {
+    margin-top: 2.5rem; text-align: center;
+  }
+
+  /* DISCLAIMER */
+  .disclaimer-bar {
+    background: var(--sand); padding: 1.5rem 5rem;
+    border-top: 1px solid var(--tan);
+  }
+  .disclaimer-text {
+    font-size: 0.7rem; color: var(--bark); font-weight: 300;
+    line-height: 1.6; max-width: 860px; margin: 0 auto; text-align: center;
+  }
+
+  /* EMAIL CTA */
+  .email-cta {
+    background: var(--charcoal); padding: 5rem;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .cta-heading {
+    font-family: var(--font-serif); font-size: clamp(1.8rem, 3vw, 2.8rem);
+    font-weight: 300; color: var(--warm-white); line-height: 1.1; margin-bottom: 0.8rem;
+  }
+  .cta-heading em { font-style: italic; color: var(--accent); }
+  .cta-sub { font-size: 0.83rem; color: var(--tan); font-weight: 300; line-height: 1.8; }
+  .cta-form { display: flex; flex-direction: column; gap: 0.8rem; }
+  .cta-input {
+    background: transparent; border: 1px solid rgba(201,187,168,0.3);
+    padding: 0.85rem 1.2rem; color: var(--warm-white);
+    font-family: var(--font-sans); font-size: 0.83rem; font-weight: 300;
+    outline: none; transition: border-color 0.3s; width: 100%;
+  }
+  .cta-input::placeholder { color: rgba(201,187,168,0.4); }
+  .cta-input:focus { border-color: var(--accent); }
+  .cta-submit {
+    background: var(--accent); border: none; padding: 0.9rem;
+    color: var(--warm-white); font-family: var(--font-sans);
+    font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+    font-weight: 400; cursor: pointer; transition: background 0.3s;
+  }
+  .cta-submit:hover { background: var(--bark); }
+  .cta-fine { font-size: 0.65rem; color: rgba(201,187,168,0.35); font-weight: 300; text-align: center; }
+
+  /* FOOTER */
+  footer {
+    background: var(--soft-black); padding: 3rem 5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(201,187,168,0.1);
+  }
+  .footer-logo { font-family: var(--font-serif); font-size: 1rem; color: var(--warm-white); font-weight: 300; text-decoration: none; }
+  .footer-links-row { display: flex; gap: 2rem; list-style: none; }
+  .footer-links-row a { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bark); text-decoration: none; font-weight: 300; transition: color 0.3s; }
+  .footer-links-row a:hover { color: var(--warm-white); }
+  .footer-copy { font-size: 0.68rem; color: rgba(140,123,104,0.5); font-weight: 300; }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 3rem 2rem; }
+    .hero-right { display: none; }
+    .why-section { grid-template-columns: 1fr; padding: 4rem 2rem; gap: 3rem; }
+    .shopmy-section { padding: 4rem 2rem; }
+    .shopmy-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .product-panel.active { grid-template-columns: 1fr; }
+    .shopmy-cta { flex-direction: column; gap: 1.5rem; }
+    .amazon-section { padding: 4rem 2rem; }
+    .amazon-header { grid-template-columns: 1fr; gap: 2.5rem; }
+    .amazon-find-grid { grid-template-columns: repeat(2, 1fr); }
+    .email-cta { grid-template-columns: 1fr; padding: 3rem 2rem; gap: 2.5rem; }
+    .disclaimer-bar { padding: 1.5rem 2rem; }
+    footer { padding: 2rem; flex-direction: column; gap: 1.5rem; text-align: center; }
+    .footer-links-row { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="chelseaceleste-homepage.html" class="nav-logo">Chelsea Celeste</a>
+  <ul class="nav-links">
+    <li><a href="chelseaceleste-homepage.html">Home</a></li>
+    <li><a href="chelseaceleste-blog.html">Blog</a></li>
+    <li><a href="chelseaceleste-homepage.html#shop">Shop</a></li>
+    <li><a href="chelseaceleste-about.html">About</a></li>
+    <li><a href="chelseaceleste-homepage.html#freebie" class="nav-cta">Free Guide</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="eyebrow">Chelsea's Favorites</p>
+    <h1 class="hero-headline">
+      Only things<br>I actually<br><em>use.</em>
+    </h1>
+    <p class="hero-subhead">No sponsored fluff. No products I haven't tested. Just the skincare, supplements, and wellness tools that have genuinely earned a place in my life.</p>
+    <p class="hero-body">As a nutritionist and content creator, I get asked constantly what I use and recommend. This page is my honest answer — curated by category, updated regularly, and always rooted in science over hype.</p>
+    <div class="hero-cta-row">
+      <a href="https://shopmy.us/shop/chelcceleste?Section_id=1042103&tab=collections" target="_blank" class="btn-primary">Shop My Storefront</a>
+      <a href="#skincare-supps" class="btn-outline">Browse Favorites</a>
+    </div>
+    <p class="hero-disclaimer">Some links on this page are affiliate links — meaning I may earn a small commission if you purchase through them, at no extra cost to you. I only recommend products I genuinely use and love.</p>
+  </div>
+  <div class="hero-right">
+    <div class="hero-collage">
+      <div class="collage-cell">
+        <div class="collage-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+        </div>
+        <span class="collage-cat">Skincare</span>
+        <p class="collage-name">Daily Skin Essentials</p>
+      </div>
+      <div class="collage-cell">
+        <div class="collage-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+        </div>
+        <span class="collage-cat">Supplements</span>
+        <p class="collage-name">What I Take Daily</p>
+      </div>
+      <div class="collage-cell">
+        <div class="collage-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <span class="collage-cat">Editor's Pick</span>
+        <p class="collage-name">Chelsea's #1 Pick</p>
+      </div>
+      <div class="collage-cell">
+        <div class="collage-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 008 20c7 0 8-8 8-8M6 13.21c.83-1.64 2.61-3.09 6.96-3.21-2.14 1.89-3.15 4.27-3.96 6-1.07-.56-2.12-1.31-3-2.79z"/></svg>
+        </div>
+        <span class="collage-cat">Beauty Tools</span>
+        <p class="collage-name">Devices & Tools</p>
+      </div>
+    </div>
+    <div class="hero-shopmy-bar">
+      <span class="shopmy-bar-text">Full storefront on ShopMy</span>
+      <a href="https://shopmy.us/shop/chelcceleste?Section_id=1042103&tab=collections" target="_blank" class="shopmy-bar-link">shop.my/chelcceleste →</a>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    MSc-Approved Picks <span>✦</span> Skincare Favorites <span>✦</span> Supplements I Actually Take <span>✦</span> No Sponsored Fluff <span>✦</span> Derm-Backed Beauty <span>✦</span> ShopMy Storefront <span>✦</span> Eat Your Skincare <span>✦</span>
+    MSc-Approved Picks <span>✦</span> Skincare Favorites <span>✦</span> Supplements I Actually Take <span>✦</span> No Sponsored Fluff <span>✦</span> Derm-Backed Beauty <span>✦</span> ShopMy Storefront <span>✦</span> Eat Your Skincare <span>✦</span>
+  </div>
+</div>
+
+<!-- WHY I RECOMMEND -->
+<section class="why-section">
+  <div>
+    <p class="section-eyebrow">My Recommendation Philosophy</p>
+    <h2 class="section-heading">I only recommend<br>what I'd tell a<br><em>friend.</em></h2>
+    <p class="section-body">With an MSc in Nutrition and years of content creation behind me, I've seen a lot of products come and go. My rule is simple: if I wouldn't genuinely recommend it to my best friend or use it myself, it doesn't make this page.</p>
+    <p class="section-body">Everything here is either derm-backed, nutrition science-approved, or personally tested over months — not just sent to my door last Tuesday.</p>
+  </div>
+  <div class="why-pillars">
+    <div class="why-row">
+      <span class="why-num">01</span>
+      <div>
+        <p class="why-title">Personally tested</p>
+        <p class="why-desc">I use everything on this page. If I haven't tried it myself — on my own skin, in my own body — it doesn't make the list.</p>
+      </div>
+    </div>
+    <div class="why-row">
+      <span class="why-num">02</span>
+      <div>
+        <p class="why-title">Science-backed</p>
+        <p class="why-desc">I look at ingredients, research, and formulations — not just marketing. My MSc background means I can actually read the labels.</p>
+      </div>
+    </div>
+    <div class="why-row">
+      <span class="why-num">03</span>
+      <div>
+        <p class="why-title">Regularly updated</p>
+        <p class="why-desc">Products get swapped out if something better comes along. This isn't a set-it-and-forget-it list — it reflects what I'm actually using right now.</p>
+      </div>
+    </div>
+    <div class="why-row">
+      <span class="why-num">04</span>
+      <div>
+        <p class="why-title">Honest about affiliates</p>
+        <p class="why-desc">Some links earn me a small commission. I disclose this clearly and it never influences what I recommend. My credibility matters more than a commission.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT CATEGORIES -->
+<section class="shopmy-section" id="skincare-supps">
+  <div class="shopmy-header">
+    <div>
+      <p class="section-eyebrow">My Curated Picks</p>
+      <h2 class="section-heading">Shop my <em>favorites.</em></h2>
+    </div>
+    <div class="cat-tabs">
+      <button class="cat-tab active" onclick="switchTab('skincare', this)">Skincare & Beauty</button>
+      <button class="cat-tab" onclick="switchTab('supplements', this)">Supplements</button>
+    </div>
+  </div>
+
+  <!-- SKINCARE PANEL -->
+  <div class="product-panel active" id="panel-skincare">
+
+    <a href="https://shopmy.us/shop/chelcceleste?Section_id=1042103&tab=collections" target="_blank" class="product-card">
+      <div class="product-img">
+        <div class="product-img-fill bg-skincare-1">
+          <span class="product-img-label">Timeless 20% Vitamin C + E Ferulic</span>
+        </div>
+        <span class="product-badge fave">Chelsea's Pick</span>
+      </div>
+      <div class="product-info">
+        <span class="product-brand">Timeless Skin Care</span>
+        <p class="product-name">20% Vitamin C + E Ferulic Acid Serum</p>
+        <p class="product-note">My morning non-negotiable. A 20% L-ascorbic acid serum with vitamin E and ferulic acid — the gold standard combo for brightening, collagen building, and antioxidant protection. Cruelty-free, fragrance-free, and a fraction of the price of luxury alternatives.</p>
+      </div>
+      <div class="product-footer">
+        <span class="shop-link">Shop on ShopMy</span>
+        <span class="shop-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://shopmy.us/shop/chelcceleste?Section_id=1042103&tab=collections" target="_blank" class="product-card">
+      <div class="product-img">
+        <div class="product-img-fill bg-skincare-2">
+          <span class="product-img-label">SPF Moisturiser</span>
+        </div>
+        <span class="product-badge">Daily Essential</span>
+      </div>
+      <div class="product-info">
+        <span class="product-brand">Sun Protection</span>
+        <p class="product-name">Tinted SPF 50 Moisturiser</p>
+        <p class="product-note">The single most important skincare product you can use. Protects all the collagen your diet is working so hard to build.</p>
+      </div>
+      <div class="product-footer">
+        <span class="shop-link">Shop on ShopMy</span>
+        <span class="shop-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://shopmy.us/shop/chelcceleste?Section_id=1042103&tab=collections" target="_blank" class="product-card">
+      <div class="product-img">
+        <div class="product-img-fill bg-skincare-3">
+          <span class="product-img-label">Retinol Treatment</span>
+        </div>
+        <span class="product-badge">Derm-Backed</span>
+      </div>
+      <div class="product-info">
+        <span class="product-brand">Anti-Ageing</span>
+        <p class="product-name">Retinol Night Treatment</p>
+        <p class="product-note">The most studied topical ingredient for skin renewal. Part of the derm-backed topical routine I pair with Eat Your Skincare nutrition protocols.</p>
+      </div>
+      <div class="product-footer">
+        <span class="shop-link">Shop on ShopMy</span>
+        <span class="shop-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://shopmy.us/shop/chelcceleste?Section_id=1042103&tab=collections" target="_blank" class="product-card">
+      <div class="product-img">
+        <div class="product-img-fill bg-skincare-4">
+          <span class="product-img-label">Barrier Moisturiser</span>
+        </div>
+      </div>
+      <div class="product-info">
+        <span class="product-brand">Hydration</span>
+        <p class="product-name">Ceramide Barrier Repair Moisturiser</p>
+        <p class="product-note">A skin barrier that functions well is the foundation of everything. This one is rich enough for winter, light enough for daily use.</p>
+      </div>
+      <div class="product-footer">
+        <span class="shop-link">Shop on ShopMy</span>
+        <span class="shop-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://shopmy.us/shop/chelcceleste?Section_id=1042103&tab=collections" target="_blank" class="product-card">
+      <div class="product-img">
+        <div class="product-img-fill bg-skincare-5">
+          <span class="product-img-label">Eye Cream</span>
+        </div>
+      </div>
+      <div class="product-info">
+        <span class="product-brand">Eye Care</span>
+        <p class="product-name">Peptide Eye Cream</p>
+        <p class="product-note">The under-eye area shows signs of aging and fatigue first. Peptides here work synergistically with the collagen-supporting foods I eat daily.</p>
+      </div>
+      <div class="product-footer">
+        <span class="shop-link">Shop on ShopMy</span>
+        <span class="shop-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://shopmy.us/shop/chelcceleste?Section_id=1042103&tab=collections" target="_blank" class="product-card">
+      <div class="product-img">
+        <div class="product-img-fill bg-skincare-6">
+          <span class="product-img-label">Gua Sha Tool</span>
+        </div>
+      </div>
+      <div class="product-info">
+        <span class="product-brand">Beauty Tools</span>
+        <p class="product-name">Rose Quartz Gua Sha</p>
+        <p class="product-note">Lymphatic drainage, facial sculpting, and a genuinely relaxing ritual. The tool I reach for every morning before anything else.</p>
+      </div>
+      <div class="product-footer">
+        <span class="shop-link">Shop on ShopMy</span>
+        <span class="shop-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- SUPPLEMENTS PANEL -->
+  <div class="product-panel" id="panel-supplements">
+
+    <a href="https://shopmy.us/shop/chelcceleste?Section_id=1042103&tab=collections" target="_blank" class="product-card">
+      <div class="product-img">
+        <div class="product-img-fill bg-supp-1">
+          <span class="product-img-label">Organika Enhanced Collagen</span>
+        </div>
+        <span class="product-badge fave">Chelsea's Pick</span>
+      </div>
+      <div class="product-info">
+        <span class="product-brand">Organika</span>
+        <p class="product-name">Enhanced Collagen Protein Powder</p>
+        <p class="product-note">Canada's #1 collagen powder and my daily staple. Grass-fed, hydrolyzed for maximum absorption, completely flavourless — I stir it into my morning coffee without even noticing it. 9g of protein per serving, zero additives, Health Canada certified. This is the one.</p>
+      </div>
+      <div class="product-footer">
+        <span class="shop-link">Shop on ShopMy</span>
+        <span class="shop-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://shopmy.us/shop/chelcceleste?Section_id=1042103&tab=collections" target="_blank" class="product-card">
+      <div class="product-img">
+        <div class="product-img-fill bg-supp-2">
+          <span class="product-img-label">Omega-3</span>
+        </div>
+        <span class="product-badge">Anti-Inflammatory</span>
+      </div>
+      <div class="product-info">
+        <span class="product-brand">Inflammation Support</span>
+        <p class="product-name">High-Potency Omega-3 Fish Oil</p>
+        <p class="product-note">My number one anti-inflammatory supplement. EPA and DHA work on skin barrier function, joint health, hormones, and brain health simultaneously.</p>
+      </div>
+      <div class="product-footer">
+        <span class="shop-link">Shop on ShopMy</span>
+        <span class="shop-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://shopmy.us/shop/chelcceleste?Section_id=1042103&tab=collections" target="_blank" class="product-card">
+      <div class="product-img">
+        <div class="product-img-fill bg-supp-3">
+          <span class="product-img-label">Magnesium</span>
+        </div>
+        <span class="product-badge">Daily Essential</span>
+      </div>
+      <div class="product-info">
+        <span class="product-brand">Sleep + Recovery</span>
+        <p class="product-name">Magnesium Glycinate</p>
+        <p class="product-note">The supplement most women are deficient in without knowing it. Supports sleep, stress response, muscle recovery, and skin repair overnight.</p>
+      </div>
+      <div class="product-footer">
+        <span class="shop-link">Shop on ShopMy</span>
+        <span class="shop-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://shopmy.us/shop/chelcceleste?Section_id=1042103&tab=collections" target="_blank" class="product-card">
+      <div class="product-img">
+        <div class="product-img-fill bg-supp-4">
+          <span class="product-img-label">Probiotic</span>
+        </div>
+      </div>
+      <div class="product-info">
+        <span class="product-brand">Gut + Skin Health</span>
+        <p class="product-name">Spore-Based Probiotic</p>
+        <p class="product-note">The gut-skin axis is real. A healthy microbiome directly influences skin clarity, inflammation levels, and even collagen production. This is the one I trust.</p>
+      </div>
+      <div class="product-footer">
+        <span class="shop-link">Shop on ShopMy</span>
+        <span class="shop-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://shopmy.us/shop/chelcceleste?Section_id=1042103&tab=collections" target="_blank" class="product-card">
+      <div class="product-img">
+        <div class="product-img-fill bg-supp-5">
+          <span class="product-img-label">Vitamin D3 + K2</span>
+        </div>
+      </div>
+      <div class="product-info">
+        <span class="product-brand">Immune + Skin</span>
+        <p class="product-name">Vitamin D3 + K2 Drops</p>
+        <p class="product-note">Living in Vancouver means this is non-negotiable. D3 supports immune function, mood, skin health, and hormone balance — K2 ensures it goes where it should.</p>
+      </div>
+      <div class="product-footer">
+        <span class="shop-link">Shop on ShopMy</span>
+        <span class="shop-arrow">→</span>
+      </div>
+    </a>
+
+    <a href="https://www.amazon.ca/Elos-Premium-Organic-Packaged-Dissolve/dp/B09P9PKKP1" target="_blank" class="product-card">
+      <div class="product-img">
+        <div class="product-img-fill bg-supp-6">
+          <span class="product-img-label">Elo's Premium Inulin Powder</span>
+        </div>
+        <span class="product-badge fave">Obsessed</span>
+      </div>
+      <div class="product-info">
+        <span class="product-brand">Elo's Premium · Amazon Canada</span>
+        <p class="product-name">Organic Inulin Fiber Powder</p>
+        <p class="product-note">My current obsession. 100% pure prebiotic inulin — completely tasteless and dissolves clear in anything. I add it to my coffee, smoothies, and recipes daily. It feeds your good gut bacteria, supports digestion, and the gut-skin connection is real. Packaged in Canada, non-GMO, food grade.</p>
+      </div>
+      <div class="product-footer">
+        <span class="shop-link">Shop on Amazon.ca</span>
+        <span class="shop-arrow">→</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- SHOPMY FULL STOREFRONT CTA -->
+  <div class="shopmy-cta">
+    <div class="shopmy-cta-left">
+      <p class="shopmy-cta-title">See everything on my ShopMy storefront</p>
+      <p class="shopmy-cta-sub">Updated regularly with new finds across skincare, beauty, supplements, and wellness.</p>
+    </div>
+    <a href="https://shopmy.us/shop/chelcceleste?Section_id=1042103&tab=collections" target="_blank" class="btn-shopmy">
+      Visit Full Storefront →
+    </a>
+  </div>
+</section>
+
+<!-- AMAZON SECTION -->
+<section class="amazon-section">
+  <div class="amazon-header">
+    <div>
+      <p class="section-eyebrow">Amazon Finds</p>
+      <h2 class="section-heading">My best <em>Amazon</em><br>discoveries.</h2>
+      <p class="section-body">Some of my most-reached-for products are Amazon finds — affordable, accessible, and genuinely good. These are the ones I get asked about most.</p>
+      <a href="https://www.amazon.ca/shop/chelseaceleste?ccs_id=4d86ace8-9254-4b3d-b443-77dd86fa37ac" target="_blank" class="btn-primary" style="margin-top:0.5rem;">Browse Amazon Store</a>
+    </div>
+    <div class="amazon-visual">
+      <p style="font-size:0.6rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--tan); font-weight:400; margin-bottom:0.5rem;">Frequently Asked About</p>
+      <a href="https://www.amazon.ca/Elos-Premium-Organic-Packaged-Dissolve/dp/B09P9PKKP1" target="_blank" class="amazon-tag-row">
+        <div class="amazon-tag-dot"></div>
+        <span class="amazon-tag-text">Elo's Premium Organic Inulin Fiber Powder</span>
+        <span class="amazon-tag-arrow">→</span>
+      </a>
+      <a href="https://www.amazon.ca/Organika-Enhanced-Collagen-500-grams/dp/B01MZ1FC46" target="_blank" class="amazon-tag-row">
+        <div class="amazon-tag-dot"></div>
+        <span class="amazon-tag-text">Organika Enhanced Collagen Protein Powder</span>
+        <span class="amazon-tag-arrow">→</span>
+      </a>
+      <a href="https://www.amazon.ca/shop/chelseaceleste?ccs_id=4d86ace8-9254-4b3d-b443-77dd86fa37ac" target="_blank" class="amazon-tag-row">
+        <div class="amazon-tag-dot"></div>
+        <span class="amazon-tag-text">Gua sha & facial tools</span>
+        <span class="amazon-tag-arrow">→</span>
+      </a>
+      <a href="https://www.amazon.ca/shop/chelseaceleste?ccs_id=4d86ace8-9254-4b3d-b443-77dd86fa37ac" target="_blank" class="amazon-tag-row">
+        <div class="amazon-tag-dot"></div>
+        <span class="amazon-tag-text">Skincare fridge & beauty tools</span>
+        <span class="amazon-tag-arrow">→</span>
+      </a>
+      <a href="https://www.amazon.ca/shop/chelseaceleste?ccs_id=4d86ace8-9254-4b3d-b443-77dd86fa37ac" target="_blank" class="amazon-tag-row">
+        <div class="amazon-tag-dot"></div>
+        <span class="amazon-tag-text">Kitchen tools for skin-glow recipes</span>
+        <span class="amazon-tag-arrow">→</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="amazon-find-grid">
+    <a href="https://www.amazon.ca/Elos-Premium-Organic-Packaged-Dissolve/dp/B09P9PKKP1" target="_blank" class="amazon-find">
+      <div class="amazon-find-icon">✦</div>
+      <span class="amazon-find-label">Current Obsession</span>
+      <p class="amazon-find-name">Elo's Organic Inulin Fiber Powder</p>
+    </a>
+    <a href="https://www.amazon.ca/Organika-Enhanced-Collagen-500-grams/dp/B01MZ1FC46" target="_blank" class="amazon-find">
+      <div class="amazon-find-icon">♡</div>
+      <span class="amazon-find-label">Daily Staple</span>
+      <p class="amazon-find-name">Organika Enhanced Collagen Powder</p>
+    </a>
+    <a href="https://www.amazon.ca/shop/chelseaceleste?ccs_id=4d86ace8-9254-4b3d-b443-77dd86fa37ac" target="_blank" class="amazon-find">
+      <div class="amazon-find-icon">◇</div>
+      <span class="amazon-find-label">Beauty Tool</span>
+      <p class="amazon-find-name">Gua Sha & Facial Roller</p>
+    </a>
+    <a href="https://www.amazon.ca/shop/chelseaceleste?ccs_id=4d86ace8-9254-4b3d-b443-77dd86fa37ac" target="_blank" class="amazon-find">
+      <div class="amazon-find-icon">○</div>
+      <span class="amazon-find-label">See All</span>
+      <p class="amazon-find-name">Full Amazon Storefront</p>
+    </a>
+  </div>
+
+  <div class="amazon-btn-row">
+    <a href="https://www.amazon.ca/shop/chelseaceleste?ccs_id=4d86ace8-9254-4b3d-b443-77dd86fa37ac" target="_blank" class="btn-outline">View Full Amazon Store →</a>
+  </div>
+</section>
+
+<!-- AFFILIATE DISCLAIMER -->
+<div class="disclaimer-bar">
+  <p class="disclaimer-text">
+    <strong style="font-weight:500;">Affiliate Disclosure:</strong> Some links on this page are affiliate links. This means I may earn a small commission if you choose to make a purchase through these links, at absolutely no extra cost to you. I only recommend products I personally use, love, and would tell a friend about. My recommendations are never influenced by affiliate relationships — my credibility and your trust mean everything to me.
+  </p>
+</div>
+
+<!-- EMAIL CTA -->
+<section class="email-cta">
+  <div>
+    <p style="font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--tan); font-weight:400; margin-bottom:1rem;">Never miss a new find</p>
+    <h2 class="cta-heading">Get my <em>favorites</em><br>straight to your inbox.</h2>
+    <p class="cta-sub">New products, honest reviews, and the science behind what I recommend — delivered weekly to 430+ women who trust my picks.</p>
+  </div>
+  <div class="cta-form">
+    <input type="text" class="cta-input" placeholder="First name">
+    <input type="email" class="cta-input" placeholder="Email address">
+    <button class="cta-submit">Send Me Your Picks</button>
+    <p class="cta-fine">Unsubscribe anytime. No spam. Ever.</p>
+  </div>
+</section>
+
+<footer>
+  <a href="chelseaceleste-homepage.html" class="footer-logo">Chelsea Celeste</a>
+  <ul class="footer-links-row">
+    <li><a href="chelseaceleste-homepage.html">Home</a></li>
+    <li><a href="chelseaceleste-blog.html">Blog</a></li>
+    <li><a href="chelseaceleste-homepage.html#shop">Shop</a></li>
+    <li><a href="chelseaceleste-about.html">About</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 Chelsea Celeste</p>
+</footer>
+
+<script>
+function switchTab(tab, btn) {
+  document.querySelectorAll('.cat-tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.product-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById('panel-' + tab).classList.add('active');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sustainable Nutrition & Wellness Bundle — Chelsea Celeste</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FAF8F4;
+    --warm-white: #FDFCF9;
+    --sand: #EDE8DF;
+    --tan: #C9BBA8;
+    --bark: #8C7B68;
+    --charcoal: #2E2B27;
+    --soft-black: #1A1815;
+    --accent: #A67C5B;
+    --sage: #8A9E7F;
+    --blush: #C4A8A0;
+    --font-serif: 'Cormorant Garamond', Georgia, serif;
+    --font-sans: 'Jost', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--warm-white);
+    color: var(--charcoal);
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(253, 252, 249, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(201, 187, 168, 0.3);
+  }
+
+  .nav-logo {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    color: var(--soft-black);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bark);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 400;
+  }
+
+  .nav-links a:hover { color: var(--soft-black); }
+
+  .nav-cta {
+    font-size: 0.68rem !important;
+    letter-spacing: 0.14em !important;
+    color: var(--warm-white) !important;
+    background: var(--charcoal);
+    padding: 0.55rem 1.4rem;
+    text-decoration: none !important;
+    transition: background 0.3s;
+  }
+  .nav-cta:hover { background: var(--accent) !important; }
+
+  /* ─── SHARED ─── */
+  .btn-primary {
+    display: inline-block;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    background: var(--charcoal);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    transition: background 0.3s;
+    font-weight: 400;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-sans);
+  }
+  .btn-primary:hover { background: var(--accent); }
+
+  .btn-accent {
+    display: inline-block;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--warm-white);
+    background: var(--accent);
+    padding: 1rem 2.5rem;
+    text-decoration: none;
+    transition: background 0.3s;
+    font-weight: 400;
+    border: none;
+    cursor: pointer;
+    font-family: var(--font-sans);
+  }
+  .btn-accent:hover { background: var(--bark); }
+
+  .btn-large { font-size: 0.72rem; padding: 1.2rem 3.5rem; letter-spacing: 0.2em; }
+
+  .section-eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+    font-weight: 400;
+  }
+
+  .section-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--soft-black);
+    margin-bottom: 1.5rem;
+  }
+
+  .section-heading em { font-style: italic; color: var(--accent); }
+
+  .section-body {
+    font-size: 0.88rem;
+    line-height: 1.95;
+    color: var(--bark);
+    margin-bottom: 1.2rem;
+    font-weight: 300;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    padding-top: 80px;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 5rem 4rem 5rem 5rem;
+    background: var(--warm-white);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--sage);
+  }
+
+  .hero-headline {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 5.5vw, 5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--soft-black);
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-headline em { font-style: italic; color: var(--accent); }
+
+  .hero-subhead {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--bark);
+    margin-bottom: 2.2rem;
+    line-height: 1.55;
+    max-width: 460px;
+  }
+
+  .hero-checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-checklist li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+    font-size: 0.85rem;
+    color: var(--bark);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .check-box {
+    width: 16px;
+    height: 16px;
+    border: 1px solid var(--sage);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .check-box::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--sage);
+    display: block;
+  }
+
+  .hero-price-block {
+    margin-bottom: 1rem;
+  }
+
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.8rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .price-big {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--soft-black);
+    line-height: 1;
+  }
+
+  .price-note {
+    font-size: 0.75rem;
+    color: var(--tan);
+    font-weight: 300;
+  }
+
+  .hero-cta-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 320px;
+  }
+
+  .fine-print {
+    font-size: 0.68rem;
+    color: var(--tan);
+    font-weight: 300;
+    text-align: center;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-right {
+    background: var(--cream);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 3rem;
+    gap: 2rem;
+    position: relative;
+    border-left: 1px solid var(--sand);
+  }
+
+  /* Three-book mockup */
+  .books-display {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .book-item {
+    background: var(--warm-white);
+    border: 1px solid var(--sand);
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+
+  .book-item:hover { transform: translateX(4px); }
+
+  .book-spine {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: var(--warm-white);
+    padding: 1.2rem 0;
+  }
+
+  .book-spine-1 { background: var(--accent); }
+  .book-spine-2 { background: var(--sage); }
+  .book-spine-3 { background: var(--blush); }
+
+  .book-info {
+    padding: 1rem 1.2rem;
+  }
+
+  .book-tag {
+    font-size: 0.55rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--tan);
+    font-weight: 400;
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .book-name {
+    font-family: var(--font-serif);
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--soft-black);
+    line-height: 1.25;
+  }
+
+  .hero-value-note {
+    text-align: center;
+    background: var(--charcoal);
+    color: var(--warm-white);
+    padding: 1rem 1.5rem;
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .value-note-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--tan);
+    display: block;
+    margin-bottom: 0.3rem;
+    font-weight: 400;
+  }
+
+  .value-note-text {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--warm-white);
+  }
+
+  /* ─── MARQUEE ─── */
+  .marquee-strip {
+    background: var(--sand);
+    padding: 0.85rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-top: 1px solid var(--tan);
+    border-bottom: 1px solid var(--tan);
+  }
+
+  .marquee-inner {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bark);
+    font-weight: 400;
+  }
+
+  .marquee-inner span { color: var(--accent); margin: 0 2rem; }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ─── PHILOSOPHY ─── */
+  .philosophy {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 65vh;
+  }
+
+  .philosophy-content {
+    padding: 6rem 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--warm-white);
+  }
+
+  .philosophy-image {
+    background: linear-gradient(145deg, #E0D8CE 0%, #CDBFAF 50%, #B8A896 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 3rem;
+    min-height: 480px;
+  }
+
+  .philosophy-quote {
+    background: var(--warm-white);
+    padding: 1.5rem 1.8rem;
+    max-width: 310px;
+    border-left: 3px solid var(--accent);
+  }
+
+  .philosophy-quote p {
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+  }
+
+  .philosophy-quote cite {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--tan);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  /* ─── WHAT'S INSIDE ─── */
+  .whats-inside {
+    padding: 7rem 5rem;
+    background: var(--cream);
+  }
+
+  .inside-header {
+    text-align: center;
+    max-width: 540px;
+    margin: 0 auto 5rem;
+  }
+
+  .ebook-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--sand);
+    border: 1px solid var(--sand);
+  }
+
+  .ebook-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 1fr;
+    background: var(--warm-white);
+    transition: background 0.3s;
+    min-height: 200px;
+  }
+
+  .ebook-row:hover { background: var(--cream); }
+
+  .ebook-accent-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+
+  .ebook-accent-col-1 { background: var(--accent); }
+  .ebook-accent-col-2 { background: var(--sage); }
+  .ebook-accent-col-3 { background: var(--blush); }
+
+  .ebook-accent-num {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 300;
+    color: rgba(255,255,255,0.8);
+    line-height: 1;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+  }
+
+  .ebook-main-content {
+    padding: 2.5rem 3rem;
+    border-right: 1px solid var(--sand);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .ebook-row-tag {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--tan);
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+
+  .ebook-row-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--soft-black);
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+  }
+
+  .ebook-row-title em { font-style: italic; color: var(--accent); }
+
+  .ebook-row-desc {
+    font-size: 0.83rem;
+    line-height: 1.85;
+    color: var(--bark);
+    font-weight: 300;
+  }
+
+  .ebook-details-col {
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .detail-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .detail-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  .detail-text {
+    font-size: 0.78rem;
+    color: var(--bark);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .detail-text strong {
+    color: var(--charcoal);
+    font-weight: 400;
+  }
+
+  /* ─── FOR WHO ─── */
+  .for-who {
+    padding: 7rem 5rem;
+    background: var(--charcoal);
+  }
+
+  .for-who-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    margin-top: 4rem;
+  }
+
+  .for-who .section-eyebrow { color: var(--tan); }
+  .for-who .section-heading { color: var(--warm-white); }
+
+  .persona-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .persona-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+    padding: 1.5rem;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(201,187,168,0.12);
+    transition: background 0.3s;
+  }
+
+  .persona-card:hover { background: rgba(255,255,255,0.08); }
+
+  .persona-icon {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(166,124,91,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-weight: 300;
+  }
+
+  .persona-info { }
+
+  .persona-title {
+    font-size: 0.85rem;
+    color: var(--warm-white);
+    font-weight: 400;
+    margin-bottom: 0.3rem;
+    letter-spacing: 0.02em;
+  }
+
+  .persona-desc {
+    font-size: 0.78rem;
+    color: var(--tan);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .philosophy-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .pillar-row {
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(201,187,168,0.12);
+    display: flex;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+
+  .pillar-row:last-child { border-bottom: none; }
+
+  .pillar-num-small {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: var(--accent);
+    font-weight: 300;
+    flex-shrink: 0;
+    min-width: 24px;
+    margin-top: 2px;
+  }
+
+  .pillar-body-text { }
+
+  .pillar-title-small {
+    font-size: 0.85rem;
+    color: var(--warm-white);
+    font-weight: 400;
+    margin-bottom: 0.2rem;
+  }
+
+  .pillar-desc-small {
+    font-size: 0.78rem;
+    color: var(--tan);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* ─── SAMPLE RECIPES ─── */
+  .recipes-strip {
+    padding: 6rem 5rem;
+    background: var(--warm-white);
+  }
+
+  .recipes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 3.5rem;
+  }
+
+  .recipes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--sand);
+    border: 1px solid var(--sand);
+  }
+
+  .recipe-card {
+    background: var(--warm-white);
+    padding: 1.8rem 1.5rem;
+    transition: background 0.3s;
+  }
+
+  .recipe-card:hover { background: var(--cream); }
+
+  .recipe-category {
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .recipe-name {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--soft-black);
+    line-height: 1.3;
+  }
+
+  .recipe-count {
+    text-align: center;
+    padding: 2rem;
+    background: var(--cream);
+    border: 1px solid var(--sand);
+    margin-top: 1.5rem;
+  }
+
+  .recipe-count-num {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+    display: block;
+  }
+
+  .recipe-count-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--bark);
+    font-weight: 400;
+  }
+
+  /* ─── TESTIMONIALS ─── */
+  .testimonials {
+    background: var(--cream);
+    padding: 7rem 5rem;
+    border-top: 1px solid var(--sand);
+  }
+
+  .testimonials-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .testimonial {
+    background: var(--warm-white);
+    border: 1px solid var(--sand);
+    padding: 2.5rem;
+  }
+
+  .testimonial-stars {
+    color: var(--accent);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+    font-weight: 400;
+  }
+
+  .testimonial-text {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 300;
+    color: var(--charcoal);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .t-divider { width: 24px; height: 1px; background: var(--tan); margin-bottom: 1rem; }
+
+  .testimonial-author {
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--tan);
+    font-weight: 400;
+  }
+
+  /* ─── BUY ─── */
+  .buy-section {
+    background: var(--soft-black);
+    padding: 7rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .buy-left .section-eyebrow { color: var(--tan); }
+
+  .buy-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    color: var(--warm-white);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .buy-heading em { font-style: italic; color: var(--accent); }
+
+  .buy-body {
+    font-size: 0.85rem;
+    line-height: 1.9;
+    color: var(--tan);
+    font-weight: 300;
+    margin-bottom: 1.5rem;
+  }
+
+  .buy-card {
+    background: var(--warm-white);
+    padding: 3rem;
+    position: relative;
+  }
+
+  .buy-card-tag {
+    position: absolute;
+    top: -1px;
+    left: 3rem;
+    background: var(--sage);
+    color: var(--warm-white);
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    font-weight: 400;
+  }
+
+  .buy-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--soft-black);
+    margin-bottom: 0.3rem;
+    margin-top: 1rem;
+  }
+
+  .buy-card-subtitle {
+    font-size: 0.75rem;
+    color: var(--bark);
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+
+  .buy-includes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .buy-includes li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    font-size: 0.83rem;
+    color: var(--charcoal);
+    font-weight: 300;
+  }
+
+  .buy-includes li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    background: var(--sage);
+    display: block;
+    flex-shrink: 0;
+    margin-top: 8px;
+  }
+
+  .buy-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 1.5rem;
+  }
+
+  .buy-price {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-weight: 300;
+    color: var(--soft-black);
+    line-height: 1;
+  }
+
+  .buy-price-note {
+    font-size: 0.72rem;
+    color: var(--bark);
+    font-weight: 300;
+    text-align: right;
+    line-height: 1.6;
+  }
+
+  .buy-guarantee-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--sand);
+  }
+
+  .guarantee-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--sand);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--sage);
+    font-size: 0.9rem;
+  }
+
+  .guarantee-text {
+    font-size: 0.72rem;
+    color: var(--bark);
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  /* ─── FAQ ─── */
+  .faq-section {
+    padding: 7rem 5rem;
+    background: var(--warm-white);
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .faq-header { text-align: center; margin-bottom: 4rem; }
+
+  .faq-item {
+    border-bottom: 1px solid var(--sand);
+    padding: 1.8rem 0;
+    cursor: pointer;
+  }
+
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--soft-black);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  .faq-toggle {
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--tan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.8rem;
+    color: var(--tan);
+    transition: all 0.3s;
+  }
+
+  .faq-answer {
+    font-size: 0.83rem;
+    line-height: 1.9;
+    color: var(--bark);
+    font-weight: 300;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.3s;
+  }
+
+  .faq-answer.open { max-height: 200px; padding-top: 1rem; }
+  .faq-toggle.open { background: var(--charcoal); border-color: var(--charcoal); color: var(--warm-white); }
+
+  /* ─── FINAL CTA ─── */
+  .final-cta {
+    background: var(--cream);
+    padding: 7rem 5rem;
+    text-align: center;
+    border-top: 1px solid var(--sand);
+  }
+
+  .final-heading {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    color: var(--soft-black);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .final-heading em { font-style: italic; color: var(--accent); }
+
+  .final-body {
+    font-size: 0.9rem;
+    color: var(--bark);
+    font-weight: 300;
+    max-width: 500px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.85;
+  }
+
+  /* ─── CROSS-SELL ─── */
+  .cross-sell {
+    background: var(--sand);
+    padding: 4rem 5rem;
+    text-align: center;
+    border-top: 1px solid var(--tan);
+  }
+
+  .cross-sell-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--bark);
+    font-weight: 400;
+    margin-bottom: 2rem;
+    display: block;
+  }
+
+  .cross-sell-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .cross-sell-card {
+    background: var(--warm-white);
+    border: 1px solid rgba(201,187,168,0.5);
+    padding: 2rem;
+    text-align: left;
+    text-decoration: none;
+    display: block;
+    transition: background 0.3s;
+  }
+
+  .cross-sell-card:hover { background: var(--cream); }
+
+  .cs-tag {
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  .cs-title {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--soft-black);
+    margin-bottom: 0.3rem;
+  }
+
+  .cs-price {
+    font-size: 0.75rem;
+    color: var(--bark);
+    font-weight: 300;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--soft-black);
+    padding: 3rem 5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(201,187,168,0.1);
+  }
+
+  .footer-logo {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    color: var(--warm-white);
+    font-weight: 300;
+    text-decoration: none;
+  }
+
+  .footer-links-row {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .footer-links-row a {
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--bark);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.3s;
+  }
+
+  .footer-links-row a:hover { color: var(--warm-white); }
+
+  .footer-copy {
+    font-size: 0.68rem;
+    color: rgba(140,123,104,0.5);
+    font-weight: 300;
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero, .philosophy, .buy-section { grid-template-columns: 1fr; }
+    .hero-left { padding: 3rem 2rem; }
+    .hero-right { padding: 3rem 2rem; }
+    .philosophy-image { display: none; }
+    .philosophy-content { padding: 4rem 2rem; }
+    .whats-inside { padding: 4rem 2rem; }
+    .ebook-row { grid-template-columns: 48px 1fr; }
+    .ebook-details-col { display: none; }
+    .for-who { padding: 4rem 2rem; }
+    .for-who-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .recipes-strip { padding: 4rem 2rem; }
+    .recipes-grid { grid-template-columns: repeat(2, 1fr); }
+    .recipes-header { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .testimonials { padding: 4rem 2rem; }
+    .testimonial-grid { grid-template-columns: 1fr; }
+    .buy-section { padding: 4rem 2rem; gap: 3rem; }
+    .faq-section { padding: 4rem 2rem; }
+    .final-cta { padding: 4rem 2rem; }
+    .cross-sell { padding: 3rem 2rem; }
+    .cross-sell-cards { grid-template-columns: 1fr; }
+    footer { padding: 2rem; flex-direction: column; gap: 1.5rem; text-align: center; }
+    .footer-links-row { flex-wrap: wrap; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="chelseaceleste-homepage.html" class="nav-logo">Chelsea Celeste</a>
+  <ul class="nav-links">
+    <li><a href="chelseaceleste-homepage.html">Home</a></li>
+    <li><a href="chelseaceleste-homepage.html#shop">Shop</a></li>
+    <li><a href="chelseaceleste-eoe-sales-page.html">Be Free From EoE</a></li>
+    <li><a href="chelseaceleste-homepage.html#about">About</a></li>
+    <li><a href="#buy" class="nav-cta">Get the Bundle</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Sustainable Nutrition & Wellness</p>
+    <h1 class="hero-headline">
+      Food is a gift.<br>Let's use it<br><em>as one.</em>
+    </h1>
+    <p class="hero-subhead">A complete nutrition education bundle for busy women who want to nourish their bodies — without the dieting, the guilt, or the confusion.</p>
+    <ul class="hero-checklist">
+      <li><div class="check-box"></div><span>A full 35-page sustainable health plan with meal plans, shopping lists & food logs</span></li>
+      <li><div class="check-box"></div><span>Nutrition education rooted in hormone balance, gut healing & inflammation reduction</span></li>
+      <li><div class="check-box"></div><span>76 pages of delicious, nourishing recipes focused on protein and fibre</span></li>
+      <li><div class="check-box"></div><span>Anti-diet, food-freedom philosophy built into every page</span></li>
+    </ul>
+    <div class="hero-price-block">
+      <div class="price-row">
+        <span class="price-big">$35.99</span>
+        <span class="price-note">USD · 3 ebooks included</span>
+      </div>
+    </div>
+    <div class="hero-cta-row">
+      <a href="#buy" class="btn-accent btn-large">Yes — I'm Ready to Nourish</a>
+      <p class="fine-print">Instant digital download · PDF format · Yours forever</p>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="books-display">
+      <div class="book-item">
+        <div class="book-spine book-spine-1">1</div>
+        <div class="book-info">
+          <span class="book-tag">Ebook 01 · 35 pages</span>
+          <p class="book-name">Your Sustainable Health Plan</p>
+        </div>
+      </div>
+      <div class="book-item">
+        <div class="book-spine book-spine-2">2</div>
+        <div class="book-info">
+          <span class="book-tag">Ebook 02 · Nutrition Deep-Dive</span>
+          <p class="book-name">Some Nutrition Education</p>
+        </div>
+      </div>
+      <div class="book-item">
+        <div class="book-spine book-spine-3">3</div>
+        <div class="book-info">
+          <span class="book-tag">Ebook 03 · 76 pages</span>
+          <p class="book-name">Tasty & Healthy Recipe Book</p>
+        </div>
+      </div>
+    </div>
+    <div class="hero-value-note">
+      <span class="value-note-label">Everything included</span>
+      <p class="value-note-text">130+ pages of tools, education & recipes</p>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-inner">
+    Food Freedom <span>✦</span> Hormone Balance <span>✦</span> Gut Healing <span>✦</span> Anti-Inflammatory Nutrition <span>✦</span> Sustainable Wellness <span>✦</span> MSc Nutritionist <span>✦</span> No Diet Culture <span>✦</span> Nourish Your Body <span>✦</span>
+    Food Freedom <span>✦</span> Hormone Balance <span>✦</span> Gut Healing <span>✦</span> Anti-Inflammatory Nutrition <span>✦</span> Sustainable Wellness <span>✦</span> MSc Nutritionist <span>✦</span> No Diet Culture <span>✦</span> Nourish Your Body <span>✦</span>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="philosophy-content">
+    <p class="section-eyebrow">The Chelsea Celeste Philosophy</p>
+    <h2 class="section-heading">Food isn't the enemy.<br>It's the <em>medicine.</em></h2>
+    <p class="section-body">I truly believe that nourishing foods taste the best and make you feel and look your best. God gave us the gift of food for pleasure, fuel, nourishment, and healing — and somewhere along the way, diet culture twisted that relationship into something painful.</p>
+    <p class="section-body">This bundle is built on one core truth: when you focus on eating the <em>right</em> foods — not less food, not diet food — your body will do the rest. It resets its biology, rebalances its hormones, and finds its way back to vitality.</p>
+    <p class="section-body">No calorie counting. No restriction. No guilt. Just nourishment.</p>
+  </div>
+  <div class="philosophy-image">
+    <div class="philosophy-quote">
+      <p>"If we focus on eating the right foods, our body will take care of the rest by resetting our biology to its original factory settings — without having to struggle, restrict, or control."</p>
+      <cite>— Dr. Jason Fung, as quoted in the bundle</cite>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT'S INSIDE -->
+<section class="whats-inside" id="contents">
+  <div class="inside-header">
+    <p class="section-eyebrow">What's Inside</p>
+    <h2 class="section-heading">Three ebooks.<br><em>One complete transformation.</em></h2>
+    <p style="font-size:0.85rem; color:var(--bark); font-weight:300; line-height:1.8; margin-top:1rem;">Over 130 pages of actionable, MSc-backed nutrition guidance designed for real life.</p>
+  </div>
+
+  <div class="ebook-showcase">
+    <!-- Ebook 1 -->
+    <div class="ebook-row">
+      <div class="ebook-accent-col ebook-accent-col-1">
+        <span class="ebook-accent-num">01</span>
+      </div>
+      <div class="ebook-main-content">
+        <span class="ebook-row-tag">Foundation · 35 Pages</span>
+        <h3 class="ebook-row-title">Your Sustainable <em>Health Plan</em></h3>
+        <p class="ebook-row-desc">The practical roadmap. Everything you need to build lasting health habits — not a 30-day fix, but a sustainable framework designed for your actual life as a busy woman or mom.</p>
+      </div>
+      <div class="ebook-details-col">
+        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text"><strong>Supplement suggestions</strong> — what actually works</div></div>
+        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text"><strong>Grocery shopping lists</strong> — ready to use</div></div>
+        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text"><strong>Meal guidelines & portion sizes</strong></div></div>
+        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text"><strong>Overcoming cravings</strong> — the real approach</div></div>
+        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text"><strong>A full week of meal plans</strong> + food logs</div></div>
+      </div>
+    </div>
+
+    <!-- Ebook 2 -->
+    <div class="ebook-row">
+      <div class="ebook-accent-col ebook-accent-col-2">
+        <span class="ebook-accent-num">02</span>
+      </div>
+      <div class="ebook-main-content">
+        <span class="ebook-row-tag">Education · Nutrition Deep-Dive</span>
+        <h3 class="ebook-row-title">Some <em>Nutrition Education</em></h3>
+        <p class="ebook-row-desc">The science, made human. Learn why your body works the way it does, and how the right nutrition approach can transform not just your weight but your hormones, your gut, and your energy.</p>
+      </div>
+      <div class="ebook-details-col">
+        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text"><strong>Chelsea's food philosophy</strong> explained</div></div>
+        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text"><strong>The Core4 method</strong> — Chelsea's framework</div></div>
+        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text"><strong>The power of fasting</strong> — what it actually does</div></div>
+        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text"><strong>Hormone balance</strong> through nutrition</div></div>
+        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text"><strong>Gut healing & inflammation</strong> reduction</div></div>
+      </div>
+    </div>
+
+    <!-- Ebook 3 -->
+    <div class="ebook-row">
+      <div class="ebook-accent-col ebook-accent-col-3">
+        <span class="ebook-accent-num">03</span>
+      </div>
+      <div class="ebook-main-content">
+        <span class="ebook-row-tag">Recipes · 76 Pages</span>
+        <h3 class="ebook-row-title">Tasty & Healthy <em>Recipe Book</em></h3>
+        <p class="ebook-row-desc">The part everyone secretly flips to first. 76 pages of genuinely delicious recipes built around protein and fibre — because food that keeps you full and nourished should also make you excited to eat.</p>
+      </div>
+      <div class="ebook-details-col">
+        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text"><strong>Smoothies & chia pudding</strong></div></div>
+        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text"><strong>Bone broth & healing soups</strong></div></div>
+        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text"><strong>Dips, dressings & sauces</strong></div></div>
+        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text"><strong>High-protein mains</strong></div></div>
+        <div class="detail-item"><div class="detail-dot"></div><div class="detail-text"><strong>Nourishing snacks & more</strong></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="for-who">
+  <p class="section-eyebrow">This Bundle Is For You</p>
+  <div class="for-who-grid">
+    <div>
+      <h2 class="section-heading">Real guidance for<br><em>real women.</em></h2>
+      <p class="section-body" style="color:var(--tan); margin-bottom: 2rem;">Not another diet plan. Not a 1200-calorie nightmare. This is nutrition that works with your life — because sustainable change is the only kind that lasts.</p>
+      <div class="philosophy-pillars">
+        <div class="pillar-row">
+          <span class="pillar-num-small">—</span>
+          <div class="pillar-body-text">
+            <p class="pillar-title-small">Food freedom over restriction</p>
+            <p class="pillar-desc-small">Every resource is built on abundance, not deprivation.</p>
+          </div>
+        </div>
+        <div class="pillar-row">
+          <span class="pillar-num-small">—</span>
+          <div class="pillar-body-text">
+            <p class="pillar-title-small">Science-backed, not trend-driven</p>
+            <p class="pillar-desc-small">MSc-level nutrition knowledge, written accessibly.</p>
+          </div>
+        </div>
+        <div class="pillar-row">
+          <span class="pillar-num-small">—</span>
+          <div class="pillar-body-text">
+            <p class="pillar-title-small">Designed for busy real life</p>
+            <p class="pillar-desc-small">As a mom, Chelsea knows what "simple" actually means.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="persona-list">
+      <div class="persona-card">
+        <div class="persona-icon">1</div>
+        <div class="persona-info">
+          <p class="persona-title">Tired of the diet cycle</p>
+          <p class="persona-desc">You've tried every diet and you're done. You want a sustainable, science-based approach that doesn't require willpower you don't have.</p>
+        </div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">2</div>
+        <div class="persona-info">
+          <p class="persona-title">Struggling with energy or weight</p>
+          <p class="persona-desc">You feel sluggish, inflamed, or stuck — and you suspect your nutrition is part of the problem but don't know where to start.</p>
+        </div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">3</div>
+        <div class="persona-info">
+          <p class="persona-title">A busy mom craving simplicity</p>
+          <p class="persona-desc">You need practical, real-life tools — not aspirational content designed for someone without kids or responsibilities.</p>
+        </div>
+      </div>
+      <div class="persona-card">
+        <div class="persona-icon">4</div>
+        <div class="persona-info">
+          <p class="persona-title">Ready to actually learn nutrition</p>
+          <p class="persona-desc">You want to understand the why behind healthy eating so you can make empowered choices for life — not just follow a plan.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SAMPLE RECIPES -->
+<section class="recipes-strip">
+  <div class="recipes-header">
+    <div>
+      <p class="section-eyebrow">A Taste of What's Inside</p>
+      <h2 class="section-heading">From the <em>Recipe Book</em></h2>
+    </div>
+    <div class="recipe-count">
+      <span class="recipe-count-num">76</span>
+      <span class="recipe-count-label">Pages of Recipes</span>
+    </div>
+  </div>
+  <div class="recipes-grid">
+    <div class="recipe-card">
+      <span class="recipe-category">Breakfast</span>
+      <p class="recipe-name">Protein Chia Pudding</p>
+    </div>
+    <div class="recipe-card">
+      <span class="recipe-category">Drinks</span>
+      <p class="recipe-name">Collagen Smoothie</p>
+    </div>
+    <div class="recipe-card">
+      <span class="recipe-category">Soups</span>
+      <p class="recipe-name">Healing Bone Broth</p>
+    </div>
+    <div class="recipe-card">
+      <span class="recipe-category">Sides</span>
+      <p class="recipe-name">Anti-Inflammatory Dip</p>
+    </div>
+    <div class="recipe-card">
+      <span class="recipe-category">Mains</span>
+      <p class="recipe-name">High-Protein Bowl</p>
+    </div>
+    <div class="recipe-card">
+      <span class="recipe-category">Dressings</span>
+      <p class="recipe-name">Gut-Healing Vinaigrette</p>
+    </div>
+    <div class="recipe-card">
+      <span class="recipe-category">Snacks</span>
+      <p class="recipe-name">Nourishing Energy Bites</p>
+    </div>
+    <div class="recipe-card">
+      <span class="recipe-category">Soups</span>
+      <p class="recipe-name">Creamy Hormone-Support Soup</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-header">
+    <p class="section-eyebrow">From the Community</p>
+    <h2 class="section-heading">Real results from real <em>women.</em></h2>
+  </div>
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <p class="testimonial-stars">★ ★ ★ ★ ★</p>
+      <p class="testimonial-text">"I've tried countless programs and this was the first one that actually felt sustainable. Chelsea's approach to food freedom changed my entire relationship with eating."</p>
+      <div class="t-divider"></div>
+      <p class="testimonial-author">— M.L., Bundle Customer</p>
+    </div>
+    <div class="testimonial">
+      <p class="testimonial-stars">★ ★ ★ ★ ★</p>
+      <p class="testimonial-text">"The recipe book alone is worth every penny. My family has been making the bone broth and the protein bowls on rotation — and I finally feel nourished instead of just 'full'."</p>
+      <div class="t-divider"></div>
+      <p class="testimonial-author">— J.T., Busy Mom of Three</p>
+    </div>
+    <div class="testimonial">
+      <p class="testimonial-stars">★ ★ ★ ★ ★</p>
+      <p class="testimonial-text">"The nutrition education ebook blew my mind. I finally understand WHY my body does what it does. Chelsea explains it so clearly and without any judgement — I felt seen."</p>
+      <div class="t-divider"></div>
+      <p class="testimonial-author">— R.K., Wellness Community Member</p>
+    </div>
+  </div>
+</section>
+
+<!-- BUY -->
+<section class="buy-section" id="buy">
+  <div class="buy-left">
+    <p class="section-eyebrow">You're Ready For This</p>
+    <h2 class="buy-heading">Your most<br>nourished self<br>is <em>waiting.</em></h2>
+    <p class="buy-body">Energy, vitality, confidence, and a body that feels like home again — that's what this bundle is designed to help you build. Not through restriction. Through nourishment.</p>
+    <p class="buy-body">For less than a single restaurant meal, you'll have a complete nutrition framework you can return to again and again.</p>
+    <p class="buy-body" style="color: var(--bark);">Questions? Reach Chelsea at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bbd3ded7d7d4fbd8d3ded7c8dedad8ded7dec8cfde95d8d4d6">[email&#160;protected]</a> or <a href="https://instagram.com/chelcceleste" style="color:var(--accent); text-decoration:none;">@chelcceleste</a></p>
+  </div>
+  <div>
+    <div class="buy-card">
+      <div class="buy-card-tag">Complete Bundle</div>
+      <h3 class="buy-card-title">Sustainable Nutrition & Wellness</h3>
+      <p class="buy-card-subtitle">The Complete 3-Ebook Bundle by Chelsea Celeste, MSc</p>
+      <ul class="buy-includes">
+        <li>Ebook 1 — Your Sustainable Health Plan (35 pages)</li>
+        <li>Ebook 2 — Some Nutrition Education</li>
+        <li>Ebook 3 — Tasty & Healthy Recipe Book (76 pages)</li>
+        <li>Supplement suggestions & grocery lists</li>
+        <li>7-day meal plan + food logs</li>
+        <li>Core4 framework & Chelsea's food philosophy</li>
+      </ul>
+      <div class="buy-price-row">
+        <span class="buy-price">$35.99 <small style="font-size:1.1rem;">USD</small></span>
+        <div class="buy-price-note">Instant digital download<br>PDF format · Any device</div>
+      </div>
+      <a href="#" class="btn-accent" style="width:100%; text-align:center; display:block;">Get Instant Access</a>
+      <div class="buy-guarantee-row">
+        <div class="guarantee-icon">✓</div>
+        <p class="guarantee-text">Delivered to your inbox immediately. Works on phones, tablets, laptops — no special software needed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-header">
+    <p class="section-eyebrow">Common Questions</p>
+    <h2 class="section-heading">Everything you want to <em>know.</em></h2>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span>What format are the ebooks in?</span>
+      <div class="faq-toggle">+</div>
+    </div>
+    <div class="faq-answer">All three ebooks are delivered as PDF files and work on any device — phone, tablet, laptop, or e-reader. No special software or app required. You'll receive a download link instantly after purchase.</div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span>Is this a diet plan?</span>
+      <div class="faq-toggle">+</div>
+    </div>
+    <div class="faq-answer">Absolutely not. This bundle is built on a food-freedom, anti-diet philosophy. It's about nourishing your body with foods that make you feel good — not restricting, counting calories, or following rigid rules. Sustainable wellness is the entire point.</div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span>Is this relevant if I have specific health conditions?</span>
+      <div class="faq-toggle">+</div>
+    </div>
+    <div class="faq-answer">The bundle covers foundational nutrition principles — hormone balance, gut health, inflammation reduction — that benefit most people. However, if you have a specific medical condition, please consult your healthcare provider alongside using these resources. Chelsea's content is educational and not a substitute for medical advice.</div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span>I'm a busy mom — is this realistic for my life?</span>
+      <div class="faq-toggle">+</div>
+    </div>
+    <div class="faq-answer">Chelsea is a busy mom herself, and every resource in this bundle was designed with that reality in mind. The recipes are practical, the meal plans are doable, and the philosophy is built around real life — not aspirational wellness content that requires hours you don't have.</div>
+  </div>
+
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span>How is this different from free content online?</span>
+      <div class="faq-toggle">+</div>
+    </div>
+    <div class="faq-answer">This is a curated, structured, MSc-backed system — not scattered blog posts or TikTok tips. Everything works together: the education informs the meal plan, the meal plan informs the recipes. It's a complete framework, not a collection of random advice.</div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <p class="section-eyebrow" style="display:flex; justify-content:center;">Your journey starts here</p>
+  <h2 class="final-heading">Nourish your body.<br><em>Reclaim your life.</em></h2>
+  <p class="final-body">You deserve to live a life of energy, vitality, confidence, and freedom from food rules. This bundle is your starting point. For $35.99 USD, that's a pretty good deal.</p>
+  <a href="#buy" class="btn-accent btn-large">Get the Bundle — $35.99 USD</a>
+</section>
+
+<!-- CROSS-SELL -->
+<section class="cross-sell">
+  <span class="cross-sell-label">You might also love</span>
+  <div class="cross-sell-cards">
+    <a href="chelseaceleste-eoe-sales-page.html" class="cross-sell-card">
+      <span class="cs-tag">Health Condition Support</span>
+      <p class="cs-title">Be Free From EoE Bundle</p>
+      <p class="cs-price">$95 USD — 5 Ebooks + Recipe Books</p>
+    </a>
+    <a href="chelseaceleste-homepage.html#shop" class="cross-sell-card">
+      <span class="cs-tag">New Release</span>
+      <p class="cs-title">Eat Your Skincare Bundle</p>
+      <p class="cs-price">$95 USD — Meal Plan + Ebook</p>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="chelseaceleste-homepage.html" class="footer-logo">Chelsea Celeste</a>
+  <ul class="footer-links-row">
+    <li><a href="chelseaceleste-homepage.html">Home</a></li>
+    <li><a href="chelseaceleste-homepage.html#shop">Shop</a></li>
+    <li><a href="chelseaceleste-eoe-sales-page.html">Be Free From EoE</a></li>
+    <li><a href="chelseaceleste-homepage.html#about">About</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 Chelsea Celeste</p>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function toggleFaq(item) {
+  const answer = item.querySelector('.faq-answer');
+  const toggle = item.querySelector('.faq-toggle');
+  const isOpen = answer.classList.contains('open');
+  document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+  document.querySelectorAl
