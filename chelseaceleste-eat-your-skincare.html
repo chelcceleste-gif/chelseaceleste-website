@@ -17,814 +17,201 @@
     --sand: #EDE8DF;
     --tan: #C9BBA8;
     --bark: #8C7B68;
-    --moss: #6B7A5E;
     --charcoal: #2E2B27;
     --soft-black: #1A1815;
     --accent: #A67C5B;
+    --rose: #B8907E;
     --font-serif: 'Cormorant Garamond', Georgia, serif;
     --font-sans: 'Jost', sans-serif;
   }
 
   html { scroll-behavior: smooth; }
+  body { font-family: var(--font-sans); background: var(--warm-white); color: var(--charcoal); font-weight: 300; line-height: 1.7; overflow-x: hidden; }
 
-  body {
-    font-family: var(--font-sans);
-    background: var(--warm-white);
-    color: var(--charcoal);
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  /* ─── NAV ─── */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 4rem;
-    background: rgba(253, 252, 249, 0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid rgba(201, 187, 168, 0.3);
-  }
-
-  .nav-logo {
-    font-family: var(--font-serif);
-    font-size: 1.1rem;
-    font-weight: 400;
-    letter-spacing: 0.04em;
-    color: var(--soft-black);
-    text-decoration: none;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 2.5rem;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-size: 0.7rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--bark);
-    text-decoration: none;
-    transition: color 0.3s;
-    font-weight: 400;
-  }
-
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 4rem; background: rgba(253,252,249,0.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(201,187,168,0.3); }
+  .nav-logo { font-family: var(--font-serif); font-size: 1.1rem; font-weight: 400; letter-spacing: 0.04em; color: var(--soft-black); text-decoration: none; }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
+  .nav-links a { font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--bark); text-decoration: none; transition: color 0.3s; font-weight: 400; }
   .nav-links a:hover { color: var(--soft-black); }
-
-  .nav-cta {
-    font-size: 0.68rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--warm-white) !important;
-    background: var(--charcoal);
-    padding: 0.55rem 1.4rem;
-    border-radius: 0;
-    text-decoration: none;
-    transition: background 0.3s;
-    font-weight: 400;
-  }
+  .nav-cta { font-size: 0.68rem !important; letter-spacing: 0.14em !important; color: var(--warm-white) !important; background: var(--charcoal); padding: 0.55rem 1.4rem; text-decoration: none; transition: background 0.3s; }
   .nav-cta:hover { background: var(--accent) !important; }
 
-  /* ─── HERO ─── */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 80px;
-  }
-
-  .hero-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 5rem 4rem 5rem 5rem;
-    background: var(--warm-white);
-  }
-
-  .hero-eyebrow {
-    font-size: 0.65rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-    font-weight: 400;
-  }
-
-  .hero-headline {
-    font-family: var(--font-serif);
-    font-size: clamp(3.5rem, 6vw, 5.5rem);
-    font-weight: 300;
-    line-height: 1.05;
-    color: var(--soft-black);
-    margin-bottom: 1rem;
-  }
-
-  .hero-headline em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .hero-subhead {
-    font-family: var(--font-serif);
-    font-size: 1.35rem;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--bark);
-    margin-bottom: 2rem;
-    line-height: 1.5;
-  }
-
-  .hero-body {
-    font-size: 0.9rem;
-    line-height: 1.85;
-    color: var(--bark);
-    max-width: 420px;
-    margin-bottom: 2.5rem;
-    font-weight: 300;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary {
-    font-size: 0.68rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--warm-white);
-    background: var(--charcoal);
-    padding: 0.9rem 2.2rem;
-    text-decoration: none;
-    transition: background 0.3s;
-    font-weight: 400;
-    display: inline-block;
-  }
+  /* BUTTONS */
+  .btn-primary { display: inline-block; font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--warm-white); background: var(--charcoal); padding: 1rem 2.5rem; text-decoration: none; transition: background 0.3s; font-weight: 400; border: none; cursor: pointer; font-family: var(--font-sans); }
   .btn-primary:hover { background: var(--accent); }
+  .btn-accent { display: inline-block; font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--warm-white); background: var(--accent); padding: 1rem 2.5rem; text-decoration: none; transition: background 0.3s; font-weight: 400; border: none; cursor: pointer; font-family: var(--font-sans); }
+  .btn-accent:hover { background: var(--bark); }
+  .btn-large { font-size: 0.72rem; padding: 1.2rem 3.5rem; letter-spacing: 0.2em; }
 
-  .btn-secondary {
-    font-size: 0.68rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--charcoal);
-    text-decoration: none;
-    border-bottom: 1px solid var(--tan);
-    padding-bottom: 2px;
-    transition: border-color 0.3s, color 0.3s;
-    font-weight: 400;
-  }
-  .btn-secondary:hover { color: var(--accent); border-color: var(--accent); }
+  /* HERO */
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 80px; background: var(--cream); }
+  .hero-left { display: flex; flex-direction: column; justify-content: center; padding: 5rem 4rem 5rem 5rem; }
+  .hero-eyebrow { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--rose); margin-bottom: 1.5rem; font-weight: 400; display: flex; align-items: center; gap: 0.8rem; }
+  .hero-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--rose); }
+  .hero-headline { font-family: var(--font-serif); font-size: clamp(3rem, 5.5vw, 5rem); font-weight: 300; line-height: 1.05; color: var(--soft-black); margin-bottom: 1.2rem; }
+  .hero-headline em { font-style: italic; color: var(--accent); }
+  .hero-subhead { font-family: var(--font-serif); font-size: 1.25rem; font-weight: 300; font-style: italic; color: var(--bark); margin-bottom: 2rem; line-height: 1.5; max-width: 440px; }
+  .hero-promise { display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 2.5rem; }
+  .promise-item { display: flex; align-items: flex-start; gap: 0.8rem; font-size: 0.85rem; color: var(--bark); font-weight: 300; }
+  .promise-check { width: 16px; height: 16px; border: 1px solid var(--rose); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 3px; }
+  .promise-check::after { content: ''; width: 6px; height: 6px; background: var(--rose); display: block; }
+  .hero-cta-group { display: flex; flex-direction: column; gap: 0.8rem; max-width: 320px; }
+  .price-display { display: flex; align-items: baseline; gap: 0.6rem; margin-bottom: 0.5rem; }
+  .price-main { font-family: var(--font-serif); font-size: 2.2rem; font-weight: 300; color: var(--soft-black); }
+  .price-sub { font-size: 0.75rem; color: var(--tan); font-weight: 300; letter-spacing: 0.04em; }
+  .hero-guarantee { font-size: 0.68rem; color: var(--tan); letter-spacing: 0.06em; text-align: center; font-weight: 300; }
+  .hero-right { position: relative; overflow: hidden; background: linear-gradient(150deg, #E8D8D0 0%, #D4B8A8 50%, #C4A090 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 4rem 3rem; gap: 1.5rem; }
 
-  .hero-credentials {
-    margin-top: 3rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--sand);
-    display: flex;
-    gap: 2.5rem;
-  }
+  /* Bundle stack */
+  .bundle-stack { position: relative; width: 280px; height: 300px; }
+  .bundle-card { position: absolute; background: var(--warm-white); border: 1px solid rgba(201,187,168,0.4); padding: 1.5rem; width: 220px; }
+  .bundle-card:nth-child(1) { top: 0; left: 30px; transform: rotate(-3deg); }
+  .bundle-card:nth-child(2) { top: 20px; left: 15px; transform: rotate(-1deg); }
+  .bundle-card:nth-child(3) { top: 35px; left: 0; transform: rotate(0deg); z-index: 3; }
+  .bundle-card-num { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); display: block; margin-bottom: 0.4rem; font-weight: 400; }
+  .bundle-card-title { font-family: var(--font-serif); font-size: 1rem; color: var(--soft-black); font-weight: 400; line-height: 1.2; }
+  .bundle-count-badge { background: var(--charcoal); color: var(--warm-white); font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; padding: 0.5rem 1.2rem; font-weight: 400; text-align: center; }
+  .bundle-includes { font-size: 0.72rem; color: rgba(46,43,39,0.6); text-align: center; letter-spacing: 0.06em; font-weight: 300; }
 
-  .credential-item { }
-  .credential-num {
-    font-family: var(--font-serif);
-    font-size: 1.8rem;
-    font-weight: 300;
-    color: var(--soft-black);
-    display: block;
-    line-height: 1;
-  }
-  .credential-label {
-    font-size: 0.62rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--tan);
-    font-weight: 400;
-  }
+  /* STORY */
+  .story { display: grid; grid-template-columns: 1fr 1fr; min-height: 70vh; }
+  .story-image { background: linear-gradient(140deg, #E8DFD3 0%, #D4C0A8 100%); display: flex; align-items: flex-end; padding: 3rem; min-height: 500px; position: relative; overflow: hidden; }
+  .story-pull-quote { background: var(--charcoal); color: var(--warm-white); padding: 1.5rem 2rem; max-width: 300px; position: relative; z-index: 1; }
+  .pull-quote-mark { font-family: var(--font-serif); font-size: 2.5rem; color: var(--accent); line-height: 0.8; display: block; margin-bottom: 0.4rem; }
+  .pull-quote-text { font-family: var(--font-serif); font-size: 1.05rem; font-style: italic; font-weight: 300; line-height: 1.55; color: var(--warm-white); }
+  .story-content { padding: 6rem 5rem; background: var(--warm-white); display: flex; flex-direction: column; justify-content: center; }
 
-  .hero-right {
-    position: relative;
-    background: var(--sand);
-    overflow: hidden;
-  }
-
-  .hero-image-placeholder {
-    width: 100%;
-    height: 100%;
-    min-height: 600px;
-    background: linear-gradient(160deg, #E8DFD3 0%, #D4C7B8 60%, #C2B09D 100%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 2.5rem;
-  }
-
-  .hero-image-note {
-    background: rgba(253,252,249,0.9);
-    padding: 1rem 1.5rem;
-    font-size: 0.72rem;
-    color: var(--bark);
-    letter-spacing: 0.08em;
-    text-align: center;
-    border: 1px solid rgba(201,187,168,0.4);
-    max-width: 280px;
-  }
-
-  .hero-tag {
-    position: absolute;
-    bottom: 2.5rem;
-    left: -1px;
-    background: var(--charcoal);
-    color: var(--warm-white);
-    font-size: 0.62rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    padding: 0.6rem 1.2rem;
-    font-weight: 400;
-  }
-
-  /* ─── MARQUEE STRIP ─── */
-  .marquee-strip {
-    background: var(--charcoal);
-    color: var(--tan);
-    padding: 0.9rem 0;
-    overflow: hidden;
-    white-space: nowrap;
-  }
-
-  .marquee-inner {
-    display: inline-block;
-    animation: marquee 28s linear infinite;
-    font-size: 0.62rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    font-weight: 400;
-  }
-
-  .marquee-inner span { margin: 0 2.5rem; color: var(--accent); }
-
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-
-  /* ─── INTRO / START HERE ─── */
-  .start-here {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 70vh;
-  }
-
-  .start-image {
-    background: #D6CCBF;
-    position: relative;
-    overflow: hidden;
-    min-height: 500px;
-  }
-
-  .start-image-fill {
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(140deg, #DACED1 0%, #C4B8B0 50%, #A8997E 100%);
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
-    padding: 2rem;
-  }
-
-  .image-caption-tag {
-    background: var(--warm-white);
-    font-size: 0.6rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--bark);
-    padding: 0.4rem 0.8rem;
-    font-weight: 400;
-  }
-
-  .start-content {
-    background: var(--cream);
-    padding: 6rem 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .section-eyebrow {
-    font-size: 0.62rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 1.2rem;
-    font-weight: 400;
-  }
-
-  .section-heading {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--soft-black);
-    margin-bottom: 1.5rem;
-  }
-
+  /* SECTION SHARED */
+  .section-eyebrow { font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; font-weight: 400; }
+  .section-heading { font-family: var(--font-serif); font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; line-height: 1.1; color: var(--soft-black); margin-bottom: 1.5rem; }
   .section-heading em { font-style: italic; color: var(--accent); }
-
-  .section-body {
-    font-size: 0.88rem;
-    line-height: 1.9;
-    color: var(--bark);
-    margin-bottom: 2rem;
-    font-weight: 300;
-  }
-
-  /* ─── THREE PILLARS ─── */
-  .pillars {
-    padding: 7rem 5rem;
-    background: var(--warm-white);
-  }
-
-  .pillars-header {
-    text-align: center;
-    max-width: 540px;
-    margin: 0 auto 5rem;
-  }
-
-  .pillars-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
-    background: var(--sand);
-    border: 1px solid var(--sand);
-  }
-
-  .pillar-card {
-    background: var(--warm-white);
-    padding: 3rem 2.5rem;
-    transition: background 0.3s;
-  }
-
-  .pillar-card:hover { background: var(--cream); }
-
-  .pillar-num {
-    font-family: var(--font-serif);
-    font-size: 3rem;
-    font-weight: 300;
-    color: var(--sand);
-    display: block;
-    line-height: 1;
-    margin-bottom: 1.5rem;
-  }
-
-  .pillar-title {
-    font-family: var(--font-serif);
-    font-size: 1.4rem;
-    font-weight: 400;
-    color: var(--soft-black);
-    margin-bottom: 0.8rem;
-    line-height: 1.2;
-  }
-
-  .pillar-title em { font-style: italic; color: var(--accent); }
-
-  .pillar-body {
-    font-size: 0.83rem;
-    line-height: 1.85;
-    color: var(--bark);
-    font-weight: 300;
-  }
-
-  /* ─── FEATURED / SHOP ─── */
-  .featured {
-    background: var(--cream);
-    padding: 7rem 5rem;
-  }
-
-  .featured-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 4rem;
-  }
-
-  .featured-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  .product-card {
-    position: relative;
-    cursor: pointer;
-  }
-
-  .product-thumb {
-    aspect-ratio: 4/5;
-    margin-bottom: 1.2rem;
-    overflow: hidden;
-  }
-
-  .product-thumb-fill {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.6s ease;
-  }
-
-  .product-card:hover .product-thumb-fill { transform: scale(1.03); }
-
-  .product-thumb-fill.main { background: linear-gradient(140deg, #E2D8CE 0%, #C8B89E 100%); }
-  .product-thumb-fill.secondary { background: linear-gradient(140deg, #D8E0D4 0%, #B8C4B0 100%); }
-  .product-thumb-fill.tertiary { background: linear-gradient(140deg, #E0D4D8 0%, #C4AEB4 100%); }
-
-  .product-thumb-inner {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .product-thumb-label {
-    font-size: 0.6rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(46,43,39,0.5);
-    text-align: center;
-    padding: 1rem;
-    font-weight: 400;
-  }
-
-  .product-badge {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    background: var(--charcoal);
-    color: var(--warm-white);
-    font-size: 0.58rem;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    padding: 0.3rem 0.7rem;
-    font-weight: 400;
-  }
-
-  .product-name {
-    font-family: var(--font-serif);
-    font-size: 1.05rem;
-    font-weight: 400;
-    color: var(--soft-black);
-    margin-bottom: 0.3rem;
-  }
-
-  .product-price {
-    font-size: 0.78rem;
-    color: var(--bark);
-    font-weight: 300;
-    letter-spacing: 0.04em;
-  }
-
-  /* ─── EMAIL OPT-IN ─── */
-  .optin {
-    background: var(--charcoal);
-    padding: 7rem 5rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 5rem;
-    align-items: center;
-  }
-
-  .optin-left .section-eyebrow { color: var(--tan); }
-
-  .optin-heading {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 3.5vw, 3rem);
-    font-weight: 300;
-    color: var(--warm-white);
-    line-height: 1.1;
-    margin-bottom: 1rem;
-  }
-
-  .optin-heading em { font-style: italic; color: var(--accent); }
-
-  .optin-body {
-    font-size: 0.85rem;
-    line-height: 1.9;
-    color: var(--tan);
-    font-weight: 300;
-  }
-
-  .optin-form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .optin-freebie {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(201,187,168,0.2);
-    padding: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .freebie-label {
-    font-size: 0.6rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.5rem;
-    display: block;
-    font-weight: 400;
-  }
-
-  .freebie-title {
-    font-family: var(--font-serif);
-    font-size: 1.15rem;
-    color: var(--warm-white);
-    font-weight: 300;
-    font-style: italic;
-  }
-
-  .optin-input {
-    background: transparent;
-    border: 1px solid rgba(201,187,168,0.3);
-    padding: 0.9rem 1.2rem;
-    color: var(--warm-white);
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    font-weight: 300;
-    outline: none;
-    transition: border-color 0.3s;
-    width: 100%;
-  }
-
-  .optin-input::placeholder { color: rgba(201,187,168,0.5); }
-  .optin-input:focus { border-color: var(--accent); }
-
-  .optin-submit {
-    background: var(--accent);
-    border: none;
-    padding: 0.9rem;
-    color: var(--warm-white);
-    font-family: var(--font-sans);
-    font-size: 0.68rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    font-weight: 400;
-    cursor: pointer;
-    transition: background 0.3s;
-    width: 100%;
-  }
-
-  .optin-submit:hover { background: var(--bark); }
-
-  .optin-disclaimer {
-    font-size: 0.7rem;
-    color: rgba(201,187,168,0.5);
-    font-weight: 300;
-    text-align: center;
-  }
-
-  /* ─── ABOUT STRIP ─── */
-  .about-strip {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 60vh;
-  }
-
-  .about-content {
-    padding: 6rem 5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    background: var(--warm-white);
-  }
-
-  .about-image {
-    background: linear-gradient(150deg, #D4C9BC 0%, #BFAF9D 100%);
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-start;
-    padding: 2.5rem;
-    min-height: 400px;
-  }
-
-  .about-quote {
-    background: var(--charcoal);
-    color: var(--warm-white);
-    padding: 1.2rem 1.5rem;
-    max-width: 260px;
-  }
-
-  .quote-mark {
-    font-family: var(--font-serif);
-    font-size: 2rem;
-    color: var(--accent);
-    line-height: 1;
-    display: block;
-    margin-bottom: -0.3rem;
-  }
-
-  .quote-text {
-    font-family: var(--font-serif);
-    font-size: 0.95rem;
-    font-style: italic;
-    font-weight: 300;
-    line-height: 1.5;
-  }
-
-  /* ─── SOCIAL PROOF ─── */
-  .social-proof {
-    background: var(--cream);
-    padding: 5rem;
-    text-align: center;
-    border-top: 1px solid var(--sand);
-    border-bottom: 1px solid var(--sand);
-  }
-
-  .platforms {
-    display: flex;
-    justify-content: center;
-    gap: 4rem;
-    margin-bottom: 3rem;
-    flex-wrap: wrap;
-  }
-
-  .platform-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.4rem;
-  }
-
-  .platform-num {
-    font-family: var(--font-serif);
-    font-size: 2.2rem;
-    font-weight: 300;
-    color: var(--soft-black);
-    line-height: 1;
-  }
-
-  .platform-name {
-    font-size: 0.6rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--tan);
-    font-weight: 400;
-  }
-
-  .testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin-top: 3rem;
-  }
-
-  .testimonial {
-    text-align: left;
-    padding: 2rem;
-    background: var(--warm-white);
-    border: 1px solid var(--sand);
-  }
-
-  .testimonial-stars {
-    color: var(--accent);
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    margin-bottom: 0.8rem;
-    font-weight: 400;
-  }
-
-  .testimonial-text {
-    font-family: var(--font-serif);
-    font-size: 0.95rem;
-    font-style: italic;
-    font-weight: 300;
-    color: var(--charcoal);
-    line-height: 1.7;
-    margin-bottom: 1rem;
-  }
-
-  .testimonial-author {
-    font-size: 0.65rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--tan);
-    font-weight: 400;
-  }
-
-  /* ─── FOOTER ─── */
-  footer {
-    background: var(--soft-black);
-    padding: 4rem 5rem 2rem;
-    color: var(--bark);
-  }
-
-  .footer-top {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 4rem;
-    margin-bottom: 3rem;
-    padding-bottom: 3rem;
-    border-bottom: 1px solid rgba(201,187,168,0.15);
-  }
-
-  .footer-brand-name {
-    font-family: var(--font-serif);
-    font-size: 1.2rem;
-    color: var(--warm-white);
-    font-weight: 300;
-    margin-bottom: 0.8rem;
-    display: block;
-  }
-
-  .footer-tagline {
-    font-size: 0.78rem;
-    color: var(--bark);
-    font-weight: 300;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-  }
-
-  .footer-social {
-    display: flex;
-    gap: 0.8rem;
-  }
-
-  .social-link {
-    width: 32px;
-    height: 32px;
-    border: 1px solid rgba(201,187,168,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.6rem;
-    letter-spacing: 0.06em;
-    color: var(--bark);
-    text-decoration: none;
-    transition: border-color 0.3s, color 0.3s;
-    font-weight: 400;
-  }
-
-  .social-link:hover { border-color: var(--accent); color: var(--accent); }
-
-  .footer-col-title {
-    font-size: 0.6rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--warm-white);
-    margin-bottom: 1.2rem;
-    font-weight: 400;
-  }
-
-  .footer-links { list-style: none; }
-
-  .footer-links li { margin-bottom: 0.6rem; }
-
-  .footer-links a {
-    font-size: 0.8rem;
-    color: var(--bark);
-    text-decoration: none;
-    font-weight: 300;
-    transition: color 0.3s;
-  }
-
-  .footer-links a:hover { color: var(--warm-white); }
-
-  .footer-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 0.68rem;
-    color: rgba(140,123,104,0.5);
-    font-weight: 300;
-  }
-
-  /* ─── RESPONSIVE ─── */
+  .section-body { font-size: 0.88rem; line-height: 1.95; color: var(--bark); margin-bottom: 1.2rem; font-weight: 300; }
+
+  /* WHO IT'S FOR */
+  .for-you { background: var(--charcoal); padding: 7rem 5rem; }
+  .for-you-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; margin-top: 4rem; }
+  .for-you .section-eyebrow { color: var(--tan); }
+  .for-you .section-heading { color: var(--warm-white); }
+  .symptom-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+  .symptom-item { display: flex; align-items: flex-start; gap: 1rem; padding: 1.2rem 1.5rem; background: rgba(255,255,255,0.05); border-left: 2px solid var(--accent); }
+  .symptom-text { font-size: 0.85rem; color: var(--tan); font-weight: 300; line-height: 1.6; }
+  .symptom-text strong { display: block; color: var(--warm-white); font-weight: 400; margin-bottom: 0.2rem; font-size: 0.88rem; }
+
+  /* WHAT YOU GET */
+  .bundle-contents { padding: 7rem 5rem; background: var(--cream); }
+  .bundle-header { text-align: center; max-width: 560px; margin: 0 auto 5rem; }
+  .ebook-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--sand); border: 1px solid var(--sand); margin-bottom: 3rem; }
+  .ebook-card { background: var(--warm-white); padding: 2.5rem; transition: background 0.3s; position: relative; overflow: hidden; }
+  .ebook-card:hover { background: var(--cream); }
+  .ebook-number { font-family: var(--font-serif); font-size: 4rem; font-weight: 300; color: var(--sand); line-height: 1; position: absolute; top: 1.5rem; right: 2rem; }
+  .ebook-tag { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); font-weight: 400; margin-bottom: 0.6rem; display: block; }
+  .ebook-title { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 400; color: var(--soft-black); margin-bottom: 0.8rem; line-height: 1.2; }
+  .ebook-title em { font-style: italic; color: var(--accent); }
+  .ebook-desc { font-size: 0.82rem; line-height: 1.85; color: var(--bark); font-weight: 300; }
+  .ebook-list { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; margin-top: 1rem; }
+  .ebook-list li { display: flex; align-items: flex-start; gap: 0.6rem; font-size: 0.8rem; color: var(--bark); font-weight: 300; line-height: 1.5; }
+  .ebook-list li::before { content: ''; width: 4px; height: 4px; background: var(--rose); display: block; flex-shrink: 0; margin-top: 7px; border-radius: 50%; }
+
+  /* BONUS STRIP */
+  .bonus-strip { background: var(--charcoal); padding: 2.5rem 3rem; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 2rem; }
+  .bonus-label { font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); font-weight: 400; writing-mode: vertical-rl; text-orientation: mixed; transform: rotate(180deg); }
+  .bonus-title { font-family: var(--font-serif); font-size: 1.4rem; font-weight: 300; color: var(--warm-white); font-style: italic; margin-bottom: 0.4rem; }
+  .bonus-desc { font-size: 0.8rem; color: var(--tan); font-weight: 300; }
+  .bonus-count { font-family: var(--font-serif); font-size: 3rem; font-weight: 300; color: var(--accent); line-height: 1; text-align: right; }
+  .bonus-count span { display: block; font-family: var(--font-sans); font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--tan); font-weight: 400; font-style: normal; }
+
+  /* JOURNEY */
+  .journey { padding: 7rem 5rem; background: var(--warm-white); }
+  .journey-header { text-align: center; max-width: 520px; margin: 0 auto 5rem; }
+  .timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+  .timeline::before { content: ''; position: absolute; top: 28px; left: 10%; right: 10%; height: 1px; background: var(--sand); z-index: 0; }
+  .timeline-step { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 1rem; position: relative; z-index: 1; }
+  .timeline-dot { width: 56px; height: 56px; border: 1px solid var(--sand); background: var(--warm-white); display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; font-family: var(--font-serif); font-size: 1.1rem; font-weight: 300; color: var(--accent); flex-shrink: 0; }
+  .timeline-label { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bark); font-weight: 400; margin-bottom: 0.5rem; }
+  .timeline-desc { font-size: 0.75rem; color: var(--tan); font-weight: 300; line-height: 1.6; }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--cream); padding: 7rem 5rem; border-top: 1px solid var(--sand); }
+  .testimonials-header { text-align: center; margin-bottom: 4rem; }
+  .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .testimonial { background: var(--warm-white); border: 1px solid var(--sand); padding: 2.5rem; }
+  .testimonial-stars { color: var(--accent); font-size: 0.7rem; letter-spacing: 0.2em; margin-bottom: 1rem; font-weight: 400; }
+  .testimonial-text { font-family: var(--font-serif); font-size: 1rem; font-style: italic; font-weight: 300; color: var(--charcoal); line-height: 1.7; margin-bottom: 1.5rem; }
+  .testimonial-divider { width: 24px; height: 1px; background: var(--tan); margin-bottom: 1rem; }
+  .testimonial-author { font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--tan); font-weight: 400; }
+
+  /* BUY */
+  .buy-section { background: var(--soft-black); padding: 7rem 5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .buy-left .section-eyebrow { color: var(--tan); }
+  .buy-heading { font-family: var(--font-serif); font-size: clamp(2.2rem, 4vw, 3.5rem); font-weight: 300; color: var(--warm-white); line-height: 1.1; margin-bottom: 1.5rem; }
+  .buy-heading em { font-style: italic; color: var(--accent); }
+  .buy-body { font-size: 0.85rem; line-height: 1.9; color: var(--tan); font-weight: 300; margin-bottom: 2rem; }
+  .buy-card { background: var(--warm-white); padding: 3rem; position: relative; }
+  .buy-card-tag { position: absolute; top: -1px; left: 3rem; background: var(--accent); color: var(--warm-white); font-size: 0.58rem; letter-spacing: 0.16em; text-transform: uppercase; padding: 0.4rem 1rem; font-weight: 400; }
+  .buy-card-title { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; color: var(--soft-black); margin-bottom: 0.3rem; margin-top: 1rem; }
+  .buy-card-subtitle { font-size: 0.75rem; color: var(--bark); font-weight: 300; margin-bottom: 2rem; letter-spacing: 0.04em; }
+  .buy-includes { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--sand); }
+  .buy-includes li { display: flex; align-items: center; gap: 0.8rem; font-size: 0.83rem; color: var(--charcoal); font-weight: 300; }
+  .buy-includes li::before { content: ''; width: 5px; height: 5px; background: var(--rose); display: block; flex-shrink: 0; }
+  .buy-price-row { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 1.5rem; }
+  .buy-price { font-family: var(--font-serif); font-size: 2.8rem; font-weight: 300; color: var(--soft-black); line-height: 1; }
+  .buy-price-note { font-size: 0.72rem; color: var(--bark); font-weight: 300; text-align: right; }
+  .buy-guarantee-row { display: flex; align-items: center; gap: 0.8rem; margin-top: 1.2rem; padding-top: 1.2rem; border-top: 1px solid var(--sand); }
+  .guarantee-icon { width: 36px; height: 36px; border: 1px solid var(--sand); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .guarantee-icon::after { content: '✓'; font-size: 0.9rem; color: var(--rose); }
+  .guarantee-text { font-size: 0.72rem; color: var(--bark); font-weight: 300; line-height: 1.5; }
+
+  /* FAQ */
+  .faq { padding: 7rem 5rem; background: var(--warm-white); max-width: 860px; margin: 0 auto; }
+  .faq-header { text-align: center; margin-bottom: 4rem; }
+  .faq-item { border-bottom: 1px solid var(--sand); padding: 1.8rem 0; cursor: pointer; }
+  .faq-question { display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-size: 0.9rem; color: var(--soft-black); font-weight: 400; letter-spacing: 0.02em; }
+  .faq-toggle { width: 20px; height: 20px; border: 1px solid var(--tan); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.8rem; color: var(--tan); transition: all 0.3s; }
+  .faq-answer { font-size: 0.83rem; line-height: 1.9; color: var(--bark); font-weight: 300; max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s; }
+  .faq-answer.open { max-height: 300px; padding-top: 1rem; }
+  .faq-toggle.open { background: var(--charcoal); border-color: var(--charcoal); color: var(--warm-white); }
+
+  /* FINAL CTA */
+  .final-cta { background: var(--cream); padding: 7rem 5rem; text-align: center; border-top: 1px solid var(--sand); }
+  .final-cta .section-eyebrow { justify-content: center; display: flex; }
+  .final-heading { font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; color: var(--soft-black); line-height: 1.1; margin-bottom: 1.5rem; }
+  .final-heading em { font-style: italic; color: var(--accent); }
+  .final-body { font-size: 0.9rem; color: var(--bark); font-weight: 300; max-width: 500px; margin: 0 auto 2.5rem; line-height: 1.85; }
+
+  /* FOOTER */
+  footer { background: var(--soft-black); padding: 3rem 5rem; color: var(--bark); display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(201,187,168,0.1); }
+  .footer-logo { font-family: var(--font-serif); font-size: 1rem; color: var(--warm-white); font-weight: 300; text-decoration: none; }
+  .footer-links-row { display: flex; gap: 2rem; list-style: none; }
+  .footer-links-row a { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--bark); text-decoration: none; font-weight: 300; transition: color 0.3s; }
+  .footer-links-row a:hover { color: var(--warm-white); }
+  .footer-copy { font-size: 0.68rem; color: rgba(140,123,104,0.5); font-weight: 300; }
+
+  /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; }
-    .hero-right { display: none; }
-    .hero-left { padding: 4rem 2rem; }
-    .start-here, .optin, .about-strip { grid-template-columns: 1fr; }
-    .start-image, .about-image { display: none; }
-    .start-content, .about-content { padding: 4rem 2rem; }
-    .optin { padding: 4rem 2rem; gap: 3rem; }
-    .pillars { padding: 4rem 2rem; }
-    .pillars-grid { grid-template-columns: 1fr; }
-    .featured { padding: 4rem 2rem; }
-    .featured-grid { grid-template-columns: 1fr; }
-    .featured-header { flex-direction: column; gap: 1rem; align-items: flex-start; }
-    .social-proof { padding: 4rem 2rem; }
+    .hero, .story, .buy-section { grid-template-columns: 1fr; }
+    .hero-left { padding: 3rem 2rem; }
+    .hero-right { padding: 3rem 2rem; min-height: 400px; }
+    .story-image { display: none; }
+    .story-content { padding: 4rem 2rem; }
+    .for-you { padding: 4rem 2rem; }
+    .for-you-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .bundle-contents { padding: 4rem 2rem; }
+    .ebook-grid { grid-template-columns: 1fr; }
+    .journey { padding: 4rem 2rem; }
+    .timeline { grid-template-columns: 1fr; }
+    .timeline::before { display: none; }
+    .testimonials { padding: 4rem 2rem; }
     .testimonial-grid { grid-template-columns: 1fr; }
-    .footer-top { grid-template-columns: 1fr 1fr; gap: 2rem; }
-    footer { padding: 3rem 2rem 1.5rem; }
+    .buy-section { padding: 4rem 2rem; gap: 3rem; }
+    .faq { padding: 4rem 2rem; }
+    .final-cta { padding: 4rem 2rem; }
+    footer { padding: 2rem; flex-direction: column; gap: 1.5rem; text-align: center; }
+    .footer-links-row { flex-wrap: wrap; justify-content: center; }
+    .timeline-step { flex-direction: row; text-align: left; gap: 1rem; padding: 1rem 0; }
+    .timeline-dot { flex-shrink: 0; }
   }
 </style>
 </head>
@@ -835,272 +222,364 @@
   <a href="index.html" class="nav-logo">Chelsea Celeste</a>
   <ul class="nav-links">
     <li><a href="index.html">Home</a></li>
+    <li><a href="index.html#shop">Shop</a></li>
     <li><a href="chelseaceleste-about.html">About</a></li>
-    <li><a href="chelseaceleste-blog.html">Blog</a></li>
-    <li><a href="index.html#resources">Shop</a></li>
-    <li><a href="chelseaceleste-freebies.html">Freebies</a></li>
-    <li><a href="chelseaceleste-freebies.html" class="nav-cta">Free Guide</a></li>
+    <li><a href="#buy" class="nav-cta">Get the Bundle</a></li>
   </ul>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
-    <p class="hero-eyebrow">Chelsea Celeste, MSc Nutritionist</p>
+    <p class="hero-eyebrow">Eat Your Skincare™</p>
     <h1 class="hero-headline">
-      Your skin<br>is <em>hungry.</em>
+      Your skin is<br><em>hungry.</em>
     </h1>
-    <p class="hero-subhead">Nourish it from the inside out.</p>
-    <p class="hero-body">
-      I'm Chelsea — a nutritionist, mom, and your guide to glowing skin through the food on your plate. No complicated routines. No deprivation. Just the science-backed connection between what you eat and how you radiate.
-    </p>
-    <div class="hero-actions">
-      <a href="#start-here" class="btn-primary">Start Here</a>
-      <a href="#shop" class="btn-secondary">Shop the Bundle</a>
+    <p class="hero-subhead">The meal plan and ebook that teaches you to glow from the inside out — food-first, science-backed, and actually doable.</p>
+    <div class="hero-promise">
+      <div class="promise-item">
+        <div class="promise-check"></div>
+        <span>Understand exactly which foods feed your skin and why</span>
+      </div>
+      <div class="promise-item">
+        <div class="promise-check"></div>
+        <span>Follow a 4-week skin glow meal plan with 30+ recipes</span>
+      </div>
+      <div class="promise-item">
+        <div class="promise-check"></div>
+        <span>Replace expensive serums with food-first protocols</span>
+      </div>
+      <div class="promise-item">
+        <div class="promise-check"></div>
+        <span>Glow from the inside out — no restriction, no guilt</span>
+      </div>
     </div>
-    <div class="hero-credentials">
-      <div class="credential-item">
-        <span class="credential-num">MSc</span>
-        <span class="credential-label">Nutrition & Human Performance</span>
+    <div class="hero-cta-group">
+      <div class="price-display">
+        <span class="price-main">$95 USD</span>
+        <span class="price-sub">Ebook + 4-Week Meal Plan</span>
       </div>
-      <div class="credential-item">
-        <span class="credential-num">4</span>
-        <span class="credential-label">Free Resources</span>
-      </div>
+      <a href="#buy" class="btn-accent btn-large">Yes — I'm Ready to Glow</a>
+      <p class="hero-guarantee">Instant digital download · No shipping · Yours forever</p>
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-image-placeholder">
-      <div class="hero-image-note">
-        ↑ Your photo goes here — ideally a warm, natural lifestyle shot
+    <div class="bundle-stack">
+      <div class="bundle-card">
+        <span class="bundle-card-num">The Ebook</span>
+        <p class="bundle-card-title">Eat Your Skincare — The Science of Food-First Beauty</p>
+      </div>
+      <div class="bundle-card">
+        <span class="bundle-card-num">The Meal Plan</span>
+        <p class="bundle-card-title">Your 4-Week Skin Glow Meal Plan</p>
+      </div>
+      <div class="bundle-card">
+        <span class="bundle-card-num">The Recipes</span>
+        <p class="bundle-card-title">30+ Skin-Nourishing Recipes Included</p>
       </div>
     </div>
-    <div class="hero-tag">Eat Your Skincare™</div>
+    <div class="bundle-count-badge">Ebook + Meal Plan + Recipes Included</div>
+    <p class="bundle-includes">30+ skin-nourishing recipes · Shopping lists · Prep guides</p>
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee-strip">
-  <div class="marquee-inner">
-    Eat Your Skincare <span>✦</span> Food-First Beauty <span>✦</span> MSc Nutritionist <span>✦</span> Derm-Backed Protocols <span>✦</span> Glow From Within <span>✦</span> Anti-Inflammatory Nutrition <span>✦</span> Skin + Gut Connection <span>✦</span>
-    Eat Your Skincare <span>✦</span> Food-First Beauty <span>✦</span> MSc Nutritionist <span>✦</span> Derm-Backed Protocols <span>✦</span> Glow From Within <span>✦</span> Anti-Inflammatory Nutrition <span>✦</span> Skin + Gut Connection <span>✦</span>
-  </div>
-</div>
-
-<!-- START HERE -->
-<section class="start-here" id="start-here">
-  <div class="start-image">
-    <div class="start-image-fill">
-      <span class="image-caption-tag">Lifestyle photo ↓</span>
+<!-- STORY -->
+<section class="story">
+  <div class="story-image">
+    <div class="story-pull-quote">
+      <span class="pull-quote-mark">"</span>
+      <p class="pull-quote-text">Your most glowing skin doesn't come from a $300 serum. It comes from your plate.</p>
     </div>
   </div>
-  <div class="start-content">
-    <p class="section-eyebrow">New here?</p>
-    <h2 class="section-heading">This is your<br><em>starting point.</em></h2>
-    <p class="section-body">
-      I believe your most glowing skin doesn't come from a $300 serum — it comes from your plate. As a nutritionist with an MSc in Human Performance and a mom who's navigated health challenges firsthand, I bridge the gap between science and your actual, busy life.
-    </p>
-    <p class="section-body">
-      Here you'll find recipes that feed your skin, protocols backed by real nutrition science, and a no-diet, no-guilt philosophy that actually works long-term. Welcome.
-    </p>
-    <a href="#about" class="btn-primary">Meet Chelsea</a>
+  <div class="story-content">
+    <p class="section-eyebrow">The Chelsea Celeste Philosophy</p>
+    <h2 class="section-heading">Food-first beauty<br>is <em>real.</em></h2>
+    <p class="section-body">I spent years watching women spend hundreds — sometimes thousands — on skincare products that gave them temporary results at best. Meanwhile, the research has always been clear: what you eat is the foundation of how your skin looks, feels, and ages.</p>
+    <p class="section-body">As an MSc nutritionist, I built Eat Your Skincare to close that gap. To give you the science without the overwhelm, the meal plan without the restriction, and the results that actually last — because they're built from the inside out.</p>
+    <p class="section-body">This isn't a detox. It isn't a diet. It's the knowledge and the practical tools to nourish your skin through the food you eat every single day.</p>
   </div>
 </section>
 
-<!-- PILLARS -->
-<section class="pillars" id="approach">
-  <div class="pillars-header">
-    <p class="section-eyebrow">The Framework</p>
-    <h2 class="section-heading">Three pillars of<br><em>skin nutrition</em></h2>
-  </div>
-  <div class="pillars-grid">
-    <div class="pillar-card">
-      <span class="pillar-num">01</span>
-      <h3 class="pillar-title"><em>Eat</em> Your Skincare</h3>
-      <p class="pillar-body">Collagen-building foods, antioxidant-rich recipes, and anti-inflammatory meal plans designed to work from the inside out — no restrictive diets required.</p>
-    </div>
-    <div class="pillar-card">
-      <span class="pillar-num">02</span>
-      <h3 class="pillar-title">Layer <em>Intelligently</em></h3>
-      <p class="pillar-body">Derm-backed topical routines that complement your nutrition — not replace it. I pair food-first protocols with the products that science actually supports.</p>
-    </div>
-    <div class="pillar-card">
-      <span class="pillar-num">03</span>
-      <h3 class="pillar-title">Live <em>Freely</em></h3>
-      <p class="pillar-body">Anti-diet, food-freedom philosophy woven into every resource. Health shouldn't feel like punishment — it should feel like nourishment. That's the Chelsea Celeste way.</p>
-    </div>
+<!-- WHO IT'S FOR -->
+<section class="for-you">
+  <p class="section-eyebrow">This is for you</p>
+  <h2 class="section-heading">Does any of this <em>sound familiar?</em></h2>
+  <div class="for-you-grid">
+    <ul class="symptom-list">
+      <li class="symptom-item">
+        <div class="symptom-text">
+          <strong>You've spent a fortune on skincare</strong>
+          Serums, creams, tools — and your skin still isn't where you want it to be.
+        </div>
+      </li>
+      <li class="symptom-item">
+        <div class="symptom-text">
+          <strong>Your skin is dull, congested, or inflamed</strong>
+          And no topical product has given you the lasting results you're looking for.
+        </div>
+      </li>
+      <li class="symptom-item">
+        <div class="symptom-text">
+          <strong>You know food plays a role, but you're not sure how</strong>
+          You've heard collagen and antioxidants mentioned but don't know what to actually eat.
+        </div>
+      </li>
+    </ul>
+    <ul class="symptom-list">
+      <li class="symptom-item">
+        <div class="symptom-text">
+          <strong>You're a busy woman or mom</strong>
+          You need real, practical meals — not complicated recipes that take an hour to make.
+        </div>
+      </li>
+      <li class="symptom-item">
+        <div class="symptom-text">
+          <strong>You're tired of restriction</strong>
+          You want to feel good about what you eat and see it reflected in your skin — without dieting.
+        </div>
+      </li>
+      <li class="symptom-item">
+        <div class="symptom-text">
+          <strong>You want results that last</strong>
+          Not a 3-day glow that disappears the moment you stop using a product.
+        </div>
+      </li>
+    </ul>
   </div>
 </section>
 
-<!-- SHOP -->
-<section class="featured" id="shop">
-  <div class="featured-header">
+<!-- WHAT YOU GET -->
+<section class="bundle-contents" id="bundle">
+  <div class="bundle-header">
+    <p class="section-eyebrow">Everything included</p>
+    <h2 class="section-heading">The complete<br><em>bundle.</em></h2>
+    <p style="font-size:0.85rem; color:var(--bark); font-weight:300; line-height:1.8; margin-top:1rem;">Two comprehensive resources covering the full food-first beauty journey — from understanding the science to following the plan.</p>
+  </div>
+  <div class="ebook-grid">
+    <div class="ebook-card">
+      <span class="ebook-number">01</span>
+      <span class="ebook-tag">The Ebook</span>
+      <h3 class="ebook-title">Eat Your Skincare —<br>The <em>Science</em> of Food-First Beauty</h3>
+      <p class="ebook-desc">The complete guide to understanding the connection between what you eat and how your skin looks. Chelsea translates MSc-level nutrition science into practical, joyful knowledge you can actually use.</p>
+      <ul class="ebook-list">
+        <li>The skin-nutrition connection — explained clearly</li>
+        <li>Collagen-building foods and how to eat more of them</li>
+        <li>Anti-inflammatory eating for clearer, calmer skin</li>
+        <li>The gut-skin axis and why your digestion matters</li>
+        <li>Top nutrients for radiance — vitamin C, zinc, omega-3s, and more</li>
+        <li>What to limit and what to prioritise for your best skin</li>
+      </ul>
+    </div>
+    <div class="ebook-card">
+      <span class="ebook-number">02</span>
+      <span class="ebook-tag">The Meal Plan</span>
+      <h3 class="ebook-title">Your 4-Week<br><em>Skin Glow</em> Meal Plan</h3>
+      <p class="ebook-desc">Four weeks of skin-nourishing meals, 30+ recipes, weekly shopping lists, and prep guides — all designed for busy women who want results without spending their life in the kitchen.</p>
+      <ul class="ebook-list">
+        <li>4 weeks of complete daily meal plans</li>
+        <li>30+ skin-nourishing recipes — breakfast, lunch, dinner, snacks</li>
+        <li>Weekly shopping lists, ready to print and go</li>
+        <li>Meal prep guides to save time during the week</li>
+        <li>Anti-inflammatory, collagen-building, and gut-friendly meals</li>
+        <li>No complicated ingredients — real food, real life</li>
+      </ul>
+    </div>
+  </div>
+  <div class="bonus-strip">
+    <span class="bonus-label">Also Included</span>
     <div>
-      <p class="section-eyebrow">Digital Resources</p>
-      <h2 class="section-heading">Shop the <em>Collection</em></h2>
+      <p class="bonus-title">The Skin Glow Starter Guide</p>
+      <p class="bonus-desc">The Top 12 Skin-Glow Foods & How to Use Them — a beautifully simple quick-reference guide to keep on your fridge.</p>
     </div>
-    <a href="#shop" class="btn-secondary">View All</a>
-  </div>
-  <div class="featured-grid">
-    <div class="product-card">
-      <div class="product-thumb">
-        <div class="product-thumb-fill main">
-          <div class="product-thumb-inner">
-            <span class="product-thumb-label">Eat Your Skincare<br>Meal Plan + Ebook</span>
-          </div>
-        </div>
-      </div>
-      <span class="product-badge">Best Seller</span>
-      <p class="product-name">Eat Your Skincare Bundle</p>
-      <p class="product-price">$95 USD — Meal Plan + Ebook</p>
-    </div>
-    <a href="chelseaceleste-eoe-sales-page.html" class="product-card" style="text-decoration:none; color:inherit;">
-      <div class="product-thumb">
-        <div class="product-thumb-fill secondary">
-          <div class="product-thumb-inner">
-            <span class="product-thumb-label">Be Free From EoE<br>5 Ebook Bundle</span>
-          </div>
-        </div>
-      </div>
-      <p class="product-name">Be Free From EoE</p>
-      <p class="product-price">$95 USD — 5 Ebooks + Recipe Books</p>
-    </a>
-    <a href="chelseaceleste-intuitive-eating.html" class="product-card" style="text-decoration:none; color:inherit;">
-      <div class="product-thumb">
-        <div class="product-thumb-fill tertiary">
-          <div class="product-thumb-inner">
-            <span class="product-thumb-label">Intuitive Eating<br>Guide &amp; Workbook</span>
-          </div>
-        </div>
-      </div>
-      <p class="product-name">Intuitive Eating Guide & Workbook</p>
-      <p class="product-price">$15 USD — Guide + Workbook</p>
-    </a>
-  </div>
-</section>
-
-<!-- EMAIL OPT-IN -->
-<section class="optin" id="freebie">
-  <div class="optin-left">
-    <p class="section-eyebrow">Free Download</p>
-    <h2 class="optin-heading">Your skin<br><em>glow guide</em><br>is waiting.</h2>
-    <p class="optin-body">
-      A science-backed, nutritionist-approved starter guide to eating for skin health — beautifully simple, genuinely effective. Delivered straight to your inbox, completely free.
-    </p>
-  </div>
-  <div class="optin-form">
-    <div class="optin-freebie">
-      <span class="freebie-label">You're getting:</span>
-      <p class="freebie-title">The Eat Your Skincare Starter Guide — The Top 12 Skin-Glow Foods & How to Use Them</p>
-    </div>
-    <input type="text" class="optin-input" placeholder="First name">
-    <input type="email" class="optin-input" placeholder="Email address">
-    <button class="optin-submit">Send Me the Guide</button>
-    <p class="optin-disclaimer">No spam. Unsubscribe anytime. Your inbox is sacred.</p>
-  </div>
-</section>
-
-<!-- ABOUT STRIP -->
-<section class="about-strip" id="about">
-  <div class="about-content">
-    <p class="section-eyebrow">The Science Behind the Glow</p>
-    <h2 class="section-heading">Hi, I'm <em>Chelsea.</em></h2>
-    <p class="section-body">
-      I hold an MSc in Nutrition and Human Performance, and I've spent years translating complex nutrition science into practical, joyful habits for busy women and moms. My approach is rooted in food freedom — no calorie counting, no guilt, no diet culture.
-    </p>
-    <p class="section-body">
-      When I'm not creating content across YouTube, Instagram, and TikTok, I'm in the kitchen experimenting with skin-nourishing recipes — or chasing my kids.
-    </p>
-    <a href="#about" class="btn-primary">Read My Full Story</a>
-  </div>
-  <div class="about-image">
-    <div class="about-quote">
-      <span class="quote-mark">"</span>
-      <p class="quote-text">Sustainable lifestyle changes can change your life — and I'm passionate about using education to help you live a life of freedom from food.</p>
+    <div class="bonus-count">
+      +1
+      <span>Bonus Guide</span>
     </div>
   </div>
 </section>
 
-<!-- SOCIAL PROOF -->
-<section class="social-proof" id="blog">
-  <p class="section-eyebrow" style="text-align:center; margin-bottom:3rem;">Find Me Everywhere</p>
-  <div class="platforms">
-    <div class="platform-item">
-      <span class="platform-num">YouTube</span>
-      <span class="platform-name">@chelseacelestenutrition</span>
+<!-- JOURNEY TIMELINE -->
+<section class="journey">
+  <div class="journey-header">
+    <p class="section-eyebrow">Your skin glow journey</p>
+    <h2 class="section-heading">From plate<br>to <em>glow.</em></h2>
+  </div>
+  <div class="timeline">
+    <div class="timeline-step">
+      <div class="timeline-dot">I</div>
+      <p class="timeline-label">Understand</p>
+      <p class="timeline-desc">Learn the science behind skin nutrition and why food-first beauty works.</p>
     </div>
-    <div class="platform-item">
-      <span class="platform-num">Instagram</span>
-      <span class="platform-name">@chelcceleste</span>
+    <div class="timeline-step">
+      <div class="timeline-dot">II</div>
+      <p class="timeline-label">Stock</p>
+      <p class="timeline-desc">Know exactly which foods to buy — and which to minimise — for radiant skin.</p>
     </div>
-    <div class="platform-item">
-      <span class="platform-num">TikTok</span>
-      <span class="platform-name">@chelcceleste</span>
+    <div class="timeline-step">
+      <div class="timeline-dot">III</div>
+      <p class="timeline-label">Eat</p>
+      <p class="timeline-desc">Follow your 4-week skin glow meal plan with easy, delicious recipes.</p>
     </div>
+    <div class="timeline-step">
+      <div class="timeline-dot">IV</div>
+      <p class="timeline-label">Notice</p>
+      <p class="timeline-desc">Watch your skin respond to real, consistent nourishment from the inside out.</p>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-dot">V</div>
+      <p class="timeline-label">Thrive</p>
+      <p class="timeline-desc">Make food-first beauty your permanent lifestyle — effortlessly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="testimonials-header">
+    <p class="section-eyebrow">What women are saying</p>
+    <h2 class="section-heading">Real results,<br><em>real women.</em></h2>
   </div>
   <div class="testimonial-grid">
     <div class="testimonial">
       <p class="testimonial-stars">★ ★ ★ ★ ★</p>
-      <p class="testimonial-text">"Chelsea makes nutrition actually approachable. I've been following her protocols for 3 months and my skin has completely transformed."</p>
+      <p class="testimonial-text">"Chelsea makes nutrition actually approachable. I've been following her protocols for 3 months and my skin has completely transformed. I can't believe how much of a difference food makes."</p>
+      <div class="testimonial-divider"></div>
       <p class="testimonial-author">— Sarah M., Community Member</p>
     </div>
     <div class="testimonial">
       <p class="testimonial-stars">★ ★ ★ ★ ★</p>
-      <p class="testimonial-text">"The Eat Your Skincare meal plan is the first thing I've ever actually stuck to. It doesn't feel like a diet — it feels like self-care."</p>
-      <p class="testimonial-author">— Jenna K., Eat Your Skincare Bundle</p>
+      <p class="testimonial-text">"The Eat Your Skincare meal plan is the first thing I've ever actually stuck to. It doesn't feel like a diet — it feels like self-care. My skin is clearer and I actually enjoy eating this way."</p>
+      <div class="testimonial-divider"></div>
+      <p class="testimonial-author">— Jenna K., Eat Your Skincare Bundle Customer</p>
     </div>
     <div class="testimonial">
       <p class="testimonial-stars">★ ★ ★ ★ ★</p>
-      <p class="testimonial-text">"I love that Chelsea backs everything with her MSc-level knowledge but explains it in a way that feels totally real and human. She gets busy moms."</p>
+      <p class="testimonial-text">"I love that Chelsea backs everything with her MSc-level knowledge but explains it in a way that feels totally real and human. This bundle is worth every penny and then some."</p>
+      <div class="testimonial-divider"></div>
       <p class="testimonial-author">— Rachel T., YouTube Subscriber</p>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div>
-      <span class="footer-brand-name">Chelsea Celeste</span>
-      <p class="footer-tagline">Nutritionist, MSc. Helping busy women<br>glow from the inside out.</p>
-      <div class="footer-social">
-        <a href="https://www.youtube.com/@chelcceleste" class="social-link">YT</a>
-        <a href="https://www.instagram.com/Chelsea.celeste" class="social-link">IG</a>
-        <a href="https://www.tiktok.com/@chelcceleste" class="social-link">TK</a>
+<!-- BUY SECTION -->
+<section class="buy-section" id="buy">
+  <div class="buy-left">
+    <p class="section-eyebrow">Get instant access</p>
+    <h2 class="buy-heading">Your skin has been<br>waiting for <em>this.</em></h2>
+    <p class="buy-body">The Eat Your Skincare Bundle gives you everything you need to understand food-first beauty and put it into practice immediately. No fluff, no filler — just the science, the meals, and the results.</p>
+    <p class="buy-body">Questions? Reach Chelsea on Instagram <a href="https://www.instagram.com/Chelsea.celeste" style="color:var(--accent); text-decoration:none;">@Chelsea.celeste</a> — she genuinely reads her DMs.</p>
+  </div>
+  <div>
+    <div class="buy-card">
+      <span class="buy-card-tag">Complete Bundle</span>
+      <h3 class="buy-card-title">Eat Your Skincare™</h3>
+      <p class="buy-card-subtitle">Meal Plan + Ebook + Bonus Guide</p>
+      <ul class="buy-includes">
+        <li>The Eat Your Skincare Ebook (full guide)</li>
+        <li>The 4-Week Skin Glow Meal Plan</li>
+        <li>30+ skin-nourishing recipes</li>
+        <li>Weekly shopping lists + prep guides</li>
+        <li>The Skin Glow Starter Guide (bonus)</li>
+        <li>Lifetime access + all future updates</li>
+        <li>Instant digital download (PDF)</li>
+      </ul>
+      <div class="buy-price-row">
+        <span class="buy-price">$95 USD</span>
+        <span class="buy-price-note">One-time payment<br>No subscription</span>
+      </div>
+      <a href="#" class="btn-accent" style="width:100%; text-align:center; display:block;">Yes — I'm Ready to Glow</a>
+      <div class="buy-guarantee-row">
+        <div class="guarantee-icon"></div>
+        <p class="guarantee-text">Instant digital delivery. Yours to keep forever. All future updates included at no extra cost.</p>
       </div>
     </div>
-    <div>
-      <p class="footer-col-title">Explore</p>
-      <ul class="footer-links">
-        <li><a href="#start-here">Start Here</a></li>
-        <li><a href="#shop">Shop</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#blog">Blog</a></li>
-      </ul>
-    </div>
-    <div>
-      <p class="footer-col-title">Resources</p>
-      <ul class="footer-links">
-        <li><a href="#">Free Guide</a></li>
-        <li><a href="#">ShopMy</a></li>
-        <li><a href="#">YouTube</a></li>
-      </ul>
-    </div>
-    <div>
-      <p class="footer-col-title">Work With Me</p>
-      <ul class="footer-links">
-        <li><a href="#contact">Brand Partnerships</a></li>
-        <li><a href="#contact">UGC Inquiries</a></li>
-        <li><a href="#contact">Media Kit</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
   </div>
-  <div class="footer-bottom">
-    <span>© 2025 Chelsea Celeste. All rights reserved.</span>
-    <span>chelcceleste</span>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-header">
+    <p class="section-eyebrow">Common questions</p>
+    <h2 class="section-heading">Everything you<br>want to <em>know.</em></h2>
   </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span>What exactly is in the bundle?</span>
+      <div class="faq-toggle">+</div>
+    </div>
+    <div class="faq-answer">The Eat Your Skincare Bundle includes two main resources: the Eat Your Skincare Ebook (the science of food-first beauty) and the 4-Week Skin Glow Meal Plan (with 30+ recipes, weekly shopping lists, and prep guides). You also receive the Skin Glow Starter Guide as a bonus — a quick-reference guide to the top 12 skin-glow foods.</div>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span>Is this a restrictive diet or detox?</span>
+      <div class="faq-toggle">+</div>
+    </div>
+    <div class="faq-answer">Absolutely not. This is rooted in Chelsea's food freedom philosophy — no calorie counting, no restriction, no guilt. The meal plan focuses on adding nourishing, skin-feeding foods rather than cutting things out. It's designed to feel like self-care, not punishment.</div>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span>How quickly will I see results?</span>
+      <div class="faq-toggle">+</div>
+    </div>
+    <div class="faq-answer">Skin cell turnover takes approximately 4–6 weeks, so results build over time. Most women notice improved radiance, less congestion, and calmer skin within 3–4 weeks of consistently following the meal plan. The ebook also explains what to expect and why, so you understand the process rather than guessing.</div>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span>I'm a busy mom — is this actually doable?</span>
+      <div class="faq-toggle">+</div>
+    </div>
+    <div class="faq-answer">This was designed with busy moms in mind. Chelsea is a mom herself and knows what it's like to have limited time. The recipes are simple, the shopping lists are ready to print, and the meal prep guides help you batch-cook efficiently. Nothing in this bundle requires a personal chef or unlimited free time.</div>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span>Is the nutrition science in this actually credible?</span>
+      <div class="faq-toggle">+</div>
+    </div>
+    <div class="faq-answer">Yes. Chelsea holds an MSc in Nutrition and Human Performance and has spent years translating research into practical, accessible guidance. Every claim in the ebook is grounded in evidence-based nutrition science — not influencer wellness advice.</div>
+  </div>
+  <div class="faq-item" onclick="toggleFaq(this)">
+    <div class="faq-question">
+      <span>Do I need expensive or hard-to-find ingredients?</span>
+      <div class="faq-toggle">+</div>
+    </div>
+    <div class="faq-answer">No. The shopping lists are built around accessible, affordable ingredients available at any grocery store. Chelsea believes that eating for skin health shouldn't require a specialty foods budget — real food, simply prepared, is the philosophy behind every recipe in this bundle.</div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <p class="section-eyebrow">Ready?</p>
+  <h2 class="final-heading">Your glow is one<br>meal plan <em>away.</em></h2>
+  <p class="final-body">Stop spending on serums that sit on the surface. Nourish your skin from the inside out — with food that tastes good, a plan that's actually doable, and science you can trust.</p>
+  <a href="#buy" class="btn-accent btn-large">Get the Bundle — $95 USD</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-logo">Chelsea Celeste</a>
+  <ul class="footer-links-row">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="chelseaceleste-about.html">About</a></li>
+    <li><a href="chelseaceleste-freebies.html">Freebies</a></li>
+    <li><a href="index.html#shop">Shop</a></li>
+  </ul>
+  <p class="footer-copy">© 2025 Chelsea Celeste</p>
 </footer>
+
+<script>
+  function toggleFaq(item) {
+    const answer = item.querySelector('.faq-answer');
+    const toggle = item.querySelector('.faq-toggle');
+    const isOpen = answer.classList.contains('open');
+    document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-toggle').forEach(t => { t.classList.remove('open'); t.textContent = '+'; });
+    if (!isOpen) {
+      answer.classList.add('open');
+      toggle.classList.add('open');
+      toggle.textContent = '−';
+    }
+  }
+</script>
 
 </body>
 </html>
