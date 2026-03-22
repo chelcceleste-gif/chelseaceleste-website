@@ -444,7 +444,8 @@
   }
 
   .philosophy-image {
-    background: linear-gradient(145deg, #E0D8CE 0%, #CDBFAF 50%, #B8A896 100%);
+    position: relative;
+    overflow: hidden;
     display: flex;
     align-items: flex-end;
     padding: 3rem;
@@ -1277,7 +1278,8 @@
     <p class="section-body">No calorie counting. No restriction. No guilt. Just nourishment.</p>
   </div>
   <div class="philosophy-image">
-    <div class="philosophy-quote">
+    <img src="healthy.jpg" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;">
+    <div class="philosophy-quote" style="position:relative; z-index:1;">
       <p>"If we focus on eating the right foods, our body will take care of the rest by resetting our biology to its original factory settings — without having to struggle, restrict, or control."</p>
       <cite>— Dr. Jason Fung, as quoted in the bundle</cite>
     </div>
