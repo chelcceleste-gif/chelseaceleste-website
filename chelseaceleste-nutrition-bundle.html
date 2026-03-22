@@ -300,6 +300,17 @@
     gap: 2rem;
     position: relative;
     border-left: 1px solid var(--sand);
+    overflow: hidden;
+  }
+
+  .hero-right-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
   }
 
   /* Three-book mockup */
@@ -1217,7 +1228,8 @@
     </div>
   </div>
   <div class="hero-right">
-    <div class="books-display">
+    <img src="2.png" alt="" class="hero-right-bg">
+    <div class="books-display" style="position:relative; z-index:1;">
       <div class="book-item">
         <div class="book-spine book-spine-1"><img src="4.png" alt="Your Sustainable Health Plan"></div>
         <div class="book-info">
@@ -1240,7 +1252,7 @@
         </div>
       </div>
     </div>
-    <div class="hero-value-note">
+    <div class="hero-value-note" style="position:relative; z-index:1;">
       <span class="value-note-label">Everything included</span>
       <p class="value-note-text">130+ pages of tools, education & recipes</p>
     </div>
