@@ -110,7 +110,7 @@
     min-height: 80vh;
   }
   .story-image {
-    background: linear-gradient(150deg, #E0D4C8 0%, #C8B8A8 50%, #B09880 100%);
+    position: relative; overflow: hidden;
     display: flex; flex-direction: column; align-items: flex-end; justify-content: flex-start;
     padding: 3rem; min-height: 550px;
   }
@@ -306,7 +306,7 @@
 <!-- MY STORY -->
 <section class="story-section">
   <div class="story-image">
-    <span class="story-image-tag">Your photo here</span>
+    <img src="food-bowl.jpg" alt="Chelsea Celeste" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;">
   </div>
   <div class="story-content">
     <p class="section-eyebrow">My Story</p>
