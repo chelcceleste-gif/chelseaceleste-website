@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://chelseaceleste-website.vercel.app/sitemap.xml
