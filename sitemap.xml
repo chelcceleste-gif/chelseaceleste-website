@@ -1,44 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://chelseaceleste-website.vercel.app/</loc>
+    <loc>https://www.chelcceleste.com/</loc>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://chelseaceleste-website.vercel.app/chelseaceleste-about.html</loc>
+    <loc>https://www.chelcceleste.com/chelseaceleste-about.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://chelseaceleste-website.vercel.app/chelseaceleste-freebies.html</loc>
+    <loc>https://www.chelcceleste.com/chelseaceleste-freebies.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://chelseaceleste-website.vercel.app/chelseaceleste-favorites.html</loc>
+    <loc>https://www.chelcceleste.com/chelseaceleste-favorites.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://chelseaceleste-website.vercel.app/chelseaceleste-nutrition-bundle.html</loc>
+    <loc>https://www.chelcceleste.com/chelseaceleste-eoe-sales-page.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://chelseaceleste-website.vercel.app/chelseaceleste-intuitive-eating.html</loc>
+    <loc>https://www.chelcceleste.com/chelseaceleste-nutrition-bundle.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://chelseaceleste-website.vercel.app/chelseaceleste-eoe-sales-page.html</loc>
+    <loc>https://www.chelcceleste.com/chelseaceleste-intuitive-eating.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://chelseaceleste-website.vercel.app/chelseaceleste-eat-your-skincare.html</loc>
+    <loc>https://www.chelcceleste.com/chelseaceleste-eat-your-skincare.html</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.chelcceleste.com/chelseaceleste-blog.html</loc>
