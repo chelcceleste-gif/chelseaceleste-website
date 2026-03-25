@@ -920,11 +920,8 @@
 
   .faq-item {
     border-bottom: 1px solid var(--sand);
-    padding: 1.8rem 0;
-    cursor: pointer;
   }
-
-  .faq-question {
+  .faq-item summary {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -933,8 +930,12 @@
     color: var(--soft-black);
     font-weight: 400;
     letter-spacing: 0.02em;
+    padding: 1.8rem 0;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
   }
-
+  .faq-item summary::-webkit-details-marker { display: none; }
   .faq-toggle {
     width: 20px;
     height: 20px;
@@ -947,26 +948,18 @@
     color: var(--tan);
     transition: all 0.3s;
   }
-
+  .faq-item[open] .faq-toggle {
+    background: var(--charcoal);
+    border-color: var(--charcoal);
+    color: var(--warm-white);
+    transform: rotate(45deg);
+  }
   .faq-answer {
     font-size: 0.83rem;
     line-height: 1.9;
     color: var(--bark);
     font-weight: 300;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease, padding 0.3s;
-  }
-
-  .faq-answer.open {
-    max-height: 200px;
-    padding-top: 1rem;
-  }
-
-  .faq-toggle.open {
-    background: var(--charcoal);
-    border-color: var(--charcoal);
-    color: var(--warm-white);
+    padding-bottom: 1.4rem;
   }
 
   /* ─── FINAL CTA ─── */
@@ -1366,45 +1359,45 @@
     <h2 class="section-heading">Everything you need to <em>know.</em></h2>
   </div>
 
-  <div class="faq-item" onclick="toggleFaq(this)">
-    <div class="faq-question">
+  <details class="faq-item">
+    <summary>
       <span>What format do the ebooks come in?</span>
       <div class="faq-toggle">+</div>
-    </div>
+    </summary>
     <div class="faq-answer">All ebooks are delivered as PDF files — compatible with any device including phones, tablets, and computers. No special software required. You'll receive a download link immediately after purchase.</div>
-  </div>
+  </details>
 
-  <div class="faq-item" onclick="toggleFaq(this)">
-    <div class="faq-question">
+  <details class="faq-item">
+    <summary>
       <span>Do I need to have a formal EoE diagnosis to benefit from this?</span>
       <div class="faq-toggle">+</div>
-    </div>
+    </summary>
     <div class="faq-answer">The bundle is designed primarily for those who have received an EoE diagnosis or are in the process of being diagnosed. The information is also valuable for parents of children with EoE and anyone dealing with food-trigger esophageal conditions.</div>
-  </div>
+  </details>
 
-  <div class="faq-item" onclick="toggleFaq(this)">
-    <div class="faq-question">
+  <details class="faq-item">
+    <summary>
       <span>Is this medically approved or a substitute for my doctor's care?</span>
       <div class="faq-toggle">+</div>
-    </div>
+    </summary>
     <div class="faq-answer">This bundle is educational and designed to complement — not replace — your medical care. Chelsea holds an MSc in Nutrition and Human Performance, and all content is grounded in nutrition science and evidence-based practice. Always work with your healthcare team alongside these resources.</div>
-  </div>
+  </details>
 
-  <div class="faq-item" onclick="toggleFaq(this)">
-    <div class="faq-question">
+  <details class="faq-item">
+    <summary>
       <span>Can this help if I've already been diagnosed for a while?</span>
       <div class="faq-toggle">+</div>
-    </div>
+    </summary>
     <div class="faq-answer">Absolutely. While it's written with the newly diagnosed in mind, the elimination diet, reintroduction, and anti-inflammatory lifestyle guides are just as valuable for anyone still navigating their healing journey — no matter how long they've been dealing with EoE.</div>
-  </div>
+  </details>
 
-  <div class="faq-item" onclick="toggleFaq(this)">
-    <div class="faq-question">
+  <details class="faq-item">
+    <summary>
       <span>What if I have questions after purchasing?</span>
       <div class="faq-toggle">+</div>
-    </div>
+    </summary>
     <div class="faq-answer">You can reach Chelsea directly at <a href="mailto:chelcceleste@gmail.com" style="color:var(--accent); text-decoration:none;">chelcceleste@gmail.com</a> or via DM on Instagram @chelcceleste. She genuinely wants to support your journey — this product was born from personal experience and she means it when she says she's here to help.</div>
-  </div>
+  </details>
 </section>
 
 <!-- FINAL CTA -->
@@ -1428,15 +1421,3 @@
 </footer>
 
 <script>
-function toggleFaq(item) {
-  const answer = item.querySelector('.faq-answer');
-  const toggle = item.querySelector('.faq-toggle');
-  const isOpen = answer.classList.contains('open');
-  document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-  document.querySelectorAll('.faq-toggle').forEach(t => { t.classList.remove('open'); t.textContent = '+'; });
-  if (!isOpen) {
-    answer.classList.add('open');
-    toggle.classList.add('open');
-    toggle.textContent = '−';
-  }
-}
