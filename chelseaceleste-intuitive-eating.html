@@ -961,9 +961,19 @@
 
   .faq-item {
     border-bottom: 1px solid var(--sand);
+  }
+  .faq-item summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 1.8rem 0;
     cursor: pointer;
+    list-style: none;
+    user-select: none;
   }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item[open] .faq-toggle { background: var(--charcoal); border-color: var(--charcoal); color: var(--warm-white); transform: rotate(45deg); }
+  .faq-answer { padding-bottom: 1.4rem; }
 
   .faq-question {
     display: flex;
@@ -999,8 +1009,6 @@
     transition: max-height 0.4s ease, padding 0.3s;
   }
 
-  .faq-answer.open { max-height: 200px; padding-top: 1rem; }
-  .faq-toggle.open { background: var(--charcoal); border-color: var(--charcoal); color: var(--warm-white); }
 
   /* ─── FINAL CTA ─── */
   .final-cta {
@@ -1459,45 +1467,45 @@
     <h2 class="section-heading">Before you <em>go.</em></h2>
   </div>
 
-  <div class="faq-item" onclick="toggleFaq(this)">
-    <div class="faq-question">
+  <details class="faq-item">
+    <summary>
       <span>What exactly is intuitive eating — is it just "eating whatever you want"?</span>
       <div class="faq-toggle">+</div>
-    </div>
+    </summary>
     <div class="faq-answer">No — intuitive eating is a science-backed framework for reconnecting with your body's natural hunger and fullness cues. It's not about eating without limits; it's about eating with awareness, satisfaction, and self-trust. The guide covers this thoroughly in the first section.</div>
-  </div>
+  </details>
 
-  <div class="faq-item" onclick="toggleFaq(this)">
-    <div class="faq-question">
+  <details class="faq-item">
+    <summary>
       <span>Will this help me lose weight?</span>
       <div class="faq-toggle">+</div>
-    </div>
+    </summary>
     <div class="faq-answer">The goal of intuitive eating isn't weight loss — it's creating a sustainable, joyful relationship with food that allows your body to find its natural set point. For most people, that means feeling lighter, more energized, and more in control. Chelsea's approach is anti-diet and weight-neutral, rooted in health and wellness over numbers.</div>
-  </div>
+  </details>
 
-  <div class="faq-item" onclick="toggleFaq(this)">
-    <div class="faq-question">
+  <details class="faq-item">
+    <summary>
       <span>How is this different from Chelsea's Sustainable Nutrition Bundle?</span>
       <div class="faq-toggle">+</div>
-    </div>
+    </summary>
     <div class="faq-answer">This guide focuses specifically on the mindset and psychology of eating — the "why" behind your relationship with food. The Sustainable Nutrition Bundle covers the practical "what" — meal plans, nutrition education, and recipes. Many customers find they work beautifully together.</div>
-  </div>
+  </details>
 
-  <div class="faq-item" onclick="toggleFaq(this)">
-    <div class="faq-question">
+  <details class="faq-item">
+    <summary>
       <span>What format does it come in?</span>
       <div class="faq-toggle">+</div>
-    </div>
+    </summary>
     <div class="faq-answer">The guide is delivered as a PDF file, compatible with any device. You'll receive a download link immediately after purchase — no account needed, no app required.</div>
-  </div>
+  </details>
 
-  <div class="faq-item" onclick="toggleFaq(this)">
-    <div class="faq-question">
+  <details class="faq-item">
+    <summary>
       <span>I've tried intuitive eating before and it didn't work. Why would this be different?</span>
       <div class="faq-toggle">+</div>
-    </div>
+    </summary>
     <div class="faq-answer">Most people approach intuitive eating without the underlying education — which is like trying to drive without knowing the rules of the road. This guide gives you the foundation: why diets fail, how emotional eating works, and a concrete framework (the 4 Skinny Rules) to actually put intuitive eating into practice. The workbook section means you're not just passively reading — you're actively building new patterns.</div>
-  </div>
+  </details>
 </section>
 
 <!-- FINAL CTA -->
@@ -1517,15 +1525,15 @@
       <p class="cs-title">Sustainable Nutrition Bundle</p>
       <p class="cs-price">$35 USD — 3 Ebooks + Recipes</p>
     </a>
-    <a href="https://chelcceleste.gumroad.com/l/epurfx" target="_blank" rel="noopener" class="cross-sell-card">
+    <a href="chelseaceleste-eoe-sales-page.html" class="cross-sell-card">
       <span class="cs-tag">Health Condition Support</span>
       <p class="cs-title">Be Free From EoE Bundle</p>
       <p class="cs-price">$95 USD — 5 Ebooks + Recipe Books</p>
     </a>
-    <a href="index.html#shop" class="cross-sell-card">
+    <a href="chelseaceleste-eat-your-skincare.html" class="cross-sell-card">
       <span class="cs-tag">New Release</span>
       <p class="cs-title">Eat Your Skincare Bundle</p>
-      <p class="cs-price">$95 USD — 4-Ebook Bundle</p>
+      <p class="cs-price">$75 USD — 4-Ebook Bundle</p>
     </a>
   </div>
 </section>
@@ -1542,10 +1550,3 @@
   <p class="footer-copy">© 2025 Chelsea Celeste</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-function toggleFaq(item) {
-  const answer = item.querySelector('.faq-answer');
-  const toggle = item.querySelector('.faq-toggle');
-  const isOpen = answer.classList.contains('open');
-  document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-  document.querySelectorAl
