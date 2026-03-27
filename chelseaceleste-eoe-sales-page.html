@@ -574,7 +574,7 @@
     background: var(--charcoal);
     padding: 2.5rem 3rem;
     display: grid;
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto auto 1fr auto;
     align-items: center;
     gap: 2rem;
   }
@@ -1055,6 +1055,12 @@
     .for-you-grid { grid-template-columns: 1fr; gap: 3rem; }
     .bundle-contents { padding: 4rem 2rem; }
     .ebook-grid { grid-template-columns: 1fr; }
+    .ebook-card { padding: 1.8rem; }
+    .ebook-card[style*="grid-column"] { grid-column: auto; }
+    .bonus-strip { grid-template-columns: 1fr; padding: 2rem 1.5rem; gap: 1rem; text-align: center; }
+    .bonus-label { writing-mode: horizontal-tb; transform: none; }
+    .bonus-strip img { margin: 0 auto; }
+    .bonus-count { text-align: center; }
     .journey { padding: 4rem 2rem; }
     .timeline { grid-template-columns: 1fr; }
     .timeline::before { display: none; }
