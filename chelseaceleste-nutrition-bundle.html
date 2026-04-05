@@ -1687,10 +1687,19 @@
   <p class="footer-copy">© 2025 Chelsea Celeste</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 function toggleFaq(item) {
   const answer = item.querySelector('.faq-answer');
   const toggle = item.querySelector('.faq-toggle');
   const isOpen = answer.classList.contains('open');
   document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
-  document.querySelectorAl
+  document.querySelectorAll('.faq-toggle').forEach(t => { t.classList.remove('open'); t.textContent = '+'; });
+  if (!isOpen) {
+    answer.classList.add('open');
+    toggle.classList.add('open');
+    toggle.textContent = '−';
+  }
+}
+</script>
+</body>
+</html>
