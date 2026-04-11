@@ -96,6 +96,14 @@
   .related-post:hover{border-color:var(--tan);}
   .related-cat{font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);}
   .related-title{font-size:0.8rem;color:var(--charcoal);line-height:1.4;font-weight:300;}
+  .freebie-banner{display:grid;grid-template-columns:140px 1fr;gap:1.8rem;align-items:center;background:var(--cream);border:1px solid var(--tan);padding:2rem;margin:2.5rem 0;border-radius:2px;}
+  .freebie-banner-cover{width:140px;border-radius:2px;box-shadow:0 4px 16px rgba(0,0,0,0.12);display:block;}
+  .freebie-banner-label{font-size:0.6rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);font-weight:500;display:block;margin-bottom:0.4rem;}
+  .freebie-banner-title{font-family:var(--font-serif);font-size:1.5rem;font-weight:400;color:var(--soft-black);line-height:1.2;margin-bottom:0.5rem;}
+  .freebie-banner-desc{font-size:0.85rem;color:var(--bark);line-height:1.6;font-weight:300;margin-bottom:1.1rem;}
+  .freebie-banner-btn{display:inline-block;background:var(--soft-black);color:var(--warm-white);font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.75rem 1.5rem;text-decoration:none;font-weight:400;}
+  .freebie-banner-btn:hover{background:var(--accent);}
+  @media(max-width:600px){.freebie-banner{grid-template-columns:1fr;}.freebie-banner-cover{width:110px;}}
   .back-to-blog{max-width:1100px;margin:0 auto;padding:0 2rem 3rem;}
   .back-link{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--bark);text-decoration:none;}
   .back-link:hover{color:var(--accent);}
@@ -173,6 +181,16 @@
     <p>This post is a complete breakdown of the most sought-after skincare actives — and the one-ingredient foods that deliver them. No 12-step routine required.</p>
 
     <div class="pull-quote">"Your skin doesn't know it's a beauty organ. It knows it needs nutrients. <em>Feed it accordingly.</em>"</div>
+
+    <div class="freebie-banner">
+      <img src="covers/The Skin Glow Guide Freebie.jpg" alt="The Skin Glow Guide — free PDF download" class="freebie-banner-cover">
+      <div>
+        <span class="freebie-banner-label">Free Download</span>
+        <p class="freebie-banner-title">The Skin Glow Guide</p>
+        <p class="freebie-banner-desc">The top 12 skin-glow foods — what each one does, the science behind it, and exactly how to eat it every day. Free to download, delivered to your inbox instantly.</p>
+        <a href="https://chelsea-celeste.kit.com/339764178a" target="_blank" rel="noopener" class="freebie-banner-btn">Get My Free Skin Glow Guide &rarr;</a>
+      </div>
+    </div>
 
     <!-- NIACINAMIDE -->
     <div class="active-card">
@@ -371,11 +389,21 @@
 
   <aside class="post-sidebar">
 
+    <div class="sidebar-card" style="padding:0;overflow:hidden;">
+      <img src="covers/The Skin Glow Guide Freebie.jpg" alt="The Skin Glow Guide — free download" style="width:100%;display:block;border-bottom:1px solid var(--sand);">
+      <div style="padding:1.4rem;">
+        <span class="sidebar-label">Free Download</span>
+        <p class="sidebar-heading">The Skin Glow Guide</p>
+        <p class="sidebar-body">The 12 most powerful skin-glow foods — the science behind each one and exactly how to eat it daily. Free, instant download.</p>
+        <a href="https://chelsea-celeste.kit.com/339764178a" target="_blank" rel="noopener" class="sidebar-btn">Get It Free &rarr;</a>
+      </div>
+    </div>
+
     <div class="sidebar-card">
-      <span class="sidebar-label">Guide</span>
+      <span class="sidebar-label">Bundle</span>
       <p class="sidebar-heading">Eat Your Skincare</p>
-      <p class="sidebar-body">The complete guide to building a diet that feeds your skin — meal plans, nutrient targets, and the science behind every skin concern.</p>
-      <a href="chelseaceleste-eat-your-skincare.html" class="sidebar-btn">Get the Guide &rarr;</a>
+      <p class="sidebar-body">The complete four-ebook set: food, supplements, gut health, and skin protocols — everything you need to feed your skin from the inside out.</p>
+      <a href="chelseaceleste-eat-your-skincare.html" class="sidebar-btn">Shop the Bundle &rarr;</a>
     </div>
 
     <div class="sidebar-card">
