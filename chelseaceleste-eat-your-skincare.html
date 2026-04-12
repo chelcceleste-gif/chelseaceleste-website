@@ -138,8 +138,10 @@
   .bundle-contents { padding: 7rem 5rem; background: var(--cream); }
   .bundle-header { text-align: center; max-width: 560px; margin: 0 auto 5rem; }
   .ebook-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--sand); border: 1px solid var(--sand); margin-bottom: 3rem; }
-  .ebook-card { background: var(--warm-white); padding: 2.5rem; transition: background 0.3s; position: relative; overflow: hidden; }
+  .ebook-card { background: var(--warm-white); padding: 0; transition: background 0.3s; position: relative; overflow: hidden; display: flex; flex-direction: column; }
   .ebook-card:hover { background: var(--cream); }
+  .ebook-card-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; object-position: center; display: block; }
+  .ebook-card-body { padding: 2.5rem; flex: 1; position: relative; }
   .ebook-number { font-family: var(--font-serif); font-size: 4rem; font-weight: 300; color: var(--sand); line-height: 1; position: absolute; top: 1.5rem; right: 2rem; }
   .ebook-tag { font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--rose); font-weight: 400; margin-bottom: 0.6rem; display: block; }
   .ebook-title { font-family: var(--font-serif); font-size: 1.3rem; font-weight: 400; color: var(--soft-black); margin-bottom: 0.8rem; line-height: 1.2; }
@@ -433,54 +435,66 @@
   </div>
   <div class="ebook-grid">
     <div class="ebook-card">
-      <span class="ebook-number">01</span>
-      <span class="ebook-tag">Book 01</span>
-      <h3 class="ebook-title">The <em>Science</em> of<br>Skin Nutrition</h3>
-      <p class="ebook-desc">34 pages of MSc-backed nutrition science made simple. Understand exactly how food affects your skin — and why food-first beauty works when everything else has failed you.</p>
-      <ul class="ebook-list">
-        <li>The skin-nutrition connection — explained clearly</li>
-        <li>Collagen-building foods and how to eat more of them</li>
-        <li>Anti-inflammatory eating for clearer, calmer skin</li>
-        <li>The gut-skin axis and why your digestion matters</li>
-        <li>Top nutrients for radiance — vitamin C, zinc, omega-3s, and more</li>
-        <li>What to limit and what to prioritise for your best skin</li>
-      </ul>
+      <img src="book1.png" alt="Book 01 — The Science of Skin Nutrition" class="ebook-card-img">
+      <div class="ebook-card-body">
+        <span class="ebook-number">01</span>
+        <span class="ebook-tag">Book 01</span>
+        <h3 class="ebook-title">The <em>Science</em> of<br>Skin Nutrition</h3>
+        <p class="ebook-desc">34 pages of MSc-backed nutrition science made simple. Understand exactly how food affects your skin — and why food-first beauty works when everything else has failed you.</p>
+        <ul class="ebook-list">
+          <li>The skin-nutrition connection — explained clearly</li>
+          <li>Collagen-building foods and how to eat more of them</li>
+          <li>Anti-inflammatory eating for clearer, calmer skin</li>
+          <li>The gut-skin axis and why your digestion matters</li>
+          <li>Top nutrients for radiance — vitamin C, zinc, omega-3s, and more</li>
+          <li>What to limit and what to prioritise for your best skin</li>
+        </ul>
+      </div>
     </div>
     <div class="ebook-card">
-      <span class="ebook-number">02</span>
-      <span class="ebook-tag">Book 02</span>
-      <h3 class="ebook-title">The Eat Your Skincare<br><em>Food Guide</em></h3>
-      <p class="ebook-desc">Know exactly what to eat — and what to avoid — for your best skin. A practical, beautiful food guide to the top skin-nourishing foods and how to build them into your everyday life.</p>
-      <ul class="ebook-list">
-        <li>Top skin-glow foods and how to use them</li>
-        <li>Foods that trigger inflammation and breakouts</li>
-        <li>Nutrient-dense meal ideas for every meal of the day</li>
-        <li>Easy swaps and upgrades for your current diet</li>
-      </ul>
+      <img src="book2.png" alt="Book 02 — The Eat Your Skincare Food Guide" class="ebook-card-img">
+      <div class="ebook-card-body">
+        <span class="ebook-number">02</span>
+        <span class="ebook-tag">Book 02</span>
+        <h3 class="ebook-title">The Eat Your Skincare<br><em>Food Guide</em></h3>
+        <p class="ebook-desc">Know exactly what to eat — and what to avoid — for your best skin. A practical, beautiful food guide to the top skin-nourishing foods and how to build them into your everyday life.</p>
+        <ul class="ebook-list">
+          <li>Top skin-glow foods and how to use them</li>
+          <li>Foods that trigger inflammation and breakouts</li>
+          <li>Nutrient-dense meal ideas for every meal of the day</li>
+          <li>Easy swaps and upgrades for your current diet</li>
+        </ul>
+      </div>
     </div>
     <div class="ebook-card">
-      <span class="ebook-number">03</span>
-      <span class="ebook-tag">Book 03</span>
-      <h3 class="ebook-title">The Skin Glow<br><em>Meal Plan</em></h3>
-      <p class="ebook-desc">A complete skin-nourishing meal plan with recipes, weekly shopping lists, and prep guides — designed for busy women who want real results without spending their life in the kitchen.</p>
-      <ul class="ebook-list">
-        <li>Weeks of complete daily skin-glow meals</li>
-        <li>Anti-inflammatory, collagen-building recipes</li>
-        <li>Weekly shopping lists, ready to print and go</li>
-        <li>Meal prep guides to save time during the week</li>
-      </ul>
+      <img src="book3.png" alt="Book 03 — The Skin Glow Meal Plan" class="ebook-card-img">
+      <div class="ebook-card-body">
+        <span class="ebook-number">03</span>
+        <span class="ebook-tag">Book 03</span>
+        <h3 class="ebook-title">The Skin Glow<br><em>Meal Plan</em></h3>
+        <p class="ebook-desc">A complete skin-nourishing meal plan with recipes, weekly shopping lists, and prep guides — designed for busy women who want real results without spending their life in the kitchen.</p>
+        <ul class="ebook-list">
+          <li>Weeks of complete daily skin-glow meals</li>
+          <li>Anti-inflammatory, collagen-building recipes</li>
+          <li>Weekly shopping lists, ready to print and go</li>
+          <li>Meal prep guides to save time during the week</li>
+        </ul>
+      </div>
     </div>
     <div class="ebook-card">
-      <span class="ebook-number">04</span>
-      <span class="ebook-tag">Book 04</span>
-      <h3 class="ebook-title">Eat Your Skincare +<br><em>Wear It Too</em></h3>
-      <p class="ebook-desc">The complete picture. Pair derm-recommended topical protocols with your food work for maximum, visible results. Inside-out and outside-in, working together at last.</p>
-      <ul class="ebook-list">
-        <li>Derm-recommended topical protocols by skin concern</li>
-        <li>How to layer your food and topical work for synergy</li>
-        <li>Ingredient guide — what to look for and what to skip</li>
-        <li>Morning and evening routine frameworks</li>
-      </ul>
+      <img src="book4.png" alt="Book 04 — Eat Your Skincare + Wear It Too" class="ebook-card-img">
+      <div class="ebook-card-body">
+        <span class="ebook-number">04</span>
+        <span class="ebook-tag">Book 04</span>
+        <h3 class="ebook-title">Eat Your Skincare +<br><em>Wear It Too</em></h3>
+        <p class="ebook-desc">The complete picture. Pair derm-recommended topical protocols with your food work for maximum, visible results. Inside-out and outside-in, working together at last.</p>
+        <ul class="ebook-list">
+          <li>Derm-recommended topical protocols by skin concern</li>
+          <li>How to layer your food and topical work for synergy</li>
+          <li>Ingredient guide — what to look for and what to skip</li>
+          <li>Morning and evening routine frameworks</li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="bonus-strip">
